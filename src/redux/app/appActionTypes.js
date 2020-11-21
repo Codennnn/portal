@@ -1,6 +1,0 @@
-export const SIGN_IN = 'SIGN_IN'
-export const SIGN_OUT = 'SIGN_OUT'
-export const OPEN_SIDER = 'OPEN_SIDER'
-export const CLOSE_SIDER = 'CLOSE_SIDER'
-export const SET_ROUTES = 'SET_ROUTES'
-export const SET_HEADER_STATUS = 'SET_HEADER_STATUS'

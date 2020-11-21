@@ -1696,6 +1696,11 @@
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
 
+"@types/js-cookie@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.npm.taobao.org/@types/js-cookie/download/@types/js-cookie-2.2.6.tgz#f1a1cb35aff47bc5cfb05cb0c441ca91e914c26f"
+  integrity sha1-8aHLNa/0e8XPsFywxEHKkekUwm8=
+
 "@types/json-schema@*", "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
   version "7.0.6"
   resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
@@ -1723,14 +1728,9 @@
   resolved "https://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz?cache=0&sync_timestamp=1605054612683&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fminimatch%2Fdownload%2F%40types%2Fminimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha1-PcoOPzOyAPx9ETnAzZbBJoyt/Z0=
 
-"@types/node@*":
+"@types/node@*", "@types/node@^14.14.8":
   version "14.14.8"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.14.8.tgz?cache=0&sync_timestamp=1605654866172&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.14.8.tgz#2127bd81949a95c8b7d3240f3254352d72563aec"
-  integrity sha1-ISe9gZSalci30yQPMlQ1LXJWOuw=
-
-"@types/node@^14.14.8":
-  version "14.14.8"
-  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.14.8.tgz?cache=0&sync_timestamp=1605654642515&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.14.8.tgz#2127bd81949a95c8b7d3240f3254352d72563aec"
   integrity sha1-ISe9gZSalci30yQPMlQ1LXJWOuw=
 
 "@types/normalize-package-data@^2.4.0":
@@ -1806,6 +1806,13 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
+
+"@types/redux-persist@^4.3.1":
+  version "4.3.1"
+  resolved "https://registry.npm.taobao.org/@types/redux-persist/download/@types/redux-persist-4.3.1.tgz#aa4c876859e0bea5155e5f7980e5b8c4699dc2e6"
+  integrity sha1-qkyHaFngvqUVXl95gOW4xGmdwuY=
+  dependencies:
+    redux-persist "*"
 
 "@types/resolve@0.0.8":
   version "0.0.8"
@@ -9823,6 +9830,11 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
+
+redux-persist@*:
+  version "6.0.0"
+  resolved "https://registry.npm.taobao.org/redux-persist/download/redux-persist-6.0.0.tgz#b4d2972f9859597c130d40d4b146fecdab51b3a8"
+  integrity sha1-tNKXL5hZWXwTDUDUsUb+zatRs6g=
 
 redux@^4.0.0:
   version "4.0.5"

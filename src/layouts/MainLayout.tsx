@@ -9,10 +9,11 @@ import AppSider from './components/AppSider'
 import AppHeader from './components/AppHeader'
 import AppContent from './components/AppContent'
 import AppFooter from './components/AppFooter'
+export interface MainLayoutProps {}
 
 export default function MainLayout() {
-  const routes = useSelector(({ app }) => app.routes)
-  const isSiderOpened = useSelector(({ app }) => app.isSiderOpened)
+  const routes = useSelector(({ app }: any) => app.routes)
+  const isSiderOpened = useSelector(({ app }: any) => app.isSiderOpened)
   const dispatch = useDispatch()
   const handle = useFullScreenHandle()
   const [screen, setScreen] = useState(handle.active)

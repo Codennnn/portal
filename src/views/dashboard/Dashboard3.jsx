@@ -1,7 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import {
-  Avatar, Button, Menu, Dropdown, Divider, Badge, Radio, Tabs, Rate,
+  Avatar,
+  Button,
+  Menu,
+  Dropdown,
+  Divider,
+  Badge,
+  Radio,
+  Tabs,
+  Rate,
 } from 'antd'
 import { ArrowRightOutlined } from '@ant-design/icons'
 import { More, SettingOne, Edit } from '@icon-park/react'
@@ -35,13 +43,13 @@ function DashboardCrypto() {
               <Avatar size={40} src={info.avatar} />
               <div>
                 <Dropdown
-                  overlay={(
+                  overlay={
                     <Menu className="text-center">
                       <Menu.Item key="0">这是一个操作</Menu.Item>
                       <Menu.Item key="1">这是另一个操作</Menu.Item>
                       <Menu.Item key="2">还是一个操作</Menu.Item>
                     </Menu>
-                  )}
+                  }
                   trigger={['click']}
                 >
                   <More className="text-gray-600 cursor-pointer" size={24} />
@@ -50,7 +58,9 @@ function DashboardCrypto() {
             </div>
 
             <div className="mt-1 text-base font-bold">华山风清扬</div>
-            <div className="my-1 text-sm text-gray-500">czc12580520@gmail.com</div>
+            <div className="my-1 text-sm text-gray-500">
+              czc12580520@gmail.com
+            </div>
             <div className="text-sm text-gray-500">ID: #JK042</div>
 
             <Divider />
@@ -70,7 +80,9 @@ function DashboardCrypto() {
 
             <div className="text-center">
               <Button>我的存款</Button>
-              <Button className="ml-3" type="primary">本月账单</Button>
+              <Button className="ml-3" type="primary">
+                本月账单
+              </Button>
             </div>
           </div>
         </div>
@@ -85,8 +97,10 @@ function DashboardCrypto() {
                   '朽骨在此相迎，山谷依然',
                   '在此，懵懂的眼睛，初临惊愕',
                   '在此，学会尝试是必修课',
-                ].map((text) => (
-                  <li key={text} className="li-marker">{text}</li>
+                ].map(text => (
+                  <li key={text} className="li-marker">
+                    {text}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -100,8 +114,8 @@ function DashboardCrypto() {
           </div>
 
           <div className="-mx-3 flex">
-            <ChartCards data={
-              [
+            <ChartCards
+              data={[
                 {
                   icon: VueIcon,
                   name: 'Vue',
@@ -129,8 +143,7 @@ function DashboardCrypto() {
                   count: 2286,
                   value: '+ 45（2.1%）',
                 },
-              ]
-            }
+              ]}
             />
           </div>
         </div>
@@ -171,15 +184,24 @@ function DashboardCrypto() {
               <div className="w-1/3">
                 <ul className="h-full py-6 pl-8 flex flex-col justify-between">
                   <li className="text-gray-600">
-                    <Badge color="#556ee6" text={<span className="text-lg">Ethereum</span>} />
+                    <Badge
+                      color="#556ee6"
+                      text={<span className="text-lg">Ethereum</span>}
+                    />
                     <div>4.5701 ETH = $ 1123.64</div>
                   </li>
                   <li className="text-gray-600">
-                    <Badge color="#f1b44c" text={<span className="text-lg">Bitcoin</span>} />
+                    <Badge
+                      color="#f1b44c"
+                      text={<span className="text-lg">Bitcoin</span>}
+                    />
                     <div>0.4412 BTC = $ 4025.32</div>
                   </li>
                   <li className="text-gray-600">
-                    <Badge color="#50a5f1" text={<span className="text-lg">Litecoin</span>} />
+                    <Badge
+                      color="#50a5f1"
+                      text={<span className="text-lg">Litecoin</span>}
+                    />
                     <div>35.3811 LTC = $ 2263.09</div>
                   </li>
                 </ul>
@@ -211,63 +233,141 @@ function DashboardCrypto() {
             <h4 className="custom-card__title">交易记录</h4>
             <Tabs type="card">
               <Tabs.TabPane tab="全部" key="1">
-                <TransactionList data={[
-                  {
-                    id: 't1', type: 1, title: 'Epic Games Store', time: new Date().getTime(), value: '0.016 BTC', count: 123.40,
-                  },
-                  {
-                    id: 't2', type: 2, title: 'Death Stranding', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 15, value: '0.56 ETH', count: 43.40,
-                  },
-                  {
-                    id: 't3', type: 2, title: 'Red Dead Redemption', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 16, value: '0.56 ETH', count: 76.70,
-                  },
-                  {
-                    id: 't4', type: 1, title: 'Grand Theft Auto V', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 24, value: '0.56 ETH', count: 98.50,
-                  },
-                  {
-                    id: 't5', type: 2, title: 'STAR WARS Jedi', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 55, value: '0.56 ETH', count: 233.00,
-                  },
-                ]}
+                <TransactionList
+                  data={[
+                    {
+                      id: 't1',
+                      type: 1,
+                      title: 'Epic Games Store',
+                      time: new Date().getTime(),
+                      value: '0.016 BTC',
+                      count: 123.4,
+                    },
+                    {
+                      id: 't2',
+                      type: 2,
+                      title: 'Death Stranding',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 15,
+                      value: '0.56 ETH',
+                      count: 43.4,
+                    },
+                    {
+                      id: 't3',
+                      type: 2,
+                      title: 'Red Dead Redemption',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 16,
+                      value: '0.56 ETH',
+                      count: 76.7,
+                    },
+                    {
+                      id: 't4',
+                      type: 1,
+                      title: 'Grand Theft Auto V',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 24,
+                      value: '0.56 ETH',
+                      count: 98.5,
+                    },
+                    {
+                      id: 't5',
+                      type: 2,
+                      title: 'STAR WARS Jedi',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 55,
+                      value: '0.56 ETH',
+                      count: 233.0,
+                    },
+                  ]}
                 />
               </Tabs.TabPane>
               <Tabs.TabPane tab="购入" key="2">
-                <TransactionList data={[
-                  {
-                    id: 't1', type: 2, title: 'Mortal Shell', time: new Date().getTime(), value: '0.016 BTC', count: 123.40,
-                  },
-                  {
-                    id: 't2', type: 2, title: 'Cyberpunk 2077', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 15, value: '0.56 ETH', count: 43.40,
-                  },
-                  {
-                    id: 't3', type: 1, title: 'Castle Storm', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 16, value: '0.56 ETH', count: 76.70,
-                  },
-                  {
-                    id: 't4', type: 2, title: 'HTMAN 3', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 24, value: '0.56 ETH', count: 98.50,
-                  },
-                  {
-                    id: 't5', type: 1, title: 'Godfall', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 55, value: '0.56 ETH', count: 233.00,
-                  },
-                ]}
+                <TransactionList
+                  data={[
+                    {
+                      id: 't1',
+                      type: 2,
+                      title: 'Mortal Shell',
+                      time: new Date().getTime(),
+                      value: '0.016 BTC',
+                      count: 123.4,
+                    },
+                    {
+                      id: 't2',
+                      type: 2,
+                      title: 'Cyberpunk 2077',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 15,
+                      value: '0.56 ETH',
+                      count: 43.4,
+                    },
+                    {
+                      id: 't3',
+                      type: 1,
+                      title: 'Castle Storm',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 16,
+                      value: '0.56 ETH',
+                      count: 76.7,
+                    },
+                    {
+                      id: 't4',
+                      type: 2,
+                      title: 'HTMAN 3',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 24,
+                      value: '0.56 ETH',
+                      count: 98.5,
+                    },
+                    {
+                      id: 't5',
+                      type: 1,
+                      title: 'Godfall',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 55,
+                      value: '0.56 ETH',
+                      count: 233.0,
+                    },
+                  ]}
                 />
               </Tabs.TabPane>
               <Tabs.TabPane tab="售出" key="3">
-                <TransactionList data={[
-                  {
-                    id: 't1', type: 1, title: 'Crysis Remastered', time: new Date().getTime(), value: '0.016 BTC', count: 123.40,
-                  },
-                  {
-                    id: 't2', type: 1, title: 'Assassin\'s Creed', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 15, value: '0.56 ETH', count: 43.40,
-                  },
-                  {
-                    id: 't3', type: 2, title: 'Mafia II: Definitive Edition', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 16, value: '0.56 ETH', count: 76.70,
-                  },
-                  {
-                    id: 't4', type: 2, title: 'Sherlock Holmes: Chapter One', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 24, value: '0.56 ETH', count: 98.50,
-                  },
-                  {
-                    id: 't5', type: 2, title: 'The Outlast Trials', time: new Date().getTime() - 1000 * 60 * 60 * 24 * 55, value: '0.56 ETH', count: 233.00,
-                  },
-                ]}
+                <TransactionList
+                  data={[
+                    {
+                      id: 't1',
+                      type: 1,
+                      title: 'Crysis Remastered',
+                      time: new Date().getTime(),
+                      value: '0.016 BTC',
+                      count: 123.4,
+                    },
+                    {
+                      id: 't2',
+                      type: 1,
+                      title: "Assassin's Creed",
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 15,
+                      value: '0.56 ETH',
+                      count: 43.4,
+                    },
+                    {
+                      id: 't3',
+                      type: 2,
+                      title: 'Mafia II: Definitive Edition',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 16,
+                      value: '0.56 ETH',
+                      count: 76.7,
+                    },
+                    {
+                      id: 't4',
+                      type: 2,
+                      title: 'Sherlock Holmes: Chapter One',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 24,
+                      value: '0.56 ETH',
+                      count: 98.5,
+                    },
+                    {
+                      id: 't5',
+                      type: 2,
+                      title: 'The Outlast Trials',
+                      time: new Date().getTime() - 1000 * 60 * 60 * 24 * 55,
+                      value: '0.56 ETH',
+                      count: 233.0,
+                    },
+                  ]}
                 />
               </Tabs.TabPane>
             </Tabs>
@@ -294,7 +394,9 @@ function DashboardCrypto() {
                   <div className="mt-1 mb-2 font-bold text-gray-700">
                     令狐少侠
                   </div>
-                  <div className="text-gray-600 text-sm">水能载舟，亦可赛艇</div>
+                  <div className="text-gray-600 text-sm">
+                    水能载舟，亦可赛艇
+                  </div>
                 </div>
               </div>
               <div className="mt-4 flex items-center text-sm text-gray-500">
@@ -305,7 +407,11 @@ function DashboardCrypto() {
             <Divider className="m-0" />
             <div className="w-full py-2 flex items-center">
               <div className="flex-1 text-center">
-                <SettingOne size={22} strokeWidth={3} className="cursor-pointer" />
+                <SettingOne
+                  size={22}
+                  strokeWidth={3}
+                  className="cursor-pointer"
+                />
               </div>
               <Divider type="vertical" />
               <div className="flex-1 text-center">

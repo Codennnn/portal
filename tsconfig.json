@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "@/utils/token": ["src/utils/token"],
+      "@/routes": ["src/routes/index"]
+    },
     "lib": [
       "dom",
       "dom.iterable",

@@ -1,18 +1,28 @@
 import { getToken } from '@/utils/token'
 import routes from '@/routes'
 import {
-  OPEN_SIDER, CLOSE_SIDER, SET_HEADER_STATUS, SIGN_IN, SIGN_OUT, SET_ROUTES,
+  AppState,
+  AppActionTypes,
+  OPEN_SIDER,
+  CLOSE_SIDER,
+  SET_HEADER_STATUS,
+  SIGN_IN,
+  SIGN_OUT,
+  SET_ROUTES,
 } from './appActionTypes'
 
-const initialState = {
+const initialState: AppState = {
   isSiderOpened: true,
   isHeaderFixed: true,
   isLogin: !!getToken() || false,
   routes,
 }
 
-export default (state = initialState, { type, payload }) => {
-  switch (type) {
+export default function appReducer(
+  state = initialState,
+  action: AppActionTypes
+) {
+  switch (action.type) {
     case SIGN_IN:
       return { ...state, isLogin: true }
 
@@ -26,10 +36,10 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, isSiderOpened: false }
 
     case SET_ROUTES:
-      return { ...state, routes: payload }
+      return { ...state, routes: action.payload }
 
     case SET_HEADER_STATUS:
-      return { ...state, isHeaderFixed: payload }
+      return { ...state, isHeaderFixed: action.payload }
 
     default:
       return state
