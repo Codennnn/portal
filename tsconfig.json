@@ -1,31 +1,36 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "baseUrl": ".",
-    "paths": {
-      "@/utils/token": ["src/utils/token"],
-      "@/routes": ["src/routes/index"]
-    },
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react"
-  },
-  "include": [
-    "src"
-  ]
-}
+    "compilerOptions": {
+      "target": "es5",
+      "baseUrl": "./src",
+      "paths": {
+        "@/views/*": ["views/*"],
+        "@/layouts/*": ["layouts/*"],
+        "@/utils/*": ["utils/*"],
+        "@/routes/*": ["routes/*"],
+        "@/redux/*": ["redux/*"],
+        "@/routes": ["routes/index"]
+      },
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noFallthroughCasesInSwitch": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "jsx": "react"
+    },
+    "include": [
+      "src"
+    ]
+  }
+  

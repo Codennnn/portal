@@ -1,25 +1,32 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import 'antd/dist/antd.css'
-import './index.css'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 import { ConfigProvider, Spin } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
-import App from './App'
+import { store, persistor } from '@/redux/createStore'
 import reportWebVitals from './reportWebVitals'
+import 'antd/dist/antd.css'
+import './index.css'
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense
-      fallback={
-        <div className="suspense">
-          <Spin size="large" tip="页面加载中..." />
-        </div>
-      }
-    >
-      <ConfigProvider locale={zhCN}>
-        <App />
-      </ConfigProvider>
-    </Suspense>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Suspense
+          fallback={
+            <div className="suspense">
+              <Spin size="large" tip="页面加载中..." />
+            </div>
+          }
+        >
+          <ConfigProvider locale={zhCN}>
+            <App />
+          </ConfigProvider>
+        </Suspense>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )
