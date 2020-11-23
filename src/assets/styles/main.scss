@@ -31,6 +31,23 @@ body {
   font-size: $root-font-size;
 }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.suspense{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vh;
+  height: 100vh;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+
 #root {
   .app {
     min-height: 100vh;
@@ -95,6 +112,12 @@ body {
       padding-right: $section-gap;
       background: #fff;
 
+      .header{
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
       &.menu-close {
         .brand-box {
           width: $sider-closed-width;
@@ -114,10 +137,25 @@ body {
         align-items: center;
         transition: $transition;
 
-        .brand-box__text {
+        &__logo{
+          width: 1.5rem;
+        }
+
+        &__text {
           max-width: 300px;
+          margin: 0 0.5rem;
+          font-weight: 700;
+          font-size: 1.2rem;
+          white-space: nowrap;
           transition: all .2s;
         }
+      }
+
+      .header-right{
+        height: 100%;
+        flex: 1;
+        display: flex;
+        align-items: center;
       }
     }
 

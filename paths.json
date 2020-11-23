@@ -6,6 +6,7 @@
       "@/utils/*": ["utils/*"],
       "@/routes/*": ["routes/*"],
       "@/redux/*": ["redux/*"],
+      "@/api/*": ["api/*"],
       "@/routes": ["routes/index"]
     },
     "jsx": "react"

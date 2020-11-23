@@ -48,7 +48,7 @@ module.exports = {
               'btn-border-radius-base': '5px',
               'btn-border-radius-sm': '4px',
               'font-family':
-                "-apple-system, Rubik, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+                "-apple-system, Rubik, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
             },
             javascriptEnabled: true,
           },

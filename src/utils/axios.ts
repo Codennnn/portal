@@ -2,11 +2,15 @@ import axios from 'axios'
 import { getToken, removeToken } from '@/utils/token'
 import { message as Message, notification as Notification } from 'antd'
 
-const responseHandler = {
+const responseHandler: any = {
   errorNotify({
     message = '哎呀！',
     description = '请求出错啦！',
     duration = null,
+  }: {
+    message?: string
+    description?: string
+    duration?: any
   } = {}) {
     Notification.error({
       message,
@@ -14,26 +18,26 @@ const responseHandler = {
       duration,
     })
   },
-  401(status, statusText) {
+  401(status: number, statusText: string) {
     this.errorNotify({
       message: `${status}`,
       description: `抱歉，您没有权限访问 - ${statusText}`,
     })
   },
-  404(status, statusText) {
+  404(status: number, statusText: string) {
     this.errorNotify({
       message: `${status}`,
       description: `找不到资源 - ${statusText}`,
     })
   },
-  418(status) {
+  418(status: number) {
     this.errorNotify({
       message: `${status}`,
       description: '登录过期，请重新登录~',
       duration: '3000',
     })
   },
-  500(status, statusText) {
+  500(status: number, statusText: string) {
     this.errorNotify({
       message: `${status}`,
       description: `服务出错 - ${statusText}`,
@@ -44,30 +48,31 @@ const responseHandler = {
   },
 }
 
-const errorHandler = error => {
+const errorHandler = (error: {
+  response: { status: number | string; statusText: string }
+}) => {
   const { status = 'default', statusText = '错误信息' } = error.response
   responseHandler[status](status, statusText)
 
   return Promise.reject(error)
 }
 
-const service = axios.create({
+const service: any = axios.create({
   // baseURL: process.env.REACT_APP_REQUEST_BASE_URL,
   timeout: 20000,
   responseType: 'json',
   withCredentials: true,
 })
 
-service.interceptors.request.use(config => {
+service.interceptors.request.use((config: any) => {
   const token = getToken()
   if (token) {
-    /* eslint no-param-reassign: ['error', { 'props': false }] */
     config.headers.Authorization = `Bearer ${token}`
   }
   return config
 }, errorHandler)
 
-service.interceptors.response.use(response => {
+service.interceptors.response.use((response: any) => {
   const { data } = response
 
   const { code, msg = '接口异常' } = data

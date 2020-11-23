@@ -10,7 +10,6 @@ import {
 import UserLayout from '@/layouts/UserLayout'
 import MainLayout from '@/layouts/MainLayout'
 import NotFound from '@/views/error-page/NotFound'
-import './App.css'
 
 function AppRouter() {
   const isLogin = useSelector(({ app }: any) => app.isLogin)

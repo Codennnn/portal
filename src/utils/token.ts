@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-export function setToken(token: string, expires: number = 30) {
+export function setToken(token: string, expires = 30) {
   Cookies.set('token', token, { expires })
 }
 

@@ -25,10 +25,16 @@ import Notice from './app-header/Notice'
 
 const SearchInputStyle = styled.div`
   height: 38px;
+  display: flex;
+  align-items: center;
+  border-radius: 9999px;
   background-color: #f3f3f9;
   & {
     .ant-input-affix-wrapper,
     .ant-input {
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
   }
 `
@@ -121,16 +127,14 @@ export default function AppHeader({
   )
 
   return (
-    <div className="h-full flex items-center">
+    <div className="header">
       {/* LOGO */}
       <div className="brand-box">
-        <img className="w-6" src={logo} alt="logo" />
-        <div className="brand-box__text mx-2 text-lg font-bold whitespace-no-wrap">
-          React Admin
-        </div>
+        <img className="brand-box__logo" src={logo} alt="logo" />
+        <div className="brand-box__text">React Admin</div>
       </div>
 
-      <div className="flex-1 h-full flex items-center">
+      <div className="header-right">
         <div className="flex items-center">
           <ExpandIcon
             title={isSiderOpened ? '收起' : '展开'}
@@ -141,7 +145,8 @@ export default function AppHeader({
           />
           <SearchInputStyle>
             <Input
-              prefix={<Search size={16} className="mr-2 text-gray-600" />}
+              style={{ 'margin-right': '4px', color: '#718096' }}
+              prefix={<Search size={16} />}
               placeholder="搜索..."
             />
           </SearchInputStyle>

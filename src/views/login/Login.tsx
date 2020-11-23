@@ -1,29 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { setToken } from '@/utils/token'
 import { signIn } from '@/redux/app/appActions'
 import { setUserInfo } from '@/redux/user/userActions'
-import { register, login, getUserInfo } from '@/api/user'
+import { login, getUserInfo } from '@/api/user'
 
 import { Form, Input, Button, Checkbox } from 'antd'
 
-function Register() {
+function Login() {
   const dispatch = useDispatch()
   const [btnLoading, setBtnLoading] = useState(false)
   const history = useHistory()
 
   const [form] = Form.useForm()
+  // MOCK: 自动填入账号和密码
+  useEffect(() => {
+    form.setFieldsValue({
+      username: 'czc12580520@gmail.com',
+      password: 'abc123456',
+    })
+  }, [form])
 
-  const onRegister = async values => {
+  const onLogin = async (values: {
+    username: string
+    password: string
+    rememberMe: boolean
+  }) => {
     try {
       setBtnLoading(true)
-      await register(values)
       const { token } = await login(values)
       const { info } = await getUserInfo()
-      setToken(token)
-      await dispatch(signIn())
+
+      const tokenExpires = values.rememberMe ? 30 : undefined
+      setToken(token, tokenExpires)
+
       await dispatch(setUserInfo(info))
+      await dispatch(signIn())
       history.replace('/')
     } catch {
       setBtnLoading(false)
@@ -31,10 +44,10 @@ function Register() {
   }
 
   return (
-    <div className="register-form">
+    <div className="login-form">
       <div className="form-bar">
-        <h2 className="title">注册账号</h2>
-        <p className="desc">创建一个账号以登录本系统</p>
+        <h2 className="title">登录系统</h2>
+        <p className="desc">使用账号和密码登录本系统</p>
       </div>
 
       <Form
@@ -42,73 +55,55 @@ function Register() {
         layout="vertical"
         size="large"
         form={form}
-        onFinish={onRegister}
+        onFinish={onLogin}
       >
         <Form.Item
-          label="账号"
+          label={
+            <div className="w-full flex items-center justify-between">
+              <span>账号</span>
+              <span className="primary cursor-pointer">需要帮助？</span>
+            </div>
+          }
           name="username"
           rules={[{ required: true, message: '请输入账号' }]}
         >
-          <Input placeholder="手机号/邮箱" />
+          <Input placeholder="请输入账号" />
         </Form.Item>
 
         <Form.Item
-          label="密码"
+          label={
+            <div className="w-full flex items-center justify-between">
+              <span>密码</span>
+              <span className="primary cursor-pointer">忘记密码？</span>
+            </div>
+          }
           name="password"
           rules={[{ required: true, message: '请输入密码' }]}
         >
           <Input.Password placeholder="请输入密码" />
         </Form.Item>
 
-        <Form.Item
-          label="确认密码"
-          name="passwordConfirm"
-          dependencies={['password']}
-          rules={[
-            { required: true, message: '请再次确认密码' },
-            ({ getFieldValue }) => ({
-              validator(rule, value) {
-                if (!value || getFieldValue('password') === value) {
-                  return Promise.resolve()
-                }
-                return Promise.reject(new Error('两次密码输入不一致！'))
-              },
-            }),
-          ]}
-        >
-          <Input.Password placeholder="请再次确认密码" />
-        </Form.Item>
-
-        <Form.Item
-          className="mb-0"
-          name="remember"
-          valuePropName="checked"
-          rules={[{ required: true, message: '需要同意协议才能进行注册' }]}
-        >
-          <Checkbox>
-            我同意
-            <span className="primary">《用户隐私协议》</span>
-          </Checkbox>
+        <Form.Item className="mb-0" name="rememberMe" valuePropName="checked">
+          <Checkbox>记住本账号</Checkbox>
         </Form.Item>
 
         <Form.Item>
           <Button
-            ghost
             className="w-full"
             size="large"
             type="primary"
             htmlType="submit"
             loading={btnLoading}
           >
-            立即注册
+            立即登录
           </Button>
           <p className="mt-4 text-gray-500">
-            已经有账号了？
+            还没有账号？
             <Link
-              to="/user/login"
+              to="/user/register"
               className="primary opacity-75 hover:opacity-100 transition cursor-pointer"
             >
-              立即登录
+              立即注册
             </Link>
           </p>
         </Form.Item>
@@ -117,4 +112,4 @@ function Register() {
   )
 }
 
-export default Register
+export default Login
