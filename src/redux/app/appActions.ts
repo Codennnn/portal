@@ -8,16 +8,6 @@ import {
   SET_ROUTES,
 } from './appActionTypes'
 
-// export const signIn: () => AppActionTypes = () => ({ type: SIGN_IN })
-// export const signOut = () => ({ type: SIGN_OUT })
-// export const openSider = () => ({ type: OPEN_SIDER })
-// export const closeSider = () => ({ type: CLOSE_SIDER })
-// export const setAuthRoutes = (payload: any) => ({ type: SET_ROUTES, payload })
-// export const toggleHeader = (payload: any) => ({
-//   type: SET_HEADER_STATUS,
-//   payload,
-// })
-
 export function signIn(): AppActionTypes {
   return { type: SIGN_IN }
 }
