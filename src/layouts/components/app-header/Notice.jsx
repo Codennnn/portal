@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import {
-  Menu, Dropdown, Badge,
-} from 'antd'
+import { Menu, Dropdown, Badge } from 'antd'
 import { useHistory } from 'react-router-dom'
 import { getNoticeCount } from '@/api/notice'
 
@@ -18,7 +16,9 @@ export default function Notice() {
 
   const getNoticies = useCallback(async () => {
     const { data } = await getNoticeCount()
-    setNoticeItems(noticeItems.map(({ label, key }) => ({ label, key, count: data[key] })))
+    setNoticeItems(
+      noticeItems.map(({ label, key }) => ({ label, key, count: data[key] }))
+    )
   }, [noticeItems])
 
   useEffect(() => {
@@ -31,18 +31,16 @@ export default function Notice() {
 
   const notice = () => (
     <Menu>
-      {
-        noticeItems.map(({ label, count }) => (
-          <Menu.Item
-            key={label}
-            className="py-2 flex items-center cursor-pointer"
-            onClick={routeToNotice}
-          >
-            <div className="mr-4">{label}</div>
-            <Badge className="ml-auto" count={count} />
-          </Menu.Item>
-        ))
-      }
+      {noticeItems.map(({ label, count }) => (
+        <Menu.Item
+          key={label}
+          className="py-2 flex items-center cursor-pointer"
+          onClick={routeToNotice}
+        >
+          <div className="mr-4">{label}</div>
+          <Badge className="ml-auto" count={count} />
+        </Menu.Item>
+      ))}
     </Menu>
   )
 

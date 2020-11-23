@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 import CardAreaChart from '../charts/CardAreaChart'
 
 function ChartCard({
-  Icon, name, seriesName, seriesData, color, count, value,
+  Icon,
+  name,
+  seriesName,
+  seriesData,
+  color,
+  count,
+  value,
 }) {
   return (
     <div className="custom-card">
@@ -43,20 +49,22 @@ ChartCard.propTypes = {
 export default function ChartCards({ data }) {
   return (
     <>
-      { /* eslint-disable-next-line */
+      {
+        /* eslint-disable-next-line */
         data.map(({ icon, name, seriesName, seriesData, color, count, value }) => (
-          <div key={name} className="w-1/3 px-3">
-            <ChartCard
-              Icon={icon}
-              name={name}
-              seriesName={seriesName}
-              seriesData={seriesData}
-              color={color}
-              count={count}
-              value={value}
-            />
-          </div>
-        ))
+            <div key={name} className="w-1/3 px-3">
+              <ChartCard
+                Icon={icon}
+                name={name}
+                seriesName={seriesName}
+                seriesData={seriesData}
+                color={color}
+                count={count}
+                value={value}
+              />
+            </div>
+          )
+        )
       }
     </>
   )

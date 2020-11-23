@@ -10,7 +10,8 @@ export default function TaskList({ data }) {
     <Tabs>
       <TabPane tab="进行中" key="1">
         <ul className="overflow-auto" style={{ maxHeight: '300px' }}>
-          { /* eslint-disable-next-line */
+          {
+            /* eslint-disable-next-line */
             data.map(({ id, title, content, checked = false }) => (
               <li
                 key={id}
@@ -22,7 +23,9 @@ export default function TaskList({ data }) {
                 </div>
                 <div className="px-3 w-3/5">
                   <div className="truncate font-semibold">{title}</div>
-                  <div className="truncate" style={{ maxWidth: '100%' }}>{content}</div>
+                  <div className="truncate" style={{ maxWidth: '100%' }}>
+                    {content}
+                  </div>
                 </div>
                 <div className="px-3 ml-auto flex items-center">
                   <Edit size={18} className="success mr-2 cursor-pointer" />

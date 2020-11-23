@@ -13,11 +13,17 @@ function subMenuKey(children) {
 /**
  * 生成单个菜单项
  */
-function renderMenuItem({
-  path, title, icon: MenuIcon, hidden, permissions: routePermission,
-}, permissions) {
+function renderMenuItem(
+  { path, title, icon: MenuIcon, hidden, permissions: routePermission },
+  permissions
+) {
   return hidden || !hasRoutePermission(routePermission, permissions) ? null : (
-    <Menu.Item key={path} icon={MenuIcon && <MenuIcon className="anticon" size={22} strokeWidth={3.6} />}>
+    <Menu.Item
+      key={path}
+      icon={
+        MenuIcon && <MenuIcon className="anticon" size={22} strokeWidth={3.6} />
+      }
+    >
       <Link to={path}>
         <span>{title}</span>
       </Link>
@@ -49,18 +55,21 @@ renderMenuItem.defaultProps = {
 /**
  * 生成嵌套子菜单
  */
-function renderSubMenu({
-  title, children, icon: MenuIcon,
-}, permissions) {
+function renderSubMenu({ title, children, icon: MenuIcon }, permissions) {
   return (
     <Menu.SubMenu
       key={subMenuKey(children)}
       title={title}
-      icon={MenuIcon && <MenuIcon className="anticon" size={22} strokeWidth={3.6} />}
+      icon={
+        MenuIcon && <MenuIcon className="anticon" size={22} strokeWidth={3.6} />
+      }
     >
-      {children?.length > 0 && children.map((item) => (item.children?.length > 0
-        ? renderSubMenu(item, permissions)
-        : renderMenuItem(item, permissions)))}
+      {children?.length > 0 &&
+        children.map(item =>
+          item.children?.length > 0
+            ? renderSubMenu(item, permissions)
+            : renderMenuItem(item, permissions)
+        )}
     </Menu.SubMenu>
   )
 }
@@ -93,27 +102,30 @@ export default function AppSider({ routes, isSiderOpened }) {
     () => {
       function findOpenKeys(theRoutes) {
         const keys = []
-        const justFind = (r) => r.some(({ path, children }) => {
-          let hasFoundPath = path === pathname
+        const justFind = r =>
+          r.some(({ path, children }) => {
+            let hasFoundPath = path === pathname
 
-          if (children?.length > 0) {
-            hasFoundPath = children.some(({ path: routePath, children: childRoutes }) => {
-              if (childRoutes?.length > 0) {
-                const isFound = justFind(childRoutes)
-                if (isFound) {
-                  keys.push(subMenuKey(childRoutes))
+            if (children?.length > 0) {
+              hasFoundPath = children.some(
+                ({ path: routePath, children: childRoutes }) => {
+                  if (childRoutes?.length > 0) {
+                    const isFound = justFind(childRoutes)
+                    if (isFound) {
+                      keys.push(subMenuKey(childRoutes))
+                    }
+                    return isFound
+                  }
+                  return routePath === pathname
                 }
-                return isFound
+              )
+              if (hasFoundPath) {
+                keys.push(subMenuKey(children))
               }
-              return routePath === pathname
-            })
-            if (hasFoundPath) {
-              keys.push(subMenuKey(children))
             }
-          }
 
-          return hasFoundPath
-        })
+            return hasFoundPath
+          })
         justFind(theRoutes)
         return keys
       }
@@ -128,7 +140,7 @@ export default function AppSider({ routes, isSiderOpened }) {
     [isSiderOpened],
   )
 
-  const onOpenChange = (keys) => {
+  const onOpenChange = keys => {
     setOpenKeys(keys)
   }
 
@@ -141,14 +153,13 @@ export default function AppSider({ routes, isSiderOpened }) {
         inlineCollapsed={!isSiderOpened}
         onOpenChange={onOpenChange}
       >
-        {
-          routes.length > 0 && routes.map((item) => {
+        {routes.length > 0 &&
+          routes.map(item => {
             if (item.children?.length > 0) {
               return renderSubMenu(item, permissions)
             }
             return renderMenuItem(item, permissions)
-          })
-        }
+          })}
       </Menu>
     </PerfectScrollbar>
   )

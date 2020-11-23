@@ -47,8 +47,8 @@ export default function StatisticsCard({ data }) {
                         percent > 0
                           ? 'rgba(var(--success), .2)'
                           : percent < 0
-                            ? 'rgba(var(--danger), .2)'
-                            : 'rgba(var(--warning), .2)',
+                          ? 'rgba(var(--danger), .2)'
+                          : 'rgba(var(--warning), .2)',
                       fontSize: '12px',
                     }}
                   >

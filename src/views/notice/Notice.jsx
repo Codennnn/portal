@@ -8,7 +8,9 @@ export default function Notice() {
   const [noticeList, setNoticeList] = useState([])
 
   const getNoticies = useCallback(async () => {
-    const { data: { list } } = await getNoticeList()
+    const {
+      data: { list },
+    } = await getNoticeList()
     setNoticeList(list)
   }, [])
 
@@ -18,7 +20,10 @@ export default function Notice() {
 
   return (
     <div className="custom-card" style={{ padding: '0' }}>
-      <div className="py-2 px-3 flex justify-between items-center" style={{ borderBottom: '1px solid #f1f1f1' }}>
+      <div
+        className="py-2 px-3 flex justify-between items-center"
+        style={{ borderBottom: '1px solid #f1f1f1' }}
+      >
         <div className="text-lg font-bold">消息通知</div>
       </div>
       <PerfectScrollbar
@@ -26,7 +31,8 @@ export default function Notice() {
         style={{ height: '300px' }}
       >
         <ul>
-          {/* eslint-disable-next-line */
+          {
+            /* eslint-disable-next-line */
             noticeList.map(({ id, title, content, time }) => (
               <li
                 key={id}

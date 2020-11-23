@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/views/*": ["views/*"],
+      "@/layouts/*": ["layouts/*"],
+      "@/utils/*": ["utils/*"],
+      "@/routes/*": ["routes/*"],
+      "@/redux/*": ["redux/*"],
+      "@/routes": ["routes/index"]
+    },
+    "jsx": "react"
+  }
+}

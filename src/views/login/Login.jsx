@@ -6,9 +6,7 @@ import { signIn } from '@/redux/app/appActions'
 import { setUserInfo } from '@/redux/user/userActions'
 import { login, getUserInfo } from '@/api/user'
 
-import {
-  Form, Input, Button, Checkbox,
-} from 'antd'
+import { Form, Input, Button, Checkbox } from 'antd'
 
 function Login() {
   const dispatch = useDispatch()
@@ -24,11 +22,15 @@ function Login() {
     })
   }, [form])
 
-  const onLogin = async (values) => {
+  const onLogin = async values => {
     try {
       setBtnLoading(true)
-      const { data: { token } } = await login(values)
-      const { data: { info } } = await getUserInfo()
+      const {
+        data: { token },
+      } = await login(values)
+      const {
+        data: { info },
+      } = await getUserInfo()
 
       const tokenExpires = values.rememberMe ? 30 : null
       setToken(token, tokenExpires)
@@ -56,12 +58,12 @@ function Login() {
         onFinish={onLogin}
       >
         <Form.Item
-          label={(
+          label={
             <div className="w-full flex items-center justify-between">
               <span>账号</span>
               <span className="primary cursor-pointer">需要帮助？</span>
             </div>
-          )}
+          }
           name="username"
           rules={[{ required: true, message: '请输入账号' }]}
         >
@@ -69,12 +71,12 @@ function Login() {
         </Form.Item>
 
         <Form.Item
-          label={(
+          label={
             <div className="w-full flex items-center justify-between">
               <span>密码</span>
               <span className="primary cursor-pointer">忘记密码？</span>
             </div>
-          )}
+          }
           name="password"
           rules={[{ required: true, message: '请输入密码' }]}
         >

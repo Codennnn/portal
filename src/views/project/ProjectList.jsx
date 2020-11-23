@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-  Table, Avatar, Tooltip, Image, Menu, Dropdown,
-} from 'antd'
+import { Table, Avatar, Tooltip, Image, Menu, Dropdown } from 'antd'
 import { Link } from 'react-router-dom'
 import { More } from '@icon-park/react'
 import { getProjectList } from '@/api/project'
@@ -17,7 +15,9 @@ export default function ProjectList() {
     async function getProjects() {
       try {
         setTableLoading(true)
-        const { data: { list } } = await getProjectList()
+        const {
+          data: { list },
+        } = await getProjectList()
         setTableList(list)
       } finally {
         setTableLoading(false)
@@ -26,7 +26,7 @@ export default function ProjectList() {
     getProjects()
   }, [])
 
-  const dropdownMenu = (row) => (
+  const dropdownMenu = row => (
     <Menu>
       <Menu.Item row={row}>查看</Menu.Item>
       <Menu.Item>编辑</Menu.Item>
@@ -45,7 +45,7 @@ export default function ProjectList() {
     {
       title: '#',
       dataIndex: 'icon',
-      render: (icon) => (
+      render: icon => (
         <Image
           src={icon}
           width={100}
@@ -57,7 +57,11 @@ export default function ProjectList() {
     {
       title: '项目名称',
       dataIndex: 'name',
-      render: (name) => <Link to="/page1" className="primary">{name}</Link>,
+      render: name => (
+        <Link to="/page1" className="primary">
+          {name}
+        </Link>
+      ),
     },
     {
       title: '周期',
@@ -66,7 +70,7 @@ export default function ProjectList() {
     {
       title: '进度',
       dataIndex: 'progress',
-      render: (progress) => (
+      render: progress => (
         <span
           className={`${pg[progress].color} px-2 py-1 rounded`}
           style={{ background: `rgba(var(--${pg[progress].color}-light))` }}
@@ -78,7 +82,7 @@ export default function ProjectList() {
     {
       title: '成员',
       dataIndex: 'team',
-      render: (team) => (
+      render: team => (
         <Avatar.Group maxCount={3}>
           {team.map(({ id, name, avatar }) => (
             <Tooltip key={id} title={name}>
@@ -91,12 +95,9 @@ export default function ProjectList() {
     {
       title: '操作',
       key: 'id',
-      render: (row) => (
+      render: row => (
         <Dropdown overlay={dropdownMenu(row)} trigger={['click']}>
-          <More
-            className="text-gray-600 cursor-pointer"
-            size="24"
-          />
+          <More className="text-gray-600 cursor-pointer" size="24" />
         </Dropdown>
       ),
     },
@@ -104,8 +105,7 @@ export default function ProjectList() {
 
   return (
     <>
-      <div>
-      </div>
+      <div></div>
       <Table
         rowKey="id"
         loading={tableLoading}

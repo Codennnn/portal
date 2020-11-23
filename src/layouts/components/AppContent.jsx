@@ -7,7 +7,7 @@ import {
   useHistory,
   useLocation,
 } from 'react-router-dom'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { useSelector, useDispatch } from 'react-redux'
 import { signOut } from '@/redux/app/appActions'
 import { getToken } from '@/utils/token'

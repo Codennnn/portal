@@ -5,7 +5,8 @@ import { Divider, Progress } from 'antd'
 export default function TopSellingProduct({ products }) {
   return (
     <ul>
-      { /* eslint-disable-next-line */
+      {
+        /* eslint-disable-next-line */
         products.map(({ name, desc, percent, color }) => (
           <li key={name}>
             <Divider />
@@ -26,10 +27,7 @@ export default function TopSellingProduct({ products }) {
               </div>
               <div className="ml-6 whitespace-no-wrap">
                 <div>销售</div>
-                <div className="font-bold">
-                  {percent}
-                  %
-                </div>
+                <div className="font-bold">{percent}%</div>
               </div>
             </div>
           </li>

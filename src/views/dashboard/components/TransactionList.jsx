@@ -34,8 +34,8 @@ export default function TaskList({ data }) {
                 {type === 1 ? (
                   <ArrowCircleUp size={20} className="danger" />
                 ) : (
-                    <ArrowCircleDown size={20} className="primary" />
-                  )}
+                  <ArrowCircleDown size={20} className="primary" />
+                )}
               </div>
               <div className="w-2/5 px-3">
                 <Title>
@@ -53,8 +53,8 @@ export default function TaskList({ data }) {
             </li>
           ))
         ) : (
-            <Empty />
-          )}
+          <Empty />
+        )}
       </ul>
     </PerfectScrollbar>
   )

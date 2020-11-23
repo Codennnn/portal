@@ -6,9 +6,7 @@ import { signIn } from '@/redux/app/appActions'
 import { setUserInfo } from '@/redux/user/userActions'
 import { register, login, getUserInfo } from '@/api/user'
 
-import {
-  Form, Input, Button, Checkbox,
-} from 'antd'
+import { Form, Input, Button, Checkbox } from 'antd'
 
 function Register() {
   const dispatch = useDispatch()
@@ -17,7 +15,7 @@ function Register() {
 
   const [form] = Form.useForm()
 
-  const onRegister = async (values) => {
+  const onRegister = async values => {
     try {
       setBtnLoading(true)
       await register(values)

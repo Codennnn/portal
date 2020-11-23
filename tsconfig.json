@@ -1,15 +1,8 @@
 {
+  "extends": "./paths.json",
   "compilerOptions": {
     "target": "es5",
     "baseUrl": "./src",
-    "paths": {
-      "@/views/*": ["views/*"],
-      "@/layouts/*": ["layouts/*"],
-      "@/utils/*": ["utils/*"],
-      "@/routes/*": ["routes/*"],
-      "@/redux/*": ["redux/*"],
-      "@/routes": ["routes/index"]
-    },
     "lib": [
       "dom",
       "dom.iterable",

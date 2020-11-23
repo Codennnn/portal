@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import {
-  Form, Select, Input, Button, DatePicker, Collapse, Radio, message,
+  Form,
+  Select,
+  Input,
+  Button,
+  DatePicker,
+  Collapse,
+  Radio,
+  message,
 } from 'antd'
 import { createProject } from '@/api/project'
 
@@ -20,7 +27,7 @@ export default function NewProject() {
     }
   }
 
-  const onFinish = (values) => {
+  const onFinish = values => {
     console.log('Success:', values)
     createNewProject(values)
   }
@@ -46,19 +53,15 @@ export default function NewProject() {
           name="workplace"
           rules={[{ required: true, message: '请输入工作空间' }]}
         >
-          <Select
-            placeholder="请选择工作空间"
-          >
-            {
-              [{ label: 'Magic', value: 'magic' }, { label: 'LoveShare', value: 'love_share' }].map(({ value, label }) => (
-                <Select.Option
-                  key={value}
-                  value={value}
-                >
-                  {label}
-                </Select.Option>
-              ))
-            }
+          <Select placeholder="请选择工作空间">
+            {[
+              { label: 'Magic', value: 'magic' },
+              { label: 'LoveShare', value: 'love_share' },
+            ].map(({ value, label }) => (
+              <Select.Option key={value} value={value}>
+                {label}
+              </Select.Option>
+            ))}
           </Select>
         </Form.Item>
 
@@ -94,21 +97,12 @@ export default function NewProject() {
 
         <Collapse ghost>
           <Collapse.Panel header="高级设置" className="primary">
-            <Form.Item
-              label="工作空间"
-              name="aa"
-            >
-              <Select
-                placeholder="请选择工作空间"
-              >
+            <Form.Item label="工作空间" name="aa">
+              <Select placeholder="请选择工作空间">
                 <Select.Option value="jack">Jack</Select.Option>
               </Select>
             </Form.Item>
-            <Form.Item
-              label="访问权限"
-              wrapperCol={wrapperCol}
-              name="type"
-            >
+            <Form.Item label="访问权限" wrapperCol={wrapperCol} name="type">
               <Radio.Group
                 options={[
                   { label: '公开', value: 'public' },

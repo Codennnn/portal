@@ -27,7 +27,20 @@ export default function LineChart() {
     },
     xaxis: {
       axisBorder: { color: '#e0e0e0' },
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      categories: [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ],
       labels: {
         style: {
           colors: '#aaa',
@@ -47,10 +60,12 @@ export default function LineChart() {
       type="line"
       width="100%"
       height="100%"
-      series={[{
-        name: '万元',
-        data: [31, 40, 36, 51, 49, 72, 69, 56, 68, 82, 68, 76],
-      }]}
+      series={[
+        {
+          name: '万元',
+          data: [31, 40, 36, 51, 49, 72, 69, 56, 68, 82, 68, 76],
+        },
+      ]}
       options={chartOptions}
     />
   )

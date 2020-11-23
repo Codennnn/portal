@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Form, Input, DatePicker, Select, Button,
-} from 'antd'
+import { Form, Input, DatePicker, Select, Button } from 'antd'
 import dayjs from 'dayjs'
 
 const { Item } = Form
@@ -10,7 +8,7 @@ const { Option } = Select
 export default function BuyForm() {
   const [form] = Form.useForm()
 
-  const onFinish = async (values) => {
+  const onFinish = async values => {
     const formatDate = dayjs(values.date).format('YYYY-MM-DD')
     // LOG:
     console.log({ ...values, date: formatDate })
@@ -56,7 +54,9 @@ export default function BuyForm() {
           <Input addonBefore="合计金额" addonAfter="元" />
         </Item>
         <Item className="mb-0 text-center">
-          <Button type="primary" htmlType="submit">确认购买</Button>
+          <Button type="primary" htmlType="submit">
+            确认购买
+          </Button>
         </Item>
       </Form>
     </>

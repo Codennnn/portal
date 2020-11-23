@@ -1,7 +1,7 @@
 import React, { lazy } from 'react'
 import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom'
 import { Carousel } from 'antd'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import logo from '@img/logo.png'
 import userPlate1 from '@img/user_plate_1.png'
 import userPlate2 from '@img/user_plate_2.png'

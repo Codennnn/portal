@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { ConfigProvider, Spin } from 'antd'
+import { HelmetProvider } from 'react-helmet-async'
 import zhCN from 'antd/es/locale/zh_CN'
 import { store, persistor } from '@/redux/createStore'
 import reportWebVitals from './reportWebVitals'
@@ -22,7 +23,9 @@ ReactDOM.render(
           }
         >
           <ConfigProvider locale={zhCN}>
-            <App />
+            <HelmetProvider>
+              <App />
+            </HelmetProvider>
           </ConfigProvider>
         </Suspense>
       </PersistGate>
