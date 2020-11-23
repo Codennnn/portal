@@ -19,7 +19,6 @@ import { ReactComponent as VueIcon } from '@img/icon_vue.svg'
 import { ReactComponent as ReactIcon } from '@img/icon_react.svg'
 import { ReactComponent as AngularIcon } from '@img/icon_angular.svg'
 import styled from 'styled-components'
-import tw from 'twin.macro'
 
 import CircleChart from './charts/CircleChart'
 import OverviewChart from './charts/OverviewChart'
@@ -27,9 +26,7 @@ import ChartCards from './components/ChartCards'
 import TransactionList from './components/TransactionList'
 import BuyForm from './components/BuyForm'
 
-const Row = styled.div`
-  ${tw`mb-6 flex`}
-`
+const Row = styled.div``
 
 function DashboardCrypto() {
   const info = useSelector(({ user }) => user.info)

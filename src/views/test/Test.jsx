@@ -6,13 +6,9 @@ function App() {
 
   return (
     <div>
-      <button onClick={handle.enter}>
-        Enter fullscreen
-      </button>
+      <button onClick={handle.enter}>Enter fullscreen</button>
 
-      <FullScreen handle={handle}>
-        Any fullscreen content here
-      </FullScreen>
+      <FullScreen handle={handle}>Any fullscreen content here</FullScreen>
     </div>
   )
 }

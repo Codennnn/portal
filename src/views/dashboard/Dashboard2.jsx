@@ -1,15 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import {
-  Avatar, Button, Menu, Dropdown, Badge, Select, Divider,
-} from 'antd'
-import {
-  SettingTwo, MallBag, Wallet, FinancingOne,
-} from '@icon-park/react'
+import { Avatar, Button, Menu, Dropdown, Badge, Select, Divider } from 'antd'
+import { SettingTwo, MallBag, Wallet, FinancingOne } from '@icon-park/react'
 
 import profileImg from '@img/profile_img.png'
 import styled from 'styled-components'
-import tw from 'twin.macro'
 
 import LineChart from './charts/LineChart'
 import DonutChart from './charts/DonutChart'
@@ -17,9 +12,7 @@ import StatisticsCard from './components/StatisticsCard'
 import TopSellingProduct from './components/TopSellingProduct'
 import TaskList from './components/TaskList'
 
-const Row = styled.div`
-  ${tw`mb-6 flex`}
-`
+const Row = styled.div``
 
 function DashboardSaas() {
   const info = useSelector(({ user }) => user.info)
@@ -49,13 +42,13 @@ function DashboardSaas() {
         </div>
         <div className="ml-auto self-start">
           <Dropdown
-            overlay={(
+            overlay={
               <Menu className="text-center">
                 <Menu.Item key="0">这是一个操作</Menu.Item>
                 <Menu.Item key="1">这是另一个操作</Menu.Item>
                 <Menu.Item key="2">还是一个操作</Menu.Item>
               </Menu>
-            )}
+            }
             trigger={['click']}
           >
             <Button size="large" type="primary" className="flex items-center">
@@ -68,7 +61,10 @@ function DashboardSaas() {
 
       <Row className="flex-wrap">
         <div className="md:w-full md:mb-6 lg:w-1/4 lg:mb-0">
-          <div className="relative primary rounded-md" style={{ background: 'rgba(var(--primary), .25)' }}>
+          <div
+            className="relative primary rounded-md"
+            style={{ background: 'rgba(var(--primary), .25)' }}
+          >
             <div className="p-4 text-sm">
               <div className="text-base font-bold">美好的一天开始啦！</div>
               <div className="mt-2 mb-4">基于 React 开发的系统模板</div>
@@ -77,23 +73,36 @@ function DashboardSaas() {
                 <li>丰富的插件</li>
               </ul>
             </div>
-            <img className="absolute right-0 bottom-0 w-2/5" style={{ maxWidth: '250px' }} src={profileImg} alt="profile" />
+            <img
+              className="absolute right-0 bottom-0 w-2/5"
+              style={{ maxWidth: '250px' }}
+              src={profileImg}
+              alt="profile"
+            />
           </div>
         </div>
 
-        <StatisticsCard data={
-          [
+        <StatisticsCard
+          data={[
             {
-              label: '订单数量', Icon: MallBag, value: 2200, percent: 0.4,
+              label: '订单数量',
+              Icon: MallBag,
+              value: 2200,
+              percent: 0.4,
             },
             {
-              label: '净收入', Icon: Wallet, value: 2200, percent: 0,
+              label: '净收入',
+              Icon: Wallet,
+              value: 2200,
+              percent: 0,
             },
             {
-              label: '平均价格', Icon: FinancingOne, value: 2200, percent: -0.15,
+              label: '平均价格',
+              Icon: FinancingOne,
+              value: 2200,
+              percent: -0.15,
             },
-          ]
-        }
+          ]}
         />
       </Row>
 
@@ -102,7 +111,11 @@ function DashboardSaas() {
           <div className="custom-card">
             <div className="mb-6 flex items-center">
               <h4 className="custom-card__title">月收入统计</h4>
-              <Select className="ml-auto" defaultValue="year" style={{ width: 120 }}>
+              <Select
+                className="ml-auto"
+                defaultValue="year"
+                style={{ width: 120 }}
+              >
                 <Select.Option value="year">年度</Select.Option>
                 <Select.Option value="month">月度</Select.Option>
               </Select>
@@ -114,9 +127,13 @@ function DashboardSaas() {
                 <div className="my-2 text-xl font-bold">￥37421.35</div>
                 <div className="text-sm">
                   相较于上月
-                  <span className="ml-2 px-2 py-1 success bg-success-light rounded-lg">+ 0.21%</span>
+                  <span className="ml-2 px-2 py-1 success bg-success-light rounded-lg">
+                    + 0.21%
+                  </span>
                 </div>
-                <Button className="my-5" type="primary">查看收入明细</Button>
+                <Button className="my-5" type="primary">
+                  查看收入明细
+                </Button>
                 <div className="text-gray-600">上个月</div>
                 <div className="my-2 text-xl font-bold">￥29564.25</div>
               </div>
@@ -169,19 +186,30 @@ function DashboardSaas() {
                 <span className="ml-1 success">上升 12%</span>
               </div>
             </div>
-            <TopSellingProduct products={
-              [
+            <TopSellingProduct
+              products={[
                 {
-                  name: '卫龙辣条', desc: '现代化休闲食品品牌', value: 40, percent: 37, color: 'primary',
+                  name: '卫龙辣条',
+                  desc: '现代化休闲食品品牌',
+                  value: 40,
+                  percent: 37,
+                  color: 'primary',
                 },
                 {
-                  name: '火鸟波特星', desc: '外形很不一样的概念机箱', value: 40, percent: 72, color: 'success',
+                  name: '火鸟波特星',
+                  desc: '外形很不一样的概念机箱',
+                  value: 40,
+                  percent: 72,
+                  color: 'success',
                 },
                 {
-                  name: '技嘉显卡 1650s', desc: '采用GeForce® GTX 1650 SUPER™显示核心', value: 40, percent: 54, color: 'danger',
+                  name: '技嘉显卡 1650s',
+                  desc: '采用GeForce® GTX 1650 SUPER™显示核心',
+                  value: 40,
+                  percent: 54,
+                  color: 'danger',
                 },
-              ]
-            }
+              ]}
             />
           </div>
         </div>
@@ -189,29 +217,41 @@ function DashboardSaas() {
         <div className="w-1/3 px-3">
           <div className="custom-card">
             <h4 className="custom-card__title">任务</h4>
-            <TaskList data={
-              [
+            <TaskList
+              data={[
                 {
-                  id: 't1', title: '微前端是一种利用', content: '微件拆分来达到工程拆分治理的方案', checked: true,
+                  id: 't1',
+                  title: '微前端是一种利用',
+                  content: '微件拆分来达到工程拆分治理的方案',
+                  checked: true,
                 },
                 {
-                  id: 't2', title: '物理层面可复用的土壤', content: '出现了跨业务线互相引用混乱',
+                  id: 't2',
+                  title: '物理层面可复用的土壤',
+                  content: '出现了跨业务线互相引用混乱',
                 },
                 {
-                  id: 't3', title: '路由级别的拆分', content: '一个子工程对应一个子业务线',
+                  id: 't3',
+                  title: '路由级别的拆分',
+                  content: '一个子工程对应一个子业务线',
                 },
                 {
-                  id: 't4', title: '微前端架构下的业务变化', content: '子工程的入口文件地址和路由地址的映射信息',
+                  id: 't4',
+                  title: '微前端架构下的业务变化',
+                  content: '子工程的入口文件地址和路由地址的映射信息',
                 },
                 {
-                  id: 't5', title: '路由的管理方案', content: '动态路由方案是想要进行路由级别的拆分',
+                  id: 't5',
+                  title: '路由的管理方案',
+                  content: '动态路由方案是想要进行路由级别的拆分',
                 },
-              ]
-            }
+              ]}
             />
             <Divider />
             <div className="text-center">
-              <Button type="primary" size="large">添加新任务</Button>
+              <Button type="primary" size="large">
+                添加新任务
+              </Button>
             </div>
           </div>
         </div>
@@ -229,19 +269,30 @@ function DashboardSaas() {
                 <span className="ml-1 success">上升 12%</span>
               </div>
             </div>
-            <TopSellingProduct products={
-              [
+            <TopSellingProduct
+              products={[
                 {
-                  name: '卫龙辣条', desc: '现代化休闲食品品牌', value: 40, percent: 37, color: 'primary',
+                  name: '卫龙辣条',
+                  desc: '现代化休闲食品品牌',
+                  value: 40,
+                  percent: 37,
+                  color: 'primary',
                 },
                 {
-                  name: '火鸟波特星', desc: '外形很不一样的概念机箱', value: 40, percent: 72, color: 'success',
+                  name: '火鸟波特星',
+                  desc: '外形很不一样的概念机箱',
+                  value: 40,
+                  percent: 72,
+                  color: 'success',
                 },
                 {
-                  name: '技嘉显卡 1650s', desc: '采用GeForce® GTX 1650 SUPER™显示核心', value: 40, percent: 54, color: 'danger',
+                  name: '技嘉显卡 1650s',
+                  desc: '采用GeForce® GTX 1650 SUPER™显示核心',
+                  value: 40,
+                  percent: 54,
+                  color: 'danger',
                 },
-              ]
-            }
+              ]}
             />
           </div>
         </div>

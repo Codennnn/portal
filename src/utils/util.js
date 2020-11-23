@@ -17,7 +17,8 @@ export function relativeTime(time) {
     } else {
       date = dayjs.unix(time)
     }
-  } if (typeof time === 'string') {
+  }
+  if (typeof time === 'string') {
     date = dayjs(time)
   }
 
@@ -67,7 +68,7 @@ export function hasRoutePermission(routePermission, permissions = []) {
   }
 
   if (isArray(routePermission)) {
-    return routePermission.every((el) => permissions.includes(el))
+    return routePermission.every(el => permissions.includes(el))
   }
 
   if (isFunction(routePermission)) {

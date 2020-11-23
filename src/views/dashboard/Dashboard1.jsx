@@ -1,34 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { Avatar, Button, Timeline, Progress, Table } from 'antd'
 import {
-  Avatar, Button, Timeline, Progress, Table,
-} from 'antd'
-import {
-  Html5TwoTone, CrownTwoTone, AlipayOutlined, ZhihuOutlined,
+  Html5TwoTone,
+  CrownTwoTone,
+  AlipayOutlined,
+  ZhihuOutlined,
 } from '@ant-design/icons'
 import {
-  RightSmall, AdProduct, StereoNesting, ApiApp, Help, Wechat, Tiktok, Xigua,
+  RightSmall,
+  AdProduct,
+  StereoNesting,
+  ApiApp,
+  Help,
+  Wechat,
+  Tiktok,
+  Xigua,
 } from '@icon-park/react'
 import classNames from 'classnames'
 
 import profileImg from '@img/profile_img.png'
 import styled from 'styled-components'
-import tw from 'twin.macro'
 import { getDashboardTableData } from '@/api/common'
 import RadislBarChart from './charts/RadialBarChart'
 import StackedColumnChart from './charts/StackedColumnChart'
 
-const Row = styled.div`
-  ${tw`mb-6 flex`}
-`
+const Row = styled.div``
 const IconStyle = styled.div`
-  ${tw`relative w-12 h-12 flex justify-center items-center text-white rounded-full`}
   &::after {
-    ${tw`absolute h-full w-2`}
     content: '';
     left: 50%;
     transform: translateX(-50%) rotate(30deg);
-    background: rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, 0.1);
   }
 `
 
@@ -39,12 +42,7 @@ function DashboardDefault() {
     {
       title: '订单 ID',
       dataIndex: 'id',
-      render: (id) => (
-        <span className="font-semibold">
-          #
-          {id}
-        </span>
-      ),
+      render: id => <span className="font-semibold">#{id}</span>,
     },
     {
       title: '支付日期',
@@ -57,17 +55,12 @@ function DashboardDefault() {
     {
       title: '总额',
       dataIndex: 'total',
-      render: (total) => (
-        <span>
-          ￥
-          {total}
-        </span>
-      ),
+      render: total => <span>￥{total}</span>,
     },
     {
       title: '支付状态',
       dataIndex: 'status',
-      render: (status) => {
+      render: status => {
         let statusClass
         if (status === 1) {
           statusClass = 'success bg-success-light'
@@ -77,9 +70,7 @@ function DashboardDefault() {
           statusClass = 'warning bg-warning-light'
         }
         return (
-          <span
-            className={`px-2 py-1 rounded-lg ${statusClass}`}
-          >
+          <span className={`px-2 py-1 rounded-lg ${statusClass}`}>
             {status === 1 ? '支付完成' : '支付失败'}
           </span>
         )
@@ -88,7 +79,7 @@ function DashboardDefault() {
     {
       title: '支付方式',
       dataIndex: 'payment',
-      render: (payment) => {
+      render: payment => {
         const Icon = payment === '微信支付' ? ZhihuOutlined : AlipayOutlined
         return (
           <div className="flex items-center">
@@ -100,7 +91,7 @@ function DashboardDefault() {
     },
     {
       title: '操作',
-      render: () => (<Button type="primary">查看详情</Button>),
+      render: () => <Button type="primary">查看详情</Button>,
     },
   ]
   const [tableLoading, setTableLoading] = useState(false)
@@ -111,7 +102,9 @@ function DashboardDefault() {
     async function getTableData() {
       try {
         setTableLoading(true)
-        const { data: { list } } = await getDashboardTableData()
+        const {
+          data: { list },
+        } = await getDashboardTableData()
         setTableData(list)
       } finally {
         setTableLoading(false)
@@ -125,16 +118,30 @@ function DashboardDefault() {
       <Row>
         <div className="w-1/3 pr-3 flex flex-col">
           <div className="mb-6 bg-white rounded-md overflow-hidden">
-            <div style={{ background: 'rgba(var(--primary), .25)' }} className="relative p-4 primary">
+            <div
+              style={{ background: 'rgba(var(--primary), .25)' }}
+              className="relative p-4 primary"
+            >
               <p className="mb-2 font-bold">{`欢迎回来，${nickname}`}</p>
               <p className="mb-6 text-xs">MagicUI 数据分析</p>
-              <img className="absolute right-0 bottom-0 w-2/5" src={profileImg} alt="profile" />
+              <img
+                className="absolute right-0 bottom-0 w-2/5"
+                src={profileImg}
+                alt="profile"
+              />
             </div>
             <div className="flex">
               <div className="relative px-4">
-                <Avatar src={avatar} size={62} className="relative" style={{ bottom: '25px', boxShadow: '0 0 0 5px #fff' }} />
+                <Avatar
+                  src={avatar}
+                  size={62}
+                  className="relative"
+                  style={{ bottom: '25px', boxShadow: '0 0 0 5px #fff' }}
+                />
                 <div className="truncate">令狐少侠</div>
-                <div className="mt-2 secondary truncate text-sm">前端开发工程师</div>
+                <div className="mt-2 secondary truncate text-sm">
+                  前端开发工程师
+                </div>
               </div>
               <div className="w-2/3 ml-auto p-5">
                 <div className="mb-6 flex">
@@ -159,9 +166,7 @@ function DashboardDefault() {
                 <div className="mt-3 mb-1 text-xl font-bold">￥34,252</div>
                 <p className="mb-5 text-sm">
                   较上期&nbsp;
-                  <span className="success">
-                    增长 12%
-                  </span>
+                  <span className="success">增长 12%</span>
                 </p>
                 <Button type="primary">
                   <div className="flex items-center">
@@ -188,7 +193,13 @@ function DashboardDefault() {
               { label: '净收入', value: '￥1,235', icon: StereoNesting },
               { label: '平均收入', value: '￥23.5', icon: ApiApp },
             ].map(({ label, value, icon: Icon }, i) => (
-              <div key={label} className={classNames('custom-card w-1/3 flex justify-between items-center', { 'ml-6': i >= 1 })}>
+              <div
+                key={label}
+                className={classNames(
+                  'custom-card w-1/3 flex justify-between items-center',
+                  { 'ml-6': i >= 1 }
+                )}
+              >
                 <div>
                   <div className="mb-3 secondary">{label}</div>
                   <div className="font-semibold text-xl">{value}</div>
@@ -205,7 +216,9 @@ function DashboardDefault() {
               <div className="flex items-center text-sm">
                 <div className="cursor-pointer">按周</div>
                 <div className="mx-6 cursor-pointer">按月</div>
-                <div className="bg-primary text-white px-3 py-1 rounded cursor-pointer">按年</div>
+                <div className="bg-primary text-white px-3 py-1 rounded cursor-pointer">
+                  按年
+                </div>
               </div>
             </div>
             <StackedColumnChart />
@@ -220,8 +233,13 @@ function DashboardDefault() {
             <div className="mb-6 text-center">
               <Html5TwoTone className="mt-6 text-4xl" twoToneColor="#556ee6" />
               <h3 className="my-3">互联网 - 总流量 625</h3>
-              <p className="text-gray-500 text-sm">antd 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品</p>
-              <div className="mt-3 primary text-sm cursor-pointer">了解更多 &gt;</div>
+              <p className="text-gray-500 text-sm">
+                antd 是基于 Ant Design 设计体系的 React UI
+                组件库，主要用于研发企业级中后台产品
+              </p>
+              <div className="mt-3 primary text-sm cursor-pointer">
+                了解更多 &gt;
+              </div>
             </div>
             <div className="flex justify-around">
               {[
@@ -232,11 +250,7 @@ function DashboardDefault() {
                 <div key={label} className="text-center">
                   <Icon size={22} />
                   <div className="my-1">{label}</div>
-                  <div className="text-gray-500 text-sm">
-                    售出
-                    {' '}
-                    {count}
-                  </div>
+                  <div className="text-gray-500 text-sm">售出 {count}</div>
                 </div>
               ))}
             </div>
@@ -271,7 +285,10 @@ function DashboardDefault() {
           <div className="custom-card">
             <h4 className="custom-card__title">热销产品城市分布</h4>
             <div className="mb-8 text-center">
-              <CrownTwoTone className="mt-6 mb-4 text-4xl" twoToneColor="#556ee6" />
+              <CrownTwoTone
+                className="mt-6 mb-4 text-4xl"
+                twoToneColor="#556ee6"
+              />
               <p className="text-2xl font-semibold">1,696</p>
               <div className="mt-1 secondary text-sm">广东省东莞市</div>
             </div>
@@ -281,7 +298,11 @@ function DashboardDefault() {
                 { city: '江苏省上海市', value: 1599, color: 'success' },
                 { city: '江西省南宁市', value: 1298, color: 'warning' },
               ].map(({ city, value, color }) => (
-                <div key={city} className="py-3 flex justify-between items-center" style={{ borderTop: '1px solid #eff2f7' }}>
+                <div
+                  key={city}
+                  className="py-3 flex justify-between items-center"
+                  style={{ borderTop: '1px solid #eff2f7' }}
+                >
                   <div className="w-1/3 truncate">{city}</div>
                   <div>{value.toLocaleString()}</div>
                   <Progress
@@ -308,7 +329,9 @@ function DashboardDefault() {
             dataSource={tableData}
             rowSelection={{
               selectedRowKeys,
-              onChange: (keys) => { setSelectedRowKeys(keys) },
+              onChange: keys => {
+                setSelectedRowKeys(keys)
+              },
             }}
           />
         </div>

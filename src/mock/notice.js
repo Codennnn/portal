@@ -7,35 +7,40 @@ Mock.mock(/\/notice\/list/, 'get', {
       {
         id: 'n1',
         title: '乐享校园二手交易市场',
-        content: 'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
+        content:
+          'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
         time: new Date().getTime() - 1000 * 10,
         type: 0,
       },
       {
         id: 'n2',
         title: '乐享校园二手交易市场',
-        content: 'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
+        content:
+          'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
         time: new Date().getTime() - 1000 * 60 * 5,
         type: 0,
       },
       {
         id: 'n3',
         title: '乐享校园二手交易市场',
-        content: 'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
+        content:
+          'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
         time: new Date().getTime() - 1000 * 60 * 60 * 24 * 15,
         type: 0,
       },
       {
         id: 'n4',
         title: '乐享校园二手交易市场',
-        content: 'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
+        content:
+          'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
         time: new Date().getTime() - 1000 * 60 * 60 * 24 * 366,
         type: 0,
       },
       {
         id: 'n5',
         title: '乐享校园二手交易市场',
-        content: 'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
+        content:
+          'https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png',
         time: new Date().getTime() - 1000 * 60 * 60 * 24 * 700,
         type: 0,
       },

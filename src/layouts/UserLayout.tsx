@@ -61,13 +61,7 @@ function UserLayout() {
 
       <div className="user-layout__right">
         <div style={{ width: '400px' }}>
-          <Carousel
-            autoplay
-            centerMode
-            draggable
-            dotsClass="userdot"
-            effect="fade"
-          >
+          <Carousel autoplay centerMode draggable effect="fade">
             {[
               {
                 img: userPlate1,
