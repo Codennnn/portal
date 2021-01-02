@@ -1,6 +1,6 @@
 const { whenProd } = require('@craco/craco')
 const path = require('path')
-const CracoLessPlugin = require('craco-less')
+const CracoAntDesignPlugin = require('craco-antd')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 
@@ -28,30 +28,28 @@ module.exports = {
         prependData: '@import "@/assets/styles/variables.scss";',
       },
     },
+    postcss: {
+      plugins: [require('tailwindcss'), require('autoprefixer')],
+    },
   },
 
   plugins: [
     {
-      plugin: CracoLessPlugin,
+      plugin: CracoAntDesignPlugin,
       options: {
-        lessLoaderOptions: {
-          lessOptions: {
-            modifyVars: {
-              'primary-color': '#556ee6',
-              'success-color': '#34c38f',
-              'warning-color': '#f1b44c',
-              'error-color': '#f46a6a',
-              'info-color': '#50a5f1',
-              'processing-color': '#6485ff',
-              'text-color': '#495057',
-              'border-radius-base': '6px',
-              'btn-border-radius-base': '5px',
-              'btn-border-radius-sm': '4px',
-              'font-family':
-                "-apple-system, Rubik, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-            },
-            javascriptEnabled: true,
-          },
+        customizeTheme: {
+          '@primary-color': '#556ee6',
+          '@success-color': '#34c38f',
+          '@warning-color': '#f1b44c',
+          '@error-color': '#f46a6a',
+          '@info-color': '#50a5f1',
+          '@processing-color': '#6485ff',
+          '@text-color': '#495057',
+          '@border-radius-base': '6px',
+          '@btn-border-radius-base': '5px',
+          '@btn-border-radius-sm': '4px',
+          '@font-family':
+            "-apple-system, Rubik, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
         },
       },
     },

@@ -11,6 +11,7 @@ import { store, persistor } from '@/redux/createStore'
 import reportWebVitals from './reportWebVitals'
 import '@icon-park/react/styles/index.less'
 import 'antd/dist/antd.css'
+import '@/assets/styles/tailwind.css'
 import '@/assets/styles/main.scss'
 import App from './App'
 
