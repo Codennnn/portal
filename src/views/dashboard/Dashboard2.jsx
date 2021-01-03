@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Avatar, Button, Menu, Dropdown, Badge, Select, Divider } from 'antd'
 import { SettingTwo, MallBag, Wallet, FinancingOne } from '@icon-park/react'
 
-import profileImg from '@img/profile_img.png'
+import profileImg from '@/assets/profile_img.png'
 import styled from 'styled-components'
 
 import LineChart from './charts/LineChart'

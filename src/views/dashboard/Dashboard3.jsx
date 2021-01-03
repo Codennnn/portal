@@ -14,10 +14,10 @@ import {
 import { ArrowRightOutlined } from '@ant-design/icons'
 import { More, SettingOne, Edit } from '@icon-park/react'
 
-import illustration from '@img/illustration_1.png'
-import { ReactComponent as VueIcon } from '@img/icon_vue.svg'
-import { ReactComponent as ReactIcon } from '@img/icon_react.svg'
-import { ReactComponent as AngularIcon } from '@img/icon_angular.svg'
+import illustration from '@/assets/illustration_1.png'
+import { ReactComponent as VueIcon } from '@/assets/icon_vue.svg'
+import { ReactComponent as ReactIcon } from '@/assets/icon_react.svg'
+import { ReactComponent as AngularIcon } from '@/assets/icon_angular.svg'
 import styled from 'styled-components'
 
 import CircleChart from './charts/CircleChart'

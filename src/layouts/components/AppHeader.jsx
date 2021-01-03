@@ -19,7 +19,7 @@ import {
 } from '@icon-park/react'
 import styled from 'styled-components'
 
-import logo from '@img/logo.png'
+import logo from '@/assets/logo.png'
 import Application from './app-header/Application'
 import Notice from './app-header/Notice'
 
@@ -145,7 +145,7 @@ export default function AppHeader({
           />
           <SearchInputStyle>
             <Input
-              style={{ 'margin-right': '4px', color: '#718096' }}
+              style={{ marginRight: '4px', color: '#718096' }}
               prefix={<Search size={16} />}
               placeholder="搜索..."
             />

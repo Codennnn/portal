@@ -19,7 +19,7 @@ import {
 } from '@icon-park/react'
 import classNames from 'classnames'
 
-import profileImg from '@img/profile_img.png'
+import profileImg from '@/assets/profile_img.png'
 import styled from 'styled-components'
 import { getDashboardTableData } from '@/api/common'
 import RadislBarChart from './charts/RadialBarChart'

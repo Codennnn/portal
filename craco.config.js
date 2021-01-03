@@ -8,8 +8,6 @@ module.exports = {
   webpack: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@img': '@/assets/images',
-      '@comp': '@/components',
     },
     plugins: [
       ...whenProd(
@@ -25,7 +23,7 @@ module.exports = {
   style: {
     sass: {
       loaderOptions: {
-        prependData: '@import "@/assets/styles/variables.scss";',
+        prependData: '@import "@/styles/variables.scss";',
       },
     },
     postcss: {

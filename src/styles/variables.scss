@@ -55,11 +55,11 @@ $color-map: (primary: $primary,
   danger: $danger,
   info: $info,
   primary-light: $primary-light,
-  secondary-light:$secondary-light,
-  success-light:$success-light,
-  warning-light:$warning-light,
-  danger-light:$danger-light,
-  info-light:$info-light);
+  secondary-light: $secondary-light,
+  success-light: $success-light,
+  warning-light: $warning-light,
+  danger-light: $danger-light,
+  info-light: $info-light);
 
 @function pxTorem($px) {
   @return $px / $root-font-size * 1rem;

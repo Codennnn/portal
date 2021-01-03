@@ -1,12 +1,12 @@
 {
   "name": "mars",
   "version": "0.1.0",
+  "license": "MIT",
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint": "eslint src"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
@@ -76,6 +76,7 @@
       "react-app/jest"
     ]
   },
+  "eslintIgnore": ["node_modules", "build", "dist"],
   "browserslist": {
     "production": [
       ">0.2%",

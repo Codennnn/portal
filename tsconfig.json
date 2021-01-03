@@ -19,6 +19,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "removeComments": true,
     "jsx": "react-jsx",
     "baseUrl": "."
   },

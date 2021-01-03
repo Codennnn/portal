@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-/**
- * 修改浏览器默认的滚动条样式
- */
+// 修改浏览器默认的滚动条样式 - START
 ::-webkit-scrollbar {
   width: 8px !important;
   height: 8px !important;
@@ -23,6 +21,7 @@
   color: inherit !important;
   background: rgba($primary, 0.2) !important;
 }
+// 修改浏览器默认的滚动条样式 - END
 
 html,
 body {

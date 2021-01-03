@@ -3,11 +3,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: {
-        map: [
-          ['@', './src'],
-          ['@img', './src/assets/images'],
-          ['@comp', './src/components'],
-        ],
+        map: [['@', './src']],
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
       },
     },
