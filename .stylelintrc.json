@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    "stylelint-prettier",
+    "stylelint-order"
+	],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-prettier/recommended",
+    "stylelint-config-rational-order"
+  ],
+  "rules": {
+    "prettier/prettier": [true, { "singleQuote": true }],
+    "selector-type-no-unknown": [true, {
+      "ignoreTypes": ["page", "checkbox", "navigator"]
+    }],
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["mixin", "include", "extend", "each"]
+    }]
+  }
+}

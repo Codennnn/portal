@@ -6,7 +6,22 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "lint": "eslint src"
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
@@ -32,7 +47,15 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
     "prettier": "^2.1.2",
+    "stylelint": "^13.8.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.1.2",
     "webpack-bundle-analyzer": "^4.1.0"
   },
   "dependencies": {
@@ -76,7 +99,11 @@
       "react-app/jest"
     ]
   },
-  "eslintIgnore": ["node_modules", "build", "dist"],
+  "eslintIgnore": [
+    "node_modules",
+    "build",
+    "dist"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

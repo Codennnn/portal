@@ -8,9 +8,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 4px !important;
   background-color: rgba($secondary, 0.2) !important;
   border: none !important;
+  border-radius: 4px !important;
 }
 
 ::-webkit-scrollbar-track-piece {
@@ -35,22 +35,22 @@ code {
     monospace;
 }
 
-.suspense{
+.suspense {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100vh;
   height: 100vh;
-  display:flex;
-  justify-content:center;
-  align-items: center;
 }
 
 #root {
   .app {
-    min-height: 100vh;
     min-width: $layout-min-width;
+    min-height: 100vh;
     background: #f8f8fb;
     transition: $transition;
 
@@ -61,9 +61,9 @@ code {
       width: $sider-opened-width;
       height: 100%;
       padding-top: $header-height;
+      overflow: hidden;
       background: #fff;
       transition: $transition;
-      overflow: hidden;
 
       &.menu-close {
         width: $sider-closed-width !important;
@@ -90,7 +90,7 @@ code {
         }
 
         &.ant-menu-inline-collapsed {
-          >.ant-menu-item {
+          > .ant-menu-item {
             padding: $sider-closed-padding !important;
           }
 
@@ -105,16 +105,37 @@ code {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
       z-index: 999;
+      width: 100%;
       height: $header-height;
       padding-right: $section-gap;
       background: #fff;
 
-      .header{
-        height: 100%;
+      .header {
         display: flex;
         align-items: center;
+        height: 100%;
+      }
+
+      .brand-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $sider-opened-width;
+        transition: $transition;
+
+        &__logo {
+          width: 1.5rem;
+        }
+
+        &__text {
+          max-width: 300px;
+          margin: 0 0.5rem;
+          font-weight: 700;
+          font-size: 1.2rem;
+          white-space: nowrap;
+          transition: all 0.2s;
+        }
       }
 
       &.menu-close {
@@ -129,32 +150,11 @@ code {
         }
       }
 
-      .brand-box {
-        width: $sider-opened-width;
+      .header-right {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: $transition;
-
-        &__logo{
-          width: 1.5rem;
-        }
-
-        &__text {
-          max-width: 300px;
-          margin: 0 0.5rem;
-          font-weight: 700;
-          font-size: 1.2rem;
-          white-space: nowrap;
-          transition: all .2s;
-        }
-      }
-
-      .header-right{
-        height: 100%;
         flex: 1;
-        display: flex;
         align-items: center;
+        height: 100%;
       }
     }
 
@@ -162,45 +162,47 @@ code {
       position: relative;
       height: 100%;
       min-height: 100vh;
-      margin-left: pxTorem($sider-opened-width) + $section-gap;
-      padding-top: pxTorem($header-height) + $section-gap;
+      margin-left: pxtorem($sider-opened-width) + $section-gap;
+      padding-top: pxtorem($header-height) + $section-gap;
       padding-right: $section-gap;
       transition: $transition;
 
       &.menu-close {
-        margin-left: pxTorem($sider-closed-width) + $section-gap;
+        margin-left: pxtorem($sider-closed-width) + $section-gap;
       }
     }
 
     &-section {
-      min-height: calc(100vh - #{$header-height} - #{$footer-height} - #{$section-gap});
+      min-height: calc(
+        100vh - #{$header-height} - #{$footer-height} - #{$section-gap}
+      );
     }
 
     &-footer {
-      height: $footer-height;
       display: flex;
       align-items: center;
+      height: $footer-height;
     }
   }
 }
 
 .user-layout {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
   background-color: #f8f8fb;
 
   &__left {
-    min-height: 100vh;
-    flex: 1;
     display: flex;
+    flex: 1;
     flex-direction: column;
+    min-height: 100vh;
     background: white;
 
     @mixin layoutMargin {
-      margin-left: auto;
       margin-right: 90px;
+      margin-left: auto;
 
       @media (max-width: 1540px) {
         margin-right: auto;
@@ -209,11 +211,12 @@ code {
 
     .form-area {
       @include layoutMargin();
-      flex: 1;
-      width: 22rem;
+
       display: flex;
+      flex: 1;
       flex-direction: column;
       justify-content: center;
+      width: 22rem;
 
       .login-form {
         label.ant-form-item-required {
@@ -248,22 +251,23 @@ code {
 
     .footer {
       @include layoutMargin();
+
       padding: 20px 0;
       color: $secondary;
     }
   }
 
   &__right {
-    flex: 1;
     display: flex;
+    flex: 1;
     align-items: center;
     justify-content: center;
 
     .slick-dots {
       li {
         button {
-          opacity: 0.4;
           background: rgba(var(--primary), 1);
+          opacity: 0.4;
         }
 
         &.slick-active button {
@@ -296,9 +300,9 @@ code {
 
 .custom-card {
   padding: 1.25rem;
-  border-radius: 0.375rem;
-  background-color: #fff;
   overflow: hidden;
+  background-color: #fff;
+  border-radius: 0.375rem;
 
   &__title {
     margin-bottom: 0.5rem;
@@ -321,22 +325,14 @@ code {
   }
 }
 
-.primary.ant-collapse-item>.ant-collapse-header {
+.primary.ant-collapse-item > .ant-collapse-header {
   color: $primary;
 }
 
-@each $color in primary,
-secondary,
-success,
-warning,
-danger,
-info,
-primary-light,
-secondary-light,
-success-light,
-warning-light,
-danger-light,
-info-light {
+@each $color in primary, secondary, success, warning, danger, info,
+  primary-light, secondary-light, success-light, warning-light, danger-light,
+  info-light
+{
   .#{$color} {
     color: map-get($color-map, $color) !important;
   }
