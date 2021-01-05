@@ -1,8 +1,10 @@
 const { whenProd } = require('@craco/craco')
 const path = require('path')
 const CracoAntDesignPlugin = require('craco-antd')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
+
+console.log(process.env.REACT_APP_PAGE_TITLE)
 
 module.exports = {
   webpack: {
@@ -12,12 +14,17 @@ module.exports = {
     plugins: [
       ...whenProd(
         () => [
-          new BundleAnalyzerPlugin(),
+          // new BundleAnalyzerPlugin(),
           new AntdDayjsWebpackPlugin({ replaceMoment: true }),
         ],
         []
       ),
     ],
+    configure: {
+      output: whenProd(() => ({
+        publicPath: '/mars/',
+      })),
+    },
   },
 
   style: {

@@ -27,6 +27,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 2,
     'import/no-anonymous-default-export': [2, { allowArray: true }],
+    '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-use-before-define': 2,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/consistent-type-imports': [
