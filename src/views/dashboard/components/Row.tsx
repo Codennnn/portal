@@ -1,5 +1,4 @@
 import React from 'react'
-import cn from 'classnames'
 
 export default function Row({
   children,
@@ -8,5 +7,5 @@ export default function Row({
   children: JSX.Element | JSX.Element[]
   className?: string
 }) {
-  return <div className={cn(`flex mb-6 ${className}`)}>{children}</div>
+  return <div className={`flex mb-6 ${className}`}>{children}</div>
 }
