@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import {
   Avatar,
   Button,
@@ -14,29 +13,28 @@ import {
 import { ArrowRightOutlined } from '@ant-design/icons'
 import { More, SettingOne, Edit } from '@icon-park/react'
 
+import { useTypedSelector } from '@/redux'
 import illustration from '@/assets/illustration_1.png'
 import { ReactComponent as VueIcon } from '@/assets/icon_vue.svg'
 import { ReactComponent as ReactIcon } from '@/assets/icon_react.svg'
 import { ReactComponent as AngularIcon } from '@/assets/icon_angular.svg'
-import styled from 'styled-components'
 
 import CircleChart from './charts/CircleChart'
 import OverviewChart from './charts/OverviewChart'
+import Row from './components/Row'
 import ChartCards from './components/ChartCards'
 import TransactionList from './components/TransactionList'
 import BuyForm from './components/BuyForm'
 
-const Row = styled.div``
-
-function DashboardCrypto() {
-  const info = useSelector(({ user }) => user.info)
+export default function DashboardCrypto() {
+  const info = useTypedSelector(({ user }) => user.info)
 
   return (
     <>
-      <Row className="mb-6 flex">
+      <Row>
         <div className="w-1/3 pr-3">
           <div className="custom-card">
-            <div className="mb-6 flex items-center justify-between">
+            <div className="flex items-center justify-between mb-6">
               <Avatar size={40} src={info.avatar} />
               <div>
                 <Dropdown
@@ -85,11 +83,11 @@ function DashboardCrypto() {
         </div>
 
         <div className="w-2/3 pl-3">
-          <div className="custom-card mb-6 flex items-center justify-between">
+          <div className="flex items-center justify-between mb-6 custom-card">
             <div>
-              <div className="primary font-bold text-lg">欢迎再次访问</div>
+              <div className="text-lg font-bold primary">欢迎再次访问</div>
               <div className="mt-1 mb-3">Magic UI 数据仪表盘</div>
-              <ul className="pl-5 list-disc text-sm text-gray-600">
+              <ul className="pl-5 text-sm text-gray-600 list-disc">
                 {[
                   '朽骨在此相迎，山谷依然',
                   '在此，懵懂的眼睛，初临惊愕',
@@ -110,7 +108,7 @@ function DashboardCrypto() {
             />
           </div>
 
-          <div className="-mx-3 flex">
+          <div className="flex -mx-3">
             <ChartCards
               data={[
                 {
@@ -151,12 +149,12 @@ function DashboardCrypto() {
           <div className="custom-card">
             <h4 className="custom-card__title">钱包余额</h4>
 
-            <div className="mt-8 flex">
+            <div className="flex mt-8">
               <div className="w-1/3">
                 <div>可用余额</div>
                 <div className="mt-2 text-xl font-bold">￥6134.39</div>
                 <div className="success">+ 0.12 ( 0.02 % ) </div>
-                <div className="mt-5 flex items-center justify-between text-gray-600">
+                <div className="flex items-center justify-between mt-5 text-gray-600">
                   <div className="flex-1">
                     <div>收入</div>
                     <div className="mt-1 text-gray-900">￥2632.46</div>
@@ -167,7 +165,7 @@ function DashboardCrypto() {
                   </div>
                 </div>
                 <Button
-                  className="mt-8 flex items-center"
+                  className="flex items-center mt-8"
                   type="primary"
                   size="large"
                 >
@@ -179,7 +177,7 @@ function DashboardCrypto() {
                 <CircleChart />
               </div>
               <div className="w-1/3">
-                <ul className="h-full py-6 pl-8 flex flex-col justify-between">
+                <ul className="flex flex-col justify-between h-full py-6 pl-8">
                   <li className="text-gray-600">
                     <Badge
                       color="#556ee6"
@@ -391,18 +389,18 @@ function DashboardCrypto() {
                   <div className="mt-1 mb-2 font-bold text-gray-700">
                     令狐少侠
                   </div>
-                  <div className="text-gray-600 text-sm">
+                  <div className="text-sm text-gray-600">
                     水能载舟，亦可赛艇
                   </div>
                 </div>
               </div>
-              <div className="mt-4 flex items-center text-sm text-gray-500">
+              <div className="flex items-center mt-4 text-sm text-gray-500">
                 <div>个人信用等级：</div>
                 <Rate allowHalf defaultValue={4} />
               </div>
             </div>
             <Divider className="m-0" />
-            <div className="w-full py-2 flex items-center">
+            <div className="flex items-center w-full py-2">
               <div className="flex-1 text-center">
                 <SettingOne
                   size={22}
@@ -432,5 +430,3 @@ function DashboardCrypto() {
     </>
   )
 }
-
-export default DashboardCrypto

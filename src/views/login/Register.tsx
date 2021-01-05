@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { setToken } from '@/utils/token'
-import { signIn } from '@/redux/app/appActions'
-import { setUserInfo } from '@/redux/user/userActions'
+import { signIn } from '@/redux/app/app-actions'
+import { setUserInfo } from '@/redux/user/user-actions'
 import { register, login, getUserInfo } from '@/api/user'
 
 import { Form, Input, Button, Checkbox } from 'antd'
@@ -106,7 +106,7 @@ function Register() {
             已经有账号了？
             <Link
               to="/user/login"
-              className="primary opacity-75 hover:opacity-100 transition cursor-pointer"
+              className="transition opacity-75 cursor-pointer primary hover:opacity-100"
             >
               立即登录
             </Link>

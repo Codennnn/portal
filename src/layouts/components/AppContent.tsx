@@ -8,12 +8,14 @@ import {
   useLocation,
 } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { useSelector, useDispatch } from 'react-redux'
-import { signOut } from '@/redux/app/appActions'
+import { useDispatch } from 'react-redux'
+
+import { useTypedSelector } from '@/redux'
+import { signOut } from '@/redux/app/app-actions'
 import { getToken } from '@/utils/token'
 import { hasRoutePermission } from '@/utils/util'
 
-function createRoutes(routes, permissions) {
+function createRoutes(routes, permissions?: string[]) {
   return routes.map(
     ({
       path,
@@ -49,7 +51,7 @@ function AppContent({ routes }) {
   const dispatch = useDispatch()
   const location = useLocation()
   const history = useHistory()
-  const permissions = useSelector(({ user }) => user.info?.permissions)
+  const permissions = useTypedSelector(({ user }) => user.info?.permissions)
 
   useEffect(() => {
     if (!getToken()) {

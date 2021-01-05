@@ -2,8 +2,8 @@ import { createStore, combineReducers } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import app from './app/appReducer'
-import user from './user/userReducer'
+import app from './app/app-reducer'
+import user from './user/user-reducer'
 
 const appPersistConfig = {
   key: 'app',

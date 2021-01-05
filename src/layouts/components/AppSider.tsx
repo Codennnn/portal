@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Menu } from 'antd'
+
+import { useTypedSelector } from '@/redux'
 import { hasRoutePermission } from '@/utils/util'
 
 function subMenuKey(children) {
@@ -90,55 +91,55 @@ renderSubMenu.defaultProps = {
 export default function AppSider({ routes, isSiderOpened }) {
   const { pathname } = useLocation()
   const [openKeys, setOpenKeys] = useState([])
-  const [selectedKeys, setSelectedKeys] = useState([])
-  const permissions = useSelector(({ user }) => user.info?.permissions)
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([])
+  const permissions = useTypedSelector(({ user }) => user.info?.permissions)
 
   useEffect(() => {
     setSelectedKeys([pathname])
   }, [pathname])
 
   // 初始时设置打开的嵌套菜单，避免页面刷新时嵌套菜单关闭
-  useEffect(
-    () => {
-      function findOpenKeys(theRoutes) {
-        const keys = []
-        const justFind = r =>
-          r.some(({ path, children }) => {
-            let hasFoundPath = path === pathname
+  // useEffect(
+  //   () => {
+  //     function findOpenKeys(theRoutes) {
+  //       const keys = []
+  //       const justFind = r =>
+  //         r.some(({ path, children }) => {
+  //           let hasFoundPath = path === pathname
 
-            if (children?.length > 0) {
-              hasFoundPath = children.some(
-                ({ path: routePath, children: childRoutes }) => {
-                  if (childRoutes?.length > 0) {
-                    const isFound = justFind(childRoutes)
-                    if (isFound) {
-                      keys.push(subMenuKey(childRoutes))
-                    }
-                    return isFound
-                  }
-                  return routePath === pathname
-                }
-              )
-              if (hasFoundPath) {
-                keys.push(subMenuKey(children))
-              }
-            }
+  //           if (children?.length > 0) {
+  //             hasFoundPath = children.some(
+  //               ({ path: routePath, children: childRoutes }) => {
+  //                 if (childRoutes?.length > 0) {
+  //                   const isFound = justFind(childRoutes)
+  //                   if (isFound) {
+  //                     keys.push(subMenuKey(childRoutes))
+  //                   }
+  //                   return isFound
+  //                 }
+  //                 return routePath === pathname
+  //               }
+  //             )
+  //             if (hasFoundPath) {
+  //               keys.push(subMenuKey(children))
+  //             }
+  //           }
 
-            return hasFoundPath
-          })
-        justFind(theRoutes)
-        return keys
-      }
-      // FIXME: 此处延迟执行，否则可能由于菜单还没渲染完毕，会出现菜单组无法正常打开的情况，尚未找到解决方法
-      setTimeout(() => {
-        if (isSiderOpened) {
-          setOpenKeys(findOpenKeys(routes))
-        }
-      }, 500)
-    },
-    /* eslint-disable-next-line */
-    [isSiderOpened],
-  )
+  //           return hasFoundPath
+  //         })
+  //       justFind(theRoutes)
+  //       return keys
+  //     }
+  //     // FIXME: 此处延迟执行，否则可能由于菜单还没渲染完毕，会出现菜单组无法正常打开的情况，尚未找到解决方法
+  //     setTimeout(() => {
+  //       if (isSiderOpened) {
+  //         setOpenKeys(findOpenKeys(routes))
+  //       }
+  //     }, 500)
+  //   },
+  //   /* eslint-disable-next-line */
+  //   [isSiderOpened],
+  // )
 
   const onOpenChange = keys => {
     setOpenKeys(keys)

@@ -10,7 +10,7 @@ import '@icon-park/react/styles/index.less'
 
 import './mock'
 import './utils/onlineCheck'
-import { store, persistor } from './redux/createStore'
+import { store, persistor } from './redux'
 // import reportWebVitals from './reportWebVitals'
 import './styles/tailwind.css'
 import './styles/main.scss'

@@ -5,26 +5,26 @@
   --warning: 241, 180, 76;
   --danger: 244, 106, 106;
   --info: 80, 165, 241;
-  --primary-light: var(--primary), .14;
-  --secondary-light: var(--secondary), .14;
-  --success-light: var(--success), .14;
-  --warning-light: var(--warning), .14;
-  --danger-light: var(--danger), .14;
-  --info-light: var(--info), .14;
+  --primary-light: var(--primary), 0.14;
+  --secondary-light: var(--secondary), 0.14;
+  --success-light: var(--success), 0.14;
+  --warning-light: var(--warning), 0.14;
+  --danger-light: var(--danger), 0.14;
+  --info-light: var(--info), 0.14;
 }
 
 $primary: #556ee6;
 $secondary: #74788d;
-$success : #34c38f;
-$warning:#f1b44c;
+$success: #34c38f;
+$warning: #f1b44c;
 $danger: #f46a6a;
 $info: #50a5f1;
-$primary-light: rgba(var(--primary), .14);
-$secondary-light: rgba(var(--secondary), .14);
-$success-light: rgba(var(--success), .14);
-$warning-light: rgba(var(--warning), .14);
-$danger-light: rgba(var(--danger), .14);
-$info-light: rgba(var(--info), .14);
+$primary-light: rgba($primary, 0.14);
+$secondary-light: rgba($secondary, 0.14);
+$success-light: rgba($success, 0.14);
+$warning-light: rgba($warning, 0.14);
+$danger-light: rgba($danger, 0.14);
+$info-light: rgba($info, 0.14);
 
 $root-font-size: 16px;
 $side-menu-icon-size: 20px;
@@ -40,15 +40,18 @@ $sider-closed-padding: 0 26px 0 28px;
 $header-height: 70px;
 $header-logo-height: 69px;
 $footer-height: 64px;
-$full-height: calc(100vh - #{$header-height} - #{$footer-height} - 2 * #{$section-gap});
+$full-height: calc(
+  100vh - #{$header-height} - #{$footer-height} - 2 * #{$section-gap}
+);
 
 $app-bg: rgb(246, 248, 251);
 
-$header-shadow: 0 4px 20px 0 rgba(0, 0, 0, .05);
+$header-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
 
 $transition: all 0.3s;
 
-$color-map: (primary: $primary,
+$color-map: (
+  primary: $primary,
   secondary: $secondary,
   success: $success,
   warning: $warning,
@@ -59,8 +62,9 @@ $color-map: (primary: $primary,
   success-light: $success-light,
   warning-light: $warning-light,
   danger-light: $danger-light,
-  info-light: $info-light);
+  info-light: $info-light,
+);
 
-@function pxTorem($px) {
+@function px2rem($px) {
   @return $px / $root-font-size * 1rem;
 }

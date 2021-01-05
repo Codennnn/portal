@@ -34,7 +34,7 @@ export default function Notice() {
       {noticeItems.map(({ label, count }) => (
         <Menu.Item
           key={label}
-          className="py-2 flex items-center cursor-pointer"
+          className="flex items-center py-2 cursor-pointer"
           onClick={routeToNotice}
         >
           <div className="mr-4">{label}</div>

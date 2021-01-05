@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useTypedSelector } from '@/redux/user/userReducer'
 import { Avatar, Button, Timeline, Progress, Table } from 'antd'
 import {
   Html5TwoTone,
@@ -18,16 +17,15 @@ import {
   Xigua,
 } from '@icon-park/react'
 import classNames from 'classnames'
-
-import profileImg from '@/assets/profile_img.png'
 import styled from 'styled-components'
+
+import { useTypedSelector } from '@/redux'
+import profileImg from '@/assets/profile_img.png'
 import { getDashboardTableData } from '@/api/common'
+import Row from './components/Row'
 import RadislBarChart from './charts/RadialBarChart'
 import StackedColumnChart from './charts/StackedColumnChart'
 
-const Row = styled.div`
-  position: relative;
-`
 const IconStyle = styled.div`
   &::after {
     left: 50%;
@@ -122,8 +120,8 @@ export default function DashboardDefault() {
   return (
     <>
       <Row>
-        <div className="w-1/3 pr-3 flex flex-col">
-          <div className="mb-6 bg-white rounded-md overflow-hidden">
+        <div className="flex flex-col w-1/3 pr-3">
+          <div className="mb-6 overflow-hidden bg-white rounded-md">
             <div
               style={{ background: 'rgba(var(--primary), .25)' }}
               className="relative p-4 primary"
@@ -131,7 +129,7 @@ export default function DashboardDefault() {
               <p className="mb-2 font-bold">{`欢迎回来，${nickname}`}</p>
               <p className="mb-6 text-xs">MagicUI 数据分析</p>
               <img
-                className="absolute right-0 bottom-0 w-2/5"
+                className="absolute bottom-0 right-0 w-2/5"
                 src={profileImg}
                 alt="profile"
               />
@@ -145,12 +143,12 @@ export default function DashboardDefault() {
                   style={{ bottom: '25px', boxShadow: '0 0 0 5px #fff' }}
                 />
                 <div className="truncate">令狐少侠</div>
-                <div className="mt-2 secondary truncate text-sm">
+                <div className="mt-2 text-sm truncate secondary">
                   前端开发工程师
                 </div>
               </div>
-              <div className="w-2/3 ml-auto p-5">
-                <div className="mb-6 flex">
+              <div className="w-2/3 p-5 ml-auto">
+                <div className="flex mb-6">
                   <div className="flex-1">
                     <div className="mb-2 font-semibold">125</div>
                     <div className="text-xs secondary">项 目</div>
@@ -168,7 +166,7 @@ export default function DashboardDefault() {
             <h4 className="custom-card__title">每月收入</h4>
             <div className="flex items-center">
               <div>
-                <div className="text-gray-500 text-sm">本月累计</div>
+                <div className="text-sm text-gray-500">本月累计</div>
                 <div className="mt-3 mb-1 text-xl font-bold">￥34,252</div>
                 <p className="mb-5 text-sm">
                   较上期&nbsp;
@@ -185,7 +183,7 @@ export default function DashboardDefault() {
                 <RadislBarChart />
               </div>
             </div>
-            <div className="mt-3 flex items-center text-gray-500 text-sm">
+            <div className="flex items-center mt-3 text-sm text-gray-500">
               <Help size={18} className="mr-1" />
               盈利率通过特定方法计算，具体计算方法请查看...
             </div>
@@ -193,7 +191,7 @@ export default function DashboardDefault() {
         </div>
 
         <div className="w-2/3 pl-3">
-          <div className="mb-6 flex">
+          <div className="flex mb-6">
             {[
               { label: '订单数', value: '1,235', icon: AdProduct },
               { label: '净收入', value: '￥1,235', icon: StereoNesting },
@@ -208,7 +206,7 @@ export default function DashboardDefault() {
               >
                 <div>
                   <div className="mb-3 secondary">{label}</div>
-                  <div className="font-semibold text-xl">{value}</div>
+                  <div className="text-xl font-semibold">{value}</div>
                 </div>
                 <IconStyle className="bg-primary">
                   <Icon size={22} />
@@ -217,12 +215,12 @@ export default function DashboardDefault() {
             ))}
           </div>
           <div className="custom-card">
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <h4 className="custom-card__title">销售统计数据</h4>
               <div className="flex items-center text-sm">
                 <div className="cursor-pointer">按周</div>
                 <div className="mx-6 cursor-pointer">按月</div>
-                <div className="bg-primary text-white px-3 py-1 rounded cursor-pointer">
+                <div className="px-3 py-1 text-white rounded cursor-pointer bg-primary">
                   按年
                 </div>
               </div>
@@ -239,11 +237,11 @@ export default function DashboardDefault() {
             <div className="mb-6 text-center">
               <Html5TwoTone className="mt-6 text-4xl" twoToneColor="#556ee6" />
               <h3 className="my-3">互联网 - 总流量 625</h3>
-              <p className="text-gray-500 text-sm">
+              <p className="text-sm text-gray-500">
                 antd 是基于 Ant Design 设计体系的 React UI
                 组件库，主要用于研发企业级中后台产品
               </p>
-              <div className="mt-3 primary text-sm cursor-pointer">
+              <div className="mt-3 text-sm cursor-pointer primary">
                 了解更多 &gt;
               </div>
             </div>
@@ -256,7 +254,7 @@ export default function DashboardDefault() {
                 <div key={label} className="text-center">
                   <Icon size={22} />
                   <div className="my-1">{label}</div>
-                  <div className="text-gray-500 text-sm">售出 {count}</div>
+                  <div className="text-sm text-gray-500">售出 {count}</div>
                 </div>
               ))}
             </div>
@@ -296,7 +294,7 @@ export default function DashboardDefault() {
                 twoToneColor="#556ee6"
               />
               <p className="text-2xl font-semibold">1,696</p>
-              <div className="mt-1 secondary text-sm">广东省东莞市</div>
+              <div className="mt-1 text-sm secondary">广东省东莞市</div>
             </div>
             <div>
               {[
@@ -306,7 +304,7 @@ export default function DashboardDefault() {
               ].map(({ city, value, color }) => (
                 <div
                   key={city}
-                  className="py-3 flex justify-between items-center"
+                  className="flex items-center justify-between py-3"
                   style={{ borderTop: '1px solid #eff2f7' }}
                 >
                   <div className="w-1/3 truncate">{city}</div>
@@ -326,7 +324,7 @@ export default function DashboardDefault() {
       </Row>
 
       <Row>
-        <div className="custom-card w-full">
+        <div className="w-full custom-card">
           <h4 className="custom-card__title">最新交易记录</h4>
           <Table
             rowKey="id"

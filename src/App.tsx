@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import {
   BrowserRouter,
   HashRouter,
@@ -7,12 +6,14 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom'
+
+import { useTypedSelector } from '@/redux'
 import UserLayout from '@/layouts/UserLayout'
 import MainLayout from '@/layouts/MainLayout'
 import NotFound from '@/views/error-page/NotFound'
 
 function AppRouter() {
-  const isLogin = useSelector(({ app }: any) => app.isLogin)
+  const isLogin = useTypedSelector(({ app }) => app.isLogin)
   const routeMode = {
     history: BrowserRouter,
     hash: HashRouter,
@@ -41,12 +42,10 @@ function AppRouter() {
   )
 }
 
-function App() {
+export default function App() {
   return (
     <div className="app">
       <AppRouter />
     </div>
   )
 }
-
-export default App

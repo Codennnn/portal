@@ -162,13 +162,13 @@ code {
       position: relative;
       height: 100%;
       min-height: 100vh;
-      margin-left: pxtorem($sider-opened-width) + $section-gap;
-      padding-top: pxtorem($header-height) + $section-gap;
+      margin-left: px2rem($sider-opened-width) + $section-gap;
+      padding-top: px2rem($header-height) + $section-gap;
       padding-right: $section-gap;
       transition: $transition;
 
       &.menu-close {
-        margin-left: pxtorem($sider-closed-width) + $section-gap;
+        margin-left: px2rem($sider-closed-width) + $section-gap;
       }
     }
 
