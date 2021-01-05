@@ -10,9 +10,6 @@
   ],
   "rules": {
     "prettier/prettier": [true, { "singleQuote": true }],
-    "selector-type-no-unknown": [true, {
-      "ignoreTypes": ["page", "checkbox", "navigator"]
-    }],
     "at-rule-no-unknown": [true, {
       "ignoreAtRules": ["mixin", "include", "extend", "each"]
     }]

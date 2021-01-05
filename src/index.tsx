@@ -11,7 +11,7 @@ import '@icon-park/react/styles/index.less'
 import './mock'
 import './utils/onlineCheck'
 import { store, persistor } from './redux/createStore'
-import reportWebVitals from './reportWebVitals'
+// import reportWebVitals from './reportWebVitals'
 import './styles/tailwind.css'
 import './styles/main.scss'
 import App from './App'
@@ -42,4 +42,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
+// reportWebVitals()

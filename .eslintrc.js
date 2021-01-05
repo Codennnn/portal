@@ -28,5 +28,12 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'import/no-anonymous-default-export': [2, { allowArray: true }],
+    '@typescript-eslint/consistent-type-imports': [
+      2,
+      {
+        prefer: 'type-imports',
+        disallowTypeAnnotations: true,
+      },
+    ],
   },
 }

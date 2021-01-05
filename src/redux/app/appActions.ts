@@ -1,5 +1,5 @@
+import type { AppActionTypes } from './appActionTypes'
 import {
-  AppActionTypes,
   OPEN_SIDER,
   CLOSE_SIDER,
   SET_HEADER_STATUS,

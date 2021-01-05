@@ -1,13 +1,13 @@
-import { message as Message } from 'antd'
+import { message } from 'antd'
 
 const messageKey = 'onlineCheck'
 
 window.addEventListener('online', () => {
-  Message.destroy(messageKey)
+  message.destroy(messageKey)
 })
 
 window.addEventListener('offline', () => {
-  Message.error({
+  message.error({
     content: '网络连接已断开',
     duration: 0,
     key: messageKey,

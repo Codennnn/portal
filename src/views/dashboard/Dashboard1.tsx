@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useTypedSelector } from '@/redux/user/userReducer'
 import { Avatar, Button, Timeline, Progress, Table } from 'antd'
 import {
   Html5TwoTone,
@@ -25,19 +25,21 @@ import { getDashboardTableData } from '@/api/common'
 import RadislBarChart from './charts/RadialBarChart'
 import StackedColumnChart from './charts/StackedColumnChart'
 
-const Row = styled.div``
+const Row = styled.div`
+  position: relative;
+`
 const IconStyle = styled.div`
   &::after {
-    content: '';
     left: 50%;
-    transform: translateX(-50%) rotate(30deg);
     background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-50%) rotate(30deg);
+    content: '';
   }
 `
 
-function DashboardDefault() {
-  const nickname = useSelector(({ user }) => user.info.nickname)
-  const avatar = useSelector(({ user }) => user.info.avatar)
+export default function DashboardDefault() {
+  const nickname = useTypedSelector(({ user }) => user.info.nickname)
+  const avatar = useTypedSelector(({ user }) => user.info.avatar)
   const tableColumn = [
     {
       title: '订单 ID',
@@ -61,14 +63,16 @@ function DashboardDefault() {
       title: '支付状态',
       dataIndex: 'status',
       render: status => {
-        let statusClass
-        if (status === 1) {
-          statusClass = 'success bg-success-light'
-        } else if (status === 0) {
-          statusClass = 'danger bg-danger-light'
-        } else {
-          statusClass = 'warning bg-warning-light'
-        }
+        const statusClass = (state => {
+          switch (state) {
+            case 1:
+              return 'success bg-success-light'
+            case 0:
+              return 'danger bg-danger-light'
+            default:
+              return 'warning bg-warning-light'
+          }
+        })(status)
         return (
           <span className={`px-2 py-1 rounded-lg ${statusClass}`}>
             {status === 1 ? '支付完成' : '支付失败'}
@@ -96,7 +100,9 @@ function DashboardDefault() {
   ]
   const [tableLoading, setTableLoading] = useState(false)
   const [tableData, setTableData] = useState([])
-  const [selectedRowKeys, setSelectedRowKeys] = useState([])
+  const [selectedRowKeys, setSelectedRowKeys] = useState<(string | number)[]>(
+    []
+  )
 
   useEffect(() => {
     async function getTableData() {
@@ -339,5 +345,3 @@ function DashboardDefault() {
     </>
   )
 }
-
-export default DashboardDefault

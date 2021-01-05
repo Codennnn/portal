@@ -62,7 +62,10 @@ export function isFunction(value) {
 /**
  * 检测是否拥有路由权限
  */
-export function hasRoutePermission(routePermission, permissions = []) {
+export function hasRoutePermission(
+  routePermission,
+  permissions: string[] = []
+) {
   if (permissions.includes('admin')) {
     return true
   }

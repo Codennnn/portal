@@ -1,5 +1,7 @@
 import request from '@/utils/axios'
 
+type User = { username: string; password: string }
+
 export function getUserInfo() {
   return request({
     url: '/user/info',
@@ -7,10 +9,7 @@ export function getUserInfo() {
   })
 }
 
-export function login(data: {
-  username: string
-  password: string
-}): { token: string } {
+export function login(data: User) {
   return request({
     url: '/user/login',
     method: 'post',
@@ -18,7 +17,7 @@ export function login(data: {
   })
 }
 
-export function logout(data: { username: string; password: string }) {
+export function logout(data: User) {
   return request({
     url: '/user/logout',
     method: 'post',
@@ -26,7 +25,7 @@ export function logout(data: { username: string; password: string }) {
   })
 }
 
-export function register(data: { username: string; password: string }) {
+export function register(data: User) {
   return request({
     url: '/user/register',
     method: 'post',

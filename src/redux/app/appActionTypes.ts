@@ -9,7 +9,7 @@ export interface AppState {
   isSiderOpened: boolean
   isHeaderFixed: boolean
   isLogin: boolean
-  routes: Array<any>
+  routes: any[]
 }
 
 interface SignInAction {

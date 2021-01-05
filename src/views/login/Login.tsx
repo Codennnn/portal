@@ -14,6 +14,7 @@ function Login() {
   const history = useHistory()
 
   const [form] = Form.useForm()
+
   // MOCK: 自动填入账号和密码
   useEffect(() => {
     form.setFieldsValue({
@@ -35,8 +36,8 @@ function Login() {
       const tokenExpires = values.rememberMe ? 30 : undefined
       setToken(token, tokenExpires)
 
-      await dispatch(setUserInfo(info))
-      await dispatch(signIn())
+      dispatch(setUserInfo(info))
+      dispatch(signIn())
       history.replace('/')
     } catch {
       setBtnLoading(false)

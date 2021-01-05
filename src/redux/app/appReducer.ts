@@ -1,8 +1,8 @@
+import { createSelectorHook } from 'react-redux'
 import { getToken } from '@/utils/token'
 import routes from '@/routes'
+import type { AppState, AppActionTypes } from './appActionTypes'
 import {
-  AppState,
-  AppActionTypes,
   OPEN_SIDER,
   CLOSE_SIDER,
   SET_HEADER_STATUS,
@@ -11,10 +11,12 @@ import {
   SET_ROUTES,
 } from './appActionTypes'
 
+export const useTypedSelector = createSelectorHook<Record<'app', AppState>>()
+
 const initialState: AppState = {
   isSiderOpened: true,
   isHeaderFixed: true,
-  isLogin: !!getToken() || false,
+  isLogin: !!getToken(),
   routes,
 }
 
