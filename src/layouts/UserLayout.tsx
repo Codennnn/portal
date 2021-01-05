@@ -2,6 +2,7 @@ import React, { lazy } from 'react'
 import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom'
 import { Carousel } from 'antd'
 import { Helmet } from 'react-helmet-async'
+
 import logo from '@/assets/logo.png'
 import userPlate1 from '@/assets/user_plate_1.png'
 import userPlate2 from '@/assets/user_plate_2.png'
@@ -23,7 +24,7 @@ function UserLayout() {
         <div className="form-area">
           <div className="flex items-center">
             <img className="w-8 mr-4" src={logo} alt="logo" />
-            <div className="brand-box__text text-2xl font-bold whitespace-no-wrap">
+            <div className="text-2xl font-bold whitespace-no-wrap brand-box__text">
               React Admin
             </div>
           </div>
@@ -49,11 +50,11 @@ function UserLayout() {
           </Switch>
         </div>
 
-        <div className="footer text-sm">
-          <ul className="mb-2 flex items-center">
-            <li className="mr-6 primary cursor-pointer">项目地址</li>
-            <li className="mr-6 primary cursor-pointer">源码仓库</li>
-            <li className="mr-6 primary cursor-pointer">Github</li>
+        <div className="text-sm footer">
+          <ul className="flex items-center mb-2">
+            <li className="mr-6 cursor-pointer primary">项目地址</li>
+            <li className="mr-6 cursor-pointer primary">源码仓库</li>
+            <li className="mr-6 cursor-pointer primary">Github</li>
           </ul>
           <p>© 2020 MagicUI. Made By 令狐少侠</p>
         </div>
@@ -84,7 +85,7 @@ function UserLayout() {
               <div key={title}>
                 <img className="w-full" src={img} alt="logo" />
                 <div className="pt-4 pb-10">
-                  <h2 className="mb-2 text-center text-xl font-bold">
+                  <h2 className="mb-2 text-xl font-bold text-center">
                     {title}
                   </h2>
                   <p className="text-center">{text}</p>

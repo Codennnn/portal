@@ -7,6 +7,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "deploy": "push-dir --dir=build --branch=gh-pages --cleanup",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "husky": {
@@ -52,6 +53,7 @@
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "prettier": "^2.1.2",
+    "push-dir": "^0.4.1",
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",

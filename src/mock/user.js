@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 
-Mock.mock('/user/info', 'get', {
+Mock.mock(/\/user\/info/, 'get', {
   code: 2000,
   data: {
     info: {
@@ -13,7 +13,7 @@ Mock.mock('/user/info', 'get', {
   },
 })
 
-Mock.mock('/user/login', 'post', {
+Mock.mock(/\/user\/login/, 'post', {
   code: 2000,
   data: {
     token: 'token_123456',

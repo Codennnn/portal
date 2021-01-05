@@ -13,5 +13,6 @@
     "at-rule-no-unknown": [true, {
       "ignoreAtRules": ["mixin", "include", "extend", "each", "function", "return"]
     }]
-  }
+  },
+  "ignoreFiles": ["build"]
 }

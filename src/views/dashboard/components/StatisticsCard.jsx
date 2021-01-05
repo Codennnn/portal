@@ -12,56 +12,53 @@ const IconStyle = styled.div`
 export default function StatisticsCard({ data }) {
   return (
     <>
-      {
-        /* eslint-disable-next-line */
-        data.map(({ label, Icon, value, percent }) => (
-          <div className="md:w-1/3 lg:w-1/4 lg:pl-6" key={label}>
-            <div className="h-full p-4 flex flex-col justify-between bg-white rounded">
-              <div className="flex items-center">
-                <IconStyle>
-                  <Icon strokeWidth={3.5} size={21} />
-                </IconStyle>
-                <span>{label}</span>
+      {data.map(({ label, Icon, value, percent }) => (
+        <div className="md:w-1/3 lg:w-1/4 lg:pl-6" key={label}>
+          <div className="flex flex-col justify-between h-full p-4 bg-white rounded">
+            <div className="flex items-center">
+              <IconStyle>
+                <Icon strokeWidth={3.5} size={21} />
+              </IconStyle>
+              <span>{label}</span>
+            </div>
+            <div>
+              <div className="flex items-center mb-1 text-xl font-semibold">
+                ￥{value}
+                {percent > 0 ? (
+                  <UpOutlined className="ml-2 text-xs success" />
+                ) : percent < 0 ? (
+                  <DownOutlined className="ml-2 text-xs danger" />
+                ) : null}
               </div>
-              <div>
-                <div className="mb-1 flex items-center font-semibold text-xl">
-                  ￥{value}
-                  {percent > 0 ? (
-                    <UpOutlined className="ml-2 success text-xs" />
-                  ) : percent < 0 ? (
-                    <DownOutlined className="ml-2 danger text-xs" />
-                  ) : null}
+              <div className="flex items-center text-sm text-gray-500">
+                <div
+                  className={classNames(
+                    'mr-2 px-2 flex items-center justify-center rounded ',
+                    {
+                      success: percent > 0,
+                      danger: percent < 0,
+                      warning: percent === 0,
+                    }
+                  )}
+                  style={{
+                    background:
+                      percent > 0
+                        ? 'rgba(var(--success), .2)'
+                        : percent < 0
+                        ? 'rgba(var(--danger), .2)'
+                        : 'rgba(var(--warning), .2)',
+                    fontSize: '12px',
+                  }}
+                >
+                  {percent > 0 ? '+' : percent < 0 ? '-' : ''}{' '}
+                  {Math.abs(percent)}%
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
-                  <div
-                    className={classNames(
-                      'mr-2 px-2 flex items-center justify-center rounded ',
-                      {
-                        success: percent > 0,
-                        danger: percent < 0,
-                        warning: percent === 0,
-                      }
-                    )}
-                    style={{
-                      background:
-                        percent > 0
-                          ? 'rgba(var(--success), .2)'
-                          : percent < 0
-                          ? 'rgba(var(--danger), .2)'
-                          : 'rgba(var(--warning), .2)',
-                      fontSize: '12px',
-                    }}
-                  >
-                    {percent > 0 ? '+' : percent < 0 ? '-' : ''}{' '}
-                    {Math.abs(percent)}%
-                  </div>
-                  同比上期
-                </div>
+                同比上期
               </div>
             </div>
           </div>
-        ))
-      }
+        </div>
+      ))}
     </>
   )
 }

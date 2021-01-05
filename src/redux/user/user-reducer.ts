@@ -8,7 +8,7 @@ const initialState: UserState = {
 export default function userReducer(
   state = initialState,
   { type, payload }: UserActionTypes
-): UserState {
+) {
   switch (type) {
     case SET_USER_INFO:
       return { ...state, info: payload as UserState['info'] }

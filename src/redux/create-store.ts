@@ -22,4 +22,6 @@ const rootReducer = combineReducers({
 })
 
 export const store = createStore(rootReducer)
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export const persistor = persistStore(store)

@@ -96,7 +96,7 @@ export default function NewProject() {
         </Form.Item>
 
         <Collapse ghost>
-          <Collapse.Panel header="高级设置" className="primary">
+          <Collapse.Panel key="id" header="高级设置" className="primary">
             <Form.Item label="工作空间" name="aa">
               <Select placeholder="请选择工作空间">
                 <Select.Option value="jack">Jack</Select.Option>

@@ -26,9 +26,9 @@ export default function ProjectList() {
     getProjects()
   }, [])
 
-  const dropdownMenu = row => (
+  const dropdownMenu = rowData => (
     <Menu>
-      <Menu.Item row={row}>查看</Menu.Item>
+      <Menu.Item>查看</Menu.Item>
       <Menu.Item>编辑</Menu.Item>
       <Menu.Item>删除</Menu.Item>
     </Menu>
@@ -105,7 +105,6 @@ export default function ProjectList() {
 
   return (
     <>
-      <div></div>
       <Table
         rowKey="id"
         loading={tableLoading}

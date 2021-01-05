@@ -18,7 +18,7 @@ const initialState: AppState = {
 export default function appReducer(
   state = initialState,
   { type, payload }: AppActionTypes
-): AppState {
+) {
   switch (type) {
     case SET_LOGIN_STATUS:
       return { ...state, isLogin: payload as boolean }

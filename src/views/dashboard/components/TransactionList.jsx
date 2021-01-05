@@ -23,11 +23,10 @@ export default function TaskList({ data }) {
     <PerfectScrollbar style={{ maxHeight: '300px' }}>
       <ul>
         {data.length > 0 ? (
-          /* eslint-disable-next-line */
           data.map(({ id, type, title, time, value, count }) => (
             <li
               key={id}
-              className="py-4 flex items-center"
+              className="flex items-center py-4"
               style={{ borderBottom: '1px solid #f1f1f1' }}
             >
               <div className="px-3">
@@ -48,8 +47,8 @@ export default function TaskList({ data }) {
                   {dayjs(time).format('YYYY-MM-DD')}
                 </div>
               </div>
-              <div className="px-3 ml-auto flex items-center">{value}</div>
-              <div className="px-3 flex items-center">￥{count}</div>
+              <div className="flex items-center px-3 ml-auto">{value}</div>
+              <div className="flex items-center px-3">￥{count}</div>
             </li>
           ))
         ) : (

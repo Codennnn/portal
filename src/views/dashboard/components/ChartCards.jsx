@@ -14,11 +14,11 @@ function ChartCard({
 }) {
   return (
     <div className="custom-card">
-      <div className="mb-8 flex items-center">
+      <div className="flex items-center mb-8">
         <Icon className="w-8 mr-6" />
         <div className="text-lg font-bold">{name}</div>
       </div>
-      <div className="h-12 flex items-center justify-between">
+      <div className="flex items-center justify-between h-12">
         <div className="mr-6 whitespace-no-wrap">
           <div className="mb-2 text-lg font-semibold">{count}</div>
           <div className="text-sm text-gray-600 truncate">{value}</div>
@@ -49,23 +49,21 @@ ChartCard.propTypes = {
 export default function ChartCards({ data }) {
   return (
     <>
-      {
-        /* eslint-disable-next-line */
-        data.map(({ icon, name, seriesName, seriesData, color, count, value }) => (
-            <div key={name} className="w-1/3 px-3">
-              <ChartCard
-                Icon={icon}
-                name={name}
-                seriesName={seriesName}
-                seriesData={seriesData}
-                color={color}
-                count={count}
-                value={value}
-              />
-            </div>
-          )
+      {data.map(
+        ({ icon, name, seriesName, seriesData, color, count, value }) => (
+          <div key={name} className="w-1/3 px-3">
+            <ChartCard
+              Icon={icon}
+              name={name}
+              seriesName={seriesName}
+              seriesData={seriesData}
+              color={color}
+              count={count}
+              value={value}
+            />
+          </div>
         )
-      }
+      )}
     </>
   )
 }
