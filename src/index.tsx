@@ -9,11 +9,12 @@ import 'antd/dist/antd.css'
 import '@icon-park/react/styles/index.less'
 
 import './mock'
-import './utils/onlineCheck'
+import './utils/network-detection'
 import { store, persistor } from './redux'
 // import reportWebVitals from './reportWebVitals'
 import './styles/tailwind.css'
-import './styles/main.scss'
+import './styles/app.scss'
+import './styles/layout.scss'
 import App from './App'
 
 ReactDOM.render(

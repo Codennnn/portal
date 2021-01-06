@@ -1,10 +1,10 @@
 // 引入 dotenv/config 解决环境变量 undefined 的问题
 // https://github.com/gsoft-inc/craco/issues/198#issuecomment-727926522
-require('dotenv/config')
-const { whenProd } = require('@craco/craco')
+require('dotenv').config()
+const { whenProd, when } = require('@craco/craco')
 const path = require('path')
 const CracoAntDesignPlugin = require('craco-antd')
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 
 module.exports = {
@@ -14,10 +14,12 @@ module.exports = {
     },
     plugins: [
       ...whenProd(
-        () => [
-          // new BundleAnalyzerPlugin(),
-          new AntdDayjsWebpackPlugin({ replaceMoment: true }),
-        ],
+        () => [new AntdDayjsWebpackPlugin({ replaceMoment: true })],
+        []
+      ),
+      ...when(
+        process.env.SCRIPT_TYPE === 'analyze',
+        () => [new BundleAnalyzerPlugin()],
         []
       ),
     ],

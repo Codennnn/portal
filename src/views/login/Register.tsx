@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { setToken } from '@/utils/token'
+import { useTypedDispatch } from '@/redux'
 import { signIn } from '@/redux/app/app-actions'
 import { setUserInfo } from '@/redux/user/user-actions'
 import { register, login, getUserInfo } from '@/api/user'
@@ -9,7 +9,7 @@ import { register, login, getUserInfo } from '@/api/user'
 import { Form, Input, Button, Checkbox } from 'antd'
 
 function Register() {
-  const dispatch = useDispatch()
+  const dispatch = useTypedDispatch()
   const [btnLoading, setBtnLoading] = useState(false)
   const history = useHistory()
 

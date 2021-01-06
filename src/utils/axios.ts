@@ -3,7 +3,7 @@ import axios from 'axios'
 import { getToken, removeToken } from '@/utils/token'
 import { message as Message, notification as Notification } from 'antd'
 
-const responseHandler: any = {
+const responseHandler = {
   errorNotify({
     message = '哎呀！',
     description = '请求出错啦！',
@@ -11,7 +11,7 @@ const responseHandler: any = {
   }: {
     message?: string
     description?: string
-    duration?: any
+    duration?: number | null
   } = {}) {
     Notification.error({
       message,
@@ -35,7 +35,7 @@ const responseHandler: any = {
     this.errorNotify({
       message: `${status}`,
       description: '登录过期，请重新登录~',
-      duration: '3000',
+      duration: 3000,
     })
   },
   500(status: number, statusText: string) {
@@ -65,7 +65,7 @@ const service: AxiosInstance = axios.create({
   withCredentials: true,
 })
 
-service.interceptors.request.use((config: any) => {
+service.interceptors.request.use(config => {
   const token = getToken()
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
@@ -73,7 +73,7 @@ service.interceptors.request.use((config: any) => {
   return config
 }, errorHandler)
 
-service.interceptors.response.use((response: any) => {
+service.interceptors.response.use(response => {
   const { data } = response
 
   const { code, msg = '接口异常' } = data

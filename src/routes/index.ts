@@ -19,7 +19,7 @@ const Notice = lazy(() => import('@/views/notice/Notice'))
 const Page = lazy(() => import('@/views/page/Page'))
 const Test = lazy(() => import('@/views/test/Test'))
 
-export default [
+const routes: Routes = [
   {
     title: '数据分析',
     icon: ChartLine,
@@ -107,9 +107,11 @@ export default [
   {
     path: '/test',
     title: '功能测试',
-    hidden: !process.env.NODE_ENV === 'development',
+    hidden: process.env.NODE_ENV !== 'development',
     component: Test,
     icon: ExperimentOne,
     permissions: ['test'],
   },
 ]
+
+export default routes

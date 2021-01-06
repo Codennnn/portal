@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { FullScreen, useFullScreenHandle } from 'react-full-screen'
-import classNames from 'classnames'
+import _ from 'classnames'
 import _debounce from 'lodash.debounce'
 import { openSider, closeSider } from '@/redux/app/app-actions'
 
-import { useTypedSelector } from '@/redux'
+import { useTypedDispatch, useTypedSelector } from '@/redux'
 import AppSider from './components/AppSider'
 import AppHeader from './components/AppHeader'
 import AppContent from './components/AppContent'
 import AppFooter from './components/AppFooter'
 
 export default function MainLayout() {
+  const dispatch = useTypedDispatch()
   const routes = useTypedSelector(({ app }) => app.routes)
   const isSiderOpened = useTypedSelector(({ app }) => app.isSiderOpened)
-  const dispatch = useDispatch()
   const handle = useFullScreenHandle()
   const [screen, setScreen] = useState(handle.active)
 
@@ -42,18 +41,12 @@ export default function MainLayout() {
 
   return (
     <FullScreen handle={handle} onChange={setScreen}>
-      <aside
-        className={classNames('app-aside', { 'menu-close': !isSiderOpened })}
-      >
+      <aside className={_('app-aside', { 'menu-close': !isSiderOpened })}>
         <AppSider isSiderOpened={isSiderOpened} routes={routes} />
       </aside>
 
-      <main
-        className={classNames('app-main', { 'menu-close': !isSiderOpened })}
-      >
-        <header
-          className={classNames('app-header', { 'menu-close': !isSiderOpened })}
-        >
+      <main className={_('app-main', { 'menu-close': !isSiderOpened })}>
+        <header className={_('app-header', { 'menu-close': !isSiderOpened })}>
           <AppHeader
             isSiderOpened={isSiderOpened}
             dispatch={dispatch}

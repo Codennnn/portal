@@ -8,9 +8,8 @@ import {
   useLocation,
 } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { useDispatch } from 'react-redux'
 
-import { useTypedSelector } from '@/redux'
+import { useTypedDispatch, useTypedSelector } from '@/redux'
 import { signOut } from '@/redux/app/app-actions'
 import { getToken } from '@/utils/token'
 import { hasRoutePermission } from '@/utils/util'
@@ -48,7 +47,7 @@ function createRoutes(routes, permissions?: string[]) {
 }
 
 function AppContent({ routes }) {
-  const dispatch = useDispatch()
+  const dispatch = useTypedDispatch()
   const location = useLocation()
   const history = useHistory()
   const permissions = useTypedSelector(({ user }) => user.info?.permissions)

@@ -4,10 +4,14 @@ export const SET_ROUTES = 'SET_ROUTES'
 export const SET_HEADER_STATUS = 'SET_HEADER_STATUS'
 
 export interface AppState {
+  /** 侧边栏是否为展开状态 */
   isSiderOpened: boolean
+  /** 顶部导航栏是否固定在顶部 */
   isHeaderFixed: boolean
+  /** 用户是否已登录 */
   isLogin: boolean
-  routes: any[]
+  /** 权限路由 */
+  routes: Routes
 }
 
 interface SetLoginStatusAction {

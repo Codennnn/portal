@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+// 修改浏览器默认的滚动条样式 - START
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba($secondary, 0.2) !important;
+  border: none !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: $app-bg !important;
+}
+
+::selection {
+  color: inherit !important;
+  background: rgba($primary, 0.2) !important;
+}
+// 修改浏览器默认的滚动条样式 - END
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: $root-font-size;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.suspense {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vh;
+  height: 100vh;
+}
+
+/** 
+ * 头像下拉菜单
+ */
+.header-menu {
+  &__item {
+    &:hover {
+      &.logout-item {
+        color: $danger;
+      }
+
+      color: $primary;
+      background: none;
+    }
+  }
+}
+
+.fullscreen-enabled {
+  background: $app-bg;
+}
+
+.custom-card {
+  padding: 1.25rem;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 0.375rem;
+
+  &__title {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+}
+
+.li-marker::marker {
+  color: $primary !important;
+  font-size: 40px;
+}
+
+.ant-message .anticon {
+  top: -3px;
+}
+
+.no-pd-popover {
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+}
+
+.primary.ant-collapse-item > .ant-collapse-header {
+  color: $primary;
+}
+
+@each $color in primary, secondary, success, warning, danger, info,
+  primary-light, secondary-light, success-light, warning-light, danger-light,
+  info-light
+{
+  .#{$color} {
+    color: map-get($color-map, $color) !important;
+  }
+
+  .bg-#{$color} {
+    background-color: map-get($color-map, $color) !important;
+  }
+}

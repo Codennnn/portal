@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
+import { Form, Input, Button, Checkbox } from 'antd'
+
 import { setToken } from '@/utils/token'
+import { useTypedDispatch } from '@/redux'
 import { signIn } from '@/redux/app/app-actions'
 import { setUserInfo } from '@/redux/user/user-actions'
 import { login, getUserInfo } from '@/api/user'
 
-import { Form, Input, Button, Checkbox } from 'antd'
-
 function Login() {
-  const dispatch = useDispatch()
+  const dispatch = useTypedDispatch()
   const [btnLoading, setBtnLoading] = useState(false)
   const history = useHistory()
 
@@ -60,9 +60,9 @@ function Login() {
       >
         <Form.Item
           label={
-            <div className="w-full flex items-center justify-between">
+            <div className="flex items-center justify-between w-full">
               <span>账号</span>
-              <span className="primary cursor-pointer">需要帮助？</span>
+              <span className="cursor-pointer primary">需要帮助？</span>
             </div>
           }
           name="username"
@@ -73,9 +73,9 @@ function Login() {
 
         <Form.Item
           label={
-            <div className="w-full flex items-center justify-between">
+            <div className="flex items-center justify-between w-full">
               <span>密码</span>
-              <span className="primary cursor-pointer">忘记密码？</span>
+              <span className="cursor-pointer primary">忘记密码？</span>
             </div>
           }
           name="password"
@@ -102,7 +102,7 @@ function Login() {
             还没有账号？
             <Link
               to="/user/register"
-              className="primary opacity-75 hover:opacity-100 transition cursor-pointer"
+              className="transition opacity-75 cursor-pointer primary hover:opacity-100"
             >
               立即注册
             </Link>
