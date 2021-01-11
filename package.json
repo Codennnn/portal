@@ -108,7 +108,10 @@
   "eslintIgnore": [
     "node_modules",
     "build",
-    "dist"
+    "dist",
+    "!.eslintrc.js",
+    "!.stylelintrc.js",
+    "!.prettierrc.js"
   ],
   "browserslist": {
     "production": [
