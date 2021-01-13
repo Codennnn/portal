@@ -32,14 +32,14 @@ function UserLayout() {
           <Switch>
             <Route exact path={`${path}/login`}>
               <Helmet>
-                <title>{`登录 - ${process.env.REACT_APP_PAGE_TITLE}`}</title>
+                <title>{`登录 - ${APP_PAGE_TITLE}`}</title>
               </Helmet>
               <Login />
             </Route>
 
             <Route exact path={`${path}/register`}>
               <Helmet>
-                <title>{`注册 - ${process.env.REACT_APP_PAGE_TITLE}`}</title>
+                <title>{`注册 - ${APP_PAGE_TITLE}`}</title>
               </Helmet>
               <Register />
             </Route>

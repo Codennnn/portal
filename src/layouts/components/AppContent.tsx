@@ -34,9 +34,7 @@ function createRoutes(routes, permissions?: string[]) {
         <Route key={path} exact={exact || false} path={path}>
           <Helmet>
             <title>
-              {title
-                ? `${title} - ${process.env.REACT_APP_PAGE_TITLE}`
-                : process.env.REACT_APP_PAGE_TITLE}
+              {title ? `${title} - ${APP_PAGE_TITLE}` : APP_PAGE_TITLE}
             </title>
           </Helmet>
           <Component />

@@ -5,7 +5,6 @@ declare global {
       PORT?: string
       PWD: string
       NODE_ENV: 'development' | 'production'
-      REACT_APP_ROUTER_MODE: 'hash' | 'history'
     }
   }
 }

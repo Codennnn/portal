@@ -1,11 +1,14 @@
-// 引入 dotenv/config 解决环境变量 undefined 的问题
-// https://github.com/gsoft-inc/craco/issues/198#issuecomment-727926522
+// 提前配置 dotenv，否则在此文件中将访问不到自定义的环境变量
 require('dotenv').config()
+
 const { whenProd, when } = require('@craco/craco')
 const path = require('path')
 const CracoAntDesignPlugin = require('craco-antd')
+const { DefinePlugin } = require('webpack')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
+
+const config = require('./config')
 
 module.exports = {
   webpack: {
@@ -22,10 +25,11 @@ module.exports = {
         () => [new BundleAnalyzerPlugin()],
         []
       ),
+      new DefinePlugin(config),
     ],
     configure: {
       output: whenProd(() => ({
-        publicPath: process.env.REACT_APP_PUBLIC_PATH,
+        publicPath: '/mars/',
       })),
     },
   },

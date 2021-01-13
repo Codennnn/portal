@@ -18,7 +18,7 @@ function AppRouter() {
     history: BrowserRouter,
     hash: HashRouter,
   }
-  const Router: React.ElementType = routeMode[process.env.REACT_APP_ROUTER_MODE]
+  const Router: React.ElementType = routeMode[APP_ROUTER_MODE]
 
   return (
     <Router>

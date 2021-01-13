@@ -10,6 +10,9 @@ declare module '*.gif'
 declare module '*.bmp'
 declare module '*.tiff'
 
+declare const APP_PAGE_TITLE: string
+declare const APP_ROUTER_MODE: 'hash' | 'history'
+
 type RouteItem = {
   /** 显示在侧边栏的名称 */
   title: string
