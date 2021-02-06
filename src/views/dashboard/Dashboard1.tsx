@@ -126,7 +126,9 @@ export default function DashboardDefault() {
               style={{ background: 'rgba(var(--primary), .25)' }}
               className="relative p-4 primary"
             >
-              <p className="mb-2 font-bold">{`欢迎回来，${nickname}`}</p>
+              <p className="mb-2 font-bold">{`欢迎回来，${
+                nickname ?? '令狐少侠'
+              }`}</p>
               <p className="mb-6 text-xs">MagicUI 数据分析</p>
               <img
                 className="absolute bottom-0 right-0 w-2/5"

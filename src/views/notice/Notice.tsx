@@ -1,22 +1,21 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Link } from 'react-router-dom'
+
 import { relativeTime } from '@/utils/util'
 import { getNoticeList } from '@/api/notice'
 
 export default function Notice() {
   const [noticeList, setNoticeList] = useState([])
 
-  const getNoticies = useCallback(async () => {
-    const {
-      data: { list },
-    } = await getNoticeList()
-    setNoticeList(list)
-  }, [])
-
   useEffect(() => {
-    getNoticies()
-  }, [getNoticies])
+    void (async () => {
+      const {
+        data: { list },
+      } = await getNoticeList()
+      setNoticeList(list)
+    })()
+  }, [])
 
   return (
     <div className="custom-card" style={{ padding: '0' }}>

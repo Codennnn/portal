@@ -75,7 +75,7 @@ export default function AppHeader({
 
   const menuItems: {
     title: string
-    icon: any
+    icon
     path: string
     clickFunc?: () => void
   }[] = [
