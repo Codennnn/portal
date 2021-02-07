@@ -1,16 +1,16 @@
+import { FinancingOne, MallBag, SettingTwo, Wallet } from '@icon-park/react'
+import { Avatar, Badge, Button, Divider, Dropdown, Menu, Select } from 'antd'
 import React from 'react'
-import { Avatar, Button, Menu, Dropdown, Badge, Select, Divider } from 'antd'
-import { SettingTwo, MallBag, Wallet, FinancingOne } from '@icon-park/react'
 
-import { useTypedSelector } from '@/redux'
 import profileImg from '@/assets/profile_img.png'
+import { useTypedSelector } from '@/redux'
 
-import LineChart from './charts/LineChart'
 import DonutChart from './charts/DonutChart'
+import LineChart from './charts/LineChart'
 import Row from './components/Row'
 import StatisticsCard from './components/StatisticsCard'
-import TopSellingProduct from './components/TopSellingProduct'
 import TaskList from './components/TaskList'
+import TopSellingProduct from './components/TopSellingProduct'
 
 export default function DashboardSaas() {
   const info = useTypedSelector(({ user }) => user.info)

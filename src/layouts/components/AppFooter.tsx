@@ -1,5 +1,5 @@
-import React from 'react'
 import { GithubOne } from '@icon-park/react'
+import React from 'react'
 
 function AppFooter() {
   return (

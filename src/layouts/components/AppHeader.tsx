@@ -1,25 +1,24 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { Avatar, Dropdown, Menu, Input } from 'antd'
-
-import { useTypedDispatch, useTypedSelector } from '@/redux'
-import { signOut, openSider, closeSider } from '@/redux/app/app-actions'
-import { removeToken } from '@/utils/token'
-
 import {
-  ExpandRight,
   ExpandLeft,
-  User,
+  ExpandRight,
+  FullScreen,
+  Logout,
+  OffScreen,
+  Search,
   SettingOne,
   TableReport,
-  Logout,
-  Search,
-  FullScreen,
-  OffScreen,
+  User,
 } from '@icon-park/react'
+import { Avatar, Dropdown, Input, Menu } from 'antd'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Logo from '@/assets/logo48.png'
+import { useTypedDispatch, useTypedSelector } from '@/redux'
+import { closeSider, openSider, signOut } from '@/redux/app/app-actions'
+import { removeToken } from '@/utils/token'
+
 import Application from './app-header/Application'
 import Notice from './app-header/Notice'
 

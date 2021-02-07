@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { Menu, Dropdown, Badge } from 'antd'
-import { useHistory } from 'react-router-dom'
-import { getNoticeCount } from '@/api/notice'
-
 import { Remind } from '@icon-park/react'
+import { Badge, Dropdown, Menu } from 'antd'
+import React, { useCallback, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
+
+import { getNoticeCount } from '@/api/notice'
 
 export default function Notice() {
   const history = useHistory()

@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { UpOutlined, DownOutlined } from '@ant-design/icons'
-import styled from 'styled-components'
+import { DownOutlined, UpOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
+import styled from 'styled-components'
 
 const IconStyle = styled.div`
   color: rgba(var(--primary), 1);

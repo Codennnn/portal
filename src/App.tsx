@@ -2,14 +2,14 @@ import React from 'react'
 import {
   BrowserRouter,
   HashRouter,
-  Switch,
-  Route,
   Redirect,
+  Route,
+  Switch,
 } from 'react-router-dom'
 
-import { useTypedSelector } from '@/redux'
-import UserLayout from '@/layouts/UserLayout'
 import MainLayout from '@/layouts/MainLayout'
+import UserLayout from '@/layouts/UserLayout'
+import { useTypedSelector } from '@/redux'
 import NotFound from '@/views/error-page/NotFound'
 
 function AppRouter() {

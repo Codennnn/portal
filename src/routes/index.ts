@@ -1,13 +1,13 @@
-import { lazy } from 'react'
 import {
-  ChartLine,
   AdProduct,
-  MessageOne,
-  System,
-  GraphicDesign,
-  Rss,
+  ChartLine,
   ExperimentOne,
+  GraphicDesign,
+  MessageOne,
+  Rss,
+  System,
 } from '@icon-park/react'
+import { lazy } from 'react'
 
 const Dashboard1 = lazy(() => import('@/views/dashboard/Dashboard1'))
 const Dashboard2 = lazy(() => import('@/views/dashboard/Dashboard2'))

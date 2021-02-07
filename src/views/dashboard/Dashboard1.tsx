@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from 'react'
-import { Avatar, Button, Timeline, Progress, Table } from 'antd'
 import {
-  Html5TwoTone,
-  CrownTwoTone,
   AlipayOutlined,
+  CrownTwoTone,
+  Html5TwoTone,
   ZhihuOutlined,
 } from '@ant-design/icons'
 import {
-  RightSmall,
   AdProduct,
-  StereoNesting,
   ApiApp,
   Help,
-  Wechat,
+  RightSmall,
+  StereoNesting,
   Tiktok,
+  Wechat,
   Xigua,
 } from '@icon-park/react'
+import { Avatar, Button, Progress, Table, Timeline } from 'antd'
 import classNames from 'classnames'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import { useTypedSelector } from '@/redux'
-import profileImg from '@/assets/profile_img.png'
 import { getDashboardTableData } from '@/api/common'
-import Row from './components/Row'
+import profileImg from '@/assets/profile_img.png'
+import { useTypedSelector } from '@/redux'
+
 import RadislBarChart from './charts/RadialBarChart'
 import StackedColumnChart from './charts/StackedColumnChart'
+import Row from './components/Row'
 
 const IconStyle = styled.div`
   &::after {

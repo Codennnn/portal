@@ -7,6 +7,7 @@ const CracoAntDesignPlugin = require('craco-antd')
 const { DefinePlugin } = require('webpack')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const config = require('./config')
 
@@ -27,10 +28,19 @@ module.exports = {
       ),
       new DefinePlugin(config),
     ],
-    configure: {
-      // output: whenProd(() => ({
-      //   publicPath: '/portal/',
-      // })),
+    configure(webpackConfig) {
+      webpackConfig.plugins.map(plugin => {
+        whenProd(() => {
+          if (plugin instanceof MiniCssExtractPlugin) {
+            Object.assign(plugin.options, {
+              ignoreOrder: true,
+            })
+          }
+        })
+        return plugin
+      })
+
+      return webpackConfig
     },
   },
 

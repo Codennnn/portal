@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import { Button, Checkbox, Form, Input } from 'antd'
+import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { Form, Input, Button, Checkbox } from 'antd'
 
-import { setToken } from '@/utils/token'
+import { getUserInfo, login } from '@/api/user'
 import { useTypedDispatch } from '@/redux'
 import { signIn } from '@/redux/app/app-actions'
 import { setUserInfo } from '@/redux/user/user-actions'
-import { login, getUserInfo } from '@/api/user'
+import { setToken } from '@/utils/token'
 
 function Login() {
   const dispatch = useTypedDispatch()

@@ -1,9 +1,9 @@
-import type { AppState, AppActionTypes } from './app-action-types'
+import type { AppActionTypes, AppState } from './app-action-types'
 import {
-  SET_LOGIN_STATUS,
-  SET_SIDER_STATUS,
   SET_HEADER_STATUS,
+  SET_LOGIN_STATUS,
   SET_ROUTES,
+  SET_SIDER_STATUS,
 } from './app-action-types'
 
 export function signIn(): AppActionTypes {

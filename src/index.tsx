@@ -1,20 +1,21 @@
-import React, { Suspense } from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
-import { HelmetProvider } from 'react-helmet-async'
-import { ConfigProvider, Spin } from 'antd'
-import zhCN from 'antd/es/locale/zh_CN'
 import 'antd/dist/antd.css'
 import '@icon-park/react/styles/index.less'
-
 import './mock'
-import { store, persistor } from './redux'
 // import reportWebVitals from './reportWebVitals'
 import './styles/tailwind.css'
 import './styles/app.scss'
 import './styles/layout.scss'
+
+import { ConfigProvider, Spin } from 'antd'
+import zhCN from 'antd/es/locale/zh_CN'
+import React, { Suspense } from 'react'
+import ReactDOM from 'react-dom'
+import { HelmetProvider } from 'react-helmet-async'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+
 import App from './App'
+import { persistor, store } from './redux'
 
 ReactDOM.render(
   <React.StrictMode>

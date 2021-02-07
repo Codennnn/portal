@@ -1,12 +1,12 @@
+import { Button, Checkbox, Form, Input } from 'antd'
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { setToken } from '@/utils/token'
+
+import { getUserInfo, login, register } from '@/api/user'
 import { useTypedDispatch } from '@/redux'
 import { signIn } from '@/redux/app/app-actions'
 import { setUserInfo } from '@/redux/user/user-actions'
-import { register, login, getUserInfo } from '@/api/user'
-
-import { Form, Input, Button, Checkbox } from 'antd'
+import { setToken } from '@/utils/token'
 
 function Register() {
   const dispatch = useTypedDispatch()

@@ -1,7 +1,7 @@
-import React, { lazy } from 'react'
-import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom'
 import { Carousel } from 'antd'
+import React, { lazy } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
 
 import Logo from '@/assets/logo48.png'
 import userPlate1 from '@/assets/user_plate_1.png'

@@ -21,5 +21,5 @@ module.exports = {
       },
     ],
   },
-  ignoreFiles: ['build'],
+  ignoreFiles: ['build/**/*.css'],
 }

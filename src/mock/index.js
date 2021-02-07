@@ -1,8 +1,8 @@
-import Mock from 'mockjs'
-
 import './user'
 import './notice'
 import './project'
+
+import Mock from 'mockjs'
 
 Mock.mock('/common/dashboard_table_data', 'get', {
   code: 2000,

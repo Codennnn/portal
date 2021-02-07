@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { FullScreen, useFullScreenHandle } from 'react-full-screen'
 import _ from 'classnames'
 import _debounce from 'lodash.debounce'
-import { openSider, closeSider } from '@/redux/app/app-actions'
+import React, { useEffect, useState } from 'react'
+import { FullScreen, useFullScreenHandle } from 'react-full-screen'
 
 import { useTypedDispatch, useTypedSelector } from '@/redux'
-import AppSider from './components/AppSider'
-import AppHeader from './components/AppHeader'
+import { closeSider, openSider } from '@/redux/app/app-actions'
+
 import AppContent from './components/AppContent'
 import AppFooter from './components/AppFooter'
+import AppHeader from './components/AppHeader'
+import AppSider from './components/AppSider'
 
 export default function MainLayout() {
   const dispatch = useTypedDispatch()

@@ -1,8 +1,9 @@
 import { createSelectorHook, useDispatch } from 'react-redux'
-import type { AppState, AppActionTypes } from './app/app-action-types'
-import type { UserState, UserActionTypes } from './user/user-action-types'
 
-export { store, persistor } from './create-store'
+import type { AppActionTypes, AppState } from './app/app-action-types'
+import type { UserActionTypes, UserState } from './user/user-action-types'
+
+export { persistor, store } from './create-store'
 
 export const useTypedSelector = createSelectorHook<{
   app: AppState

@@ -1,30 +1,30 @@
-import React from 'react'
+import { ArrowRightOutlined } from '@ant-design/icons'
+import { Edit, More, SettingOne } from '@icon-park/react'
 import {
   Avatar,
-  Button,
-  Menu,
-  Dropdown,
-  Divider,
   Badge,
+  Button,
+  Divider,
+  Dropdown,
+  Menu,
   Radio,
-  Tabs,
   Rate,
+  Tabs,
 } from 'antd'
-import { ArrowRightOutlined } from '@ant-design/icons'
-import { More, SettingOne, Edit } from '@icon-park/react'
+import React from 'react'
 
-import { useTypedSelector } from '@/redux'
-import illustration from '@/assets/illustration_1.png'
-import { ReactComponent as VueIcon } from '@/assets/icon_vue.svg'
-import { ReactComponent as ReactIcon } from '@/assets/icon_react.svg'
 import { ReactComponent as AngularIcon } from '@/assets/icon_angular.svg'
+import { ReactComponent as ReactIcon } from '@/assets/icon_react.svg'
+import { ReactComponent as VueIcon } from '@/assets/icon_vue.svg'
+import illustration from '@/assets/illustration_1.png'
+import { useTypedSelector } from '@/redux'
 
 import CircleChart from './charts/CircleChart'
 import OverviewChart from './charts/OverviewChart'
-import Row from './components/Row'
-import ChartCards from './components/ChartCards'
-import TransactionList from './components/TransactionList'
 import BuyForm from './components/BuyForm'
+import ChartCards from './components/ChartCards'
+import Row from './components/Row'
+import TransactionList from './components/TransactionList'
 
 export default function DashboardCrypto() {
   const info = useTypedSelector(({ user }) => user.info)

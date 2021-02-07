@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { Table, Avatar, Tooltip, Image, Menu, Dropdown } from 'antd'
-import { Link } from 'react-router-dom'
 import { More } from '@icon-park/react'
+import { Avatar, Dropdown, Image, Menu, Table, Tooltip } from 'antd'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { getProjectList } from '@/api/project'
 
 export default function ProjectList() {

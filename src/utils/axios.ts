@@ -1,7 +1,8 @@
+import { message as Message, notification as Notification } from 'antd'
 import type { AxiosInstance } from 'axios'
 import axios from 'axios'
+
 import { getToken, removeToken } from '@/utils/token'
-import { message as Message, notification as Notification } from 'antd'
 
 const responseHandler = {
   errorNotify({

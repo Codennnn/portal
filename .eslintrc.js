@@ -23,9 +23,14 @@ module.exports = {
     'prettier',
     'react',
     'react-hooks',
+    'simple-import-sort',
   ],
   rules: {
     'prettier/prettier': 2,
+    'simple-import-sort/imports': 2,
+    'simple-import-sort/exports': 2,
+    'sort-imports': 0,
+    'import/order': 0,
     'import/no-anonymous-default-export': [2, { allowArray: true }],
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
@@ -39,4 +44,14 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: 'server/**/*.js',
+      env: { node: true },
+      rules: {
+        'simple-import-sort/imports': 'off',
+        'import/order': ['error', { 'newlines-between': 'always' }],
+      },
+    },
+  ],
 }

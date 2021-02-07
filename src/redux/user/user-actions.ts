@@ -1,4 +1,4 @@
-import type { UserState, UserActionTypes } from './user-action-types'
+import type { UserActionTypes, UserState } from './user-action-types'
 import { SET_USER_INFO } from './user-action-types'
 
 export function setUserInfo(payload: UserState['info']): UserActionTypes {

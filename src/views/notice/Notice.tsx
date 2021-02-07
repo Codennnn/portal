@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Link } from 'react-router-dom'
 
-import { relativeTime } from '@/utils/util'
 import { getNoticeList } from '@/api/notice'
+import { relativeTime } from '@/utils/util'
 
 export default function Notice() {
   const [noticeList, setNoticeList] = useState([])

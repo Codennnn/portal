@@ -1,15 +1,16 @@
+import {
+  Button,
+  Collapse,
+  DatePicker,
+  Form,
+  Input,
+  message,
+  Radio,
+  Select,
+} from 'antd'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import {
-  Form,
-  Select,
-  Input,
-  Button,
-  DatePicker,
-  Collapse,
-  Radio,
-  message,
-} from 'antd'
+
 import { createProject } from '@/api/project'
 
 export default function NewProject() {

@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import {
-  Switch,
-  Route,
   Redirect,
+  Route,
+  Switch,
   useHistory,
   useLocation,
 } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
 
 import { useTypedDispatch, useTypedSelector } from '@/redux'
 import { signOut } from '@/redux/app/app-actions'
