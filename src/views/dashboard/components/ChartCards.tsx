@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import CardAreaChart from '../charts/CardAreaChart'
 
@@ -33,19 +32,6 @@ function ChartCard({
   )
 }
 
-ChartCard.propTypes = {
-  Icon: PropTypes.shape({
-    $$typeof: PropTypes.symbol,
-    render: PropTypes.func,
-  }).isRequired,
-  name: PropTypes.string.isRequired,
-  seriesName: PropTypes.string.isRequired,
-  seriesData: PropTypes.arrayOf(Number).isRequired,
-  color: PropTypes.string.isRequired,
-  count: PropTypes.number.isRequired,
-  value: PropTypes.string.isRequired,
-}
-
 export default function ChartCards({ data }) {
   return (
     <>
@@ -66,8 +52,4 @@ export default function ChartCards({ data }) {
       )}
     </>
   )
-}
-
-ChartCards.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
