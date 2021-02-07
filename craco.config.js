@@ -28,9 +28,9 @@ module.exports = {
       new DefinePlugin(config),
     ],
     configure: {
-      output: whenProd(() => ({
-        publicPath: '/mars/',
-      })),
+      // output: whenProd(() => ({
+      //   publicPath: '/portal/',
+      // })),
     },
   },
 

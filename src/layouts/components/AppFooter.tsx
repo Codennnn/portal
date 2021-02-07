@@ -7,7 +7,7 @@ function AppFooter() {
       <div className="">React Admin Template</div>
       <a
         className="flex items-center ml-auto"
-        href="https://github.com/Chinesee/mars"
+        href="https://github.com/Codennnn/portal"
         target="_blank"
         rel="noopener noreferrer nofollow"
       >
