@@ -9,7 +9,6 @@ import 'antd/dist/antd.css'
 import '@icon-park/react/styles/index.less'
 
 import './mock'
-import './utils/network-detection'
 import { store, persistor } from './redux'
 // import reportWebVitals from './reportWebVitals'
 import './styles/tailwind.css'

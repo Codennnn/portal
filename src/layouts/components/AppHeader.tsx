@@ -1,9 +1,8 @@
-import React, { useCallback } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Avatar, Dropdown, Menu, Input } from 'antd'
 
-import { useTypedSelector } from '@/redux'
+import { useTypedDispatch, useTypedSelector } from '@/redux'
 import { signOut, openSider, closeSider } from '@/redux/app/app-actions'
 import { removeToken } from '@/utils/token'
 
@@ -20,11 +19,11 @@ import {
 } from '@icon-park/react'
 import styled from 'styled-components'
 
-import logo from '@/assets/logo.png'
+import Logo from '@/assets/logo48.png'
 import Application from './app-header/Application'
 import Notice from './app-header/Notice'
 
-const SearchInputStyle = styled.div`
+const SearchInput = styled.div`
   display: flex;
   align-items: center;
   height: 38px;
@@ -40,16 +39,19 @@ const SearchInputStyle = styled.div`
   }
 `
 
+interface AppHeaderProps {
+  isSiderOpened: boolean
+  isFullScreen: boolean
+  switchFullscreen: () => void
+}
+
 export default function AppHeader({
   isSiderOpened,
-  dispatch,
   isFullScreen,
   switchFullscreen,
-}) {
+}: AppHeaderProps) {
+  const dispatch = useTypedDispatch()
   const info = useTypedSelector(({ user }) => user.info)
-  const SignOut = useCallback(() => dispatch(signOut()), [dispatch])
-  const OpenSider = useCallback(() => dispatch(openSider()), [dispatch])
-  const CloseSider = useCallback(() => dispatch(closeSider()), [dispatch])
   const iconGroup = {
     open: ExpandRight,
     close: ExpandLeft,
@@ -69,7 +71,7 @@ export default function AppHeader({
 
   const onLogout = () => {
     removeToken()
-    SignOut()
+    dispatch(signOut())
     history.replace('/')
   }
 
@@ -135,7 +137,7 @@ export default function AppHeader({
     <div className="header">
       {/* LOGO */}
       <div className="brand-box">
-        <img className="brand-box__logo" src={logo} alt="logo" />
+        <img className="brand-box__logo" src={Logo} alt="logo" />
         <div className="brand-box__text">React Admin</div>
       </div>
 
@@ -146,15 +148,17 @@ export default function AppHeader({
             className="ml-2 mr-4 cursor-pointer"
             size="22"
             fill="#718096"
-            onClick={() => (isSiderOpened ? CloseSider() : OpenSider())}
+            onClick={() => {
+              isSiderOpened ? dispatch(closeSider()) : dispatch(openSider())
+            }}
           />
-          <SearchInputStyle>
+          <SearchInput>
             <Input
               style={{ marginRight: '4px', color: '#718096' }}
               prefix={<Search size={16} />}
               placeholder="搜索..."
             />
-          </SearchInputStyle>
+          </SearchInput>
         </div>
 
         <div className="flex items-center h-full ml-auto">
@@ -176,11 +180,4 @@ export default function AppHeader({
       </div>
     </div>
   )
-}
-
-AppHeader.propTypes = {
-  isSiderOpened: PropTypes.bool.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  isFullScreen: PropTypes.bool.isRequired,
-  switchFullscreen: PropTypes.func.isRequired,
 }

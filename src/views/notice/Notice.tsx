@@ -10,10 +10,8 @@ export default function Notice() {
 
   useEffect(() => {
     void (async () => {
-      const {
-        data: { list },
-      } = await getNoticeList()
-      setNoticeList(list)
+      const { data } = await getNoticeList()
+      setNoticeList(data)
     })()
   }, [])
 
@@ -25,6 +23,7 @@ export default function Notice() {
       >
         <div className="text-lg font-bold">消息通知</div>
       </div>
+
       <PerfectScrollbar
         options={{ suppressScrollX: true }}
         style={{ height: '300px' }}
@@ -45,6 +44,7 @@ export default function Notice() {
           ))}
         </ul>
       </PerfectScrollbar>
+
       <Link to="/" className="block w-full py-2 text-center primary">
         查看全部
       </Link>

@@ -29,14 +29,12 @@ export default function ProjectGrid() {
     ) {
       try {
         setGridLoading(true)
-        const {
-          data: { list, pagination: p },
-        } = await getProjectList({
+        const { data, pagination: p } = await getProjectList({
           page,
           pageSize,
         })
         setPagination(p)
-        setTableList(list)
+        setTableList(data)
       } finally {
         setGridLoading(false)
       }

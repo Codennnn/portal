@@ -26,6 +26,7 @@ export default function MainLayout() {
       }
     }, 400)
     window.addEventListener('resize', handleSider)
+
     return () => {
       window.removeEventListener('resize', handleSider)
     }
@@ -49,7 +50,6 @@ export default function MainLayout() {
         <header className={_('app-header', { 'menu-close': !isSiderOpened })}>
           <AppHeader
             isSiderOpened={isSiderOpened}
-            dispatch={dispatch}
             isFullScreen={screen}
             switchFullscreen={switchFullscreen}
           />

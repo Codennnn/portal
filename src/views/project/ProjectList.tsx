@@ -15,10 +15,8 @@ export default function ProjectList() {
     async function getProjects() {
       try {
         setTableLoading(true)
-        const {
-          data: { list },
-        } = await getProjectList()
-        setTableList(list)
+        const { data } = await getProjectList()
+        setTableList(data)
       } finally {
         setTableLoading(false)
       }

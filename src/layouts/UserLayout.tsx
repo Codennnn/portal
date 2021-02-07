@@ -3,7 +3,7 @@ import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom'
 import { Carousel } from 'antd'
 import { Helmet } from 'react-helmet-async'
 
-import logo from '@/assets/logo.png'
+import Logo from '@/assets/logo48.png'
 import userPlate1 from '@/assets/user_plate_1.png'
 import userPlate2 from '@/assets/user_plate_2.png'
 import userPlate3 from '@/assets/user_plate_3.png'
@@ -23,7 +23,7 @@ function UserLayout() {
       <div className="user-layout__left">
         <div className="form-area">
           <div className="flex items-center">
-            <img className="w-8 mr-4" src={logo} alt="logo" />
+            <img className="w-8 mr-4" src={Logo} alt="logo" />
             <div className="text-2xl font-bold whitespace-no-wrap brand-box__text">
               React Admin
             </div>

@@ -18,7 +18,7 @@ function Login() {
   // MOCK: 自动填入账号和密码
   useEffect(() => {
     form.setFieldsValue({
-      username: 'czc12580520@gmail.com',
+      username: 'admin@email.com',
       password: 'abc123456',
     })
   }, [form])
@@ -29,12 +29,11 @@ function Login() {
     rememberMe: boolean
   }) => {
     try {
-      setBtnLoading(true)
-      const { token } = await login(values)
-      const { info } = await getUserInfo()
+      const { data } = await login(values)
+      const { data: info } = await getUserInfo()
 
       const tokenExpires = values.rememberMe ? 30 : undefined
-      setToken(token, tokenExpires)
+      setToken(data.token, tokenExpires)
 
       dispatch(setUserInfo(info))
       dispatch(signIn())
