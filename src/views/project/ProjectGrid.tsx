@@ -14,7 +14,8 @@ import { CalendarDot, Comment } from '@icon-park/react'
 import { getProjectList } from '@/api/project'
 
 export default function ProjectGrid() {
-  const [tableList, setTableList] = useState([])
+  // eslint-disable-next-line
+  const [tableList, setTableList] = useState<any[]>([])
   const [gridLoading, setGridLoading] = useState(false)
   const [pagination, setPagination] = useState({
     current: 1,
@@ -55,7 +56,7 @@ export default function ProjectGrid() {
         <Row gutter={[24, 24]}>
           {tableList
             .slice(0, 9)
-            .map(({ id, icon, name, team, date, progress }: any) => (
+            .map(({ id, icon, name, team, date, progress }) => (
               <Col key={id} md={12} lg={8}>
                 <div className="bg-white rounded-lg">
                   <div className="flex px-6 py-4">
