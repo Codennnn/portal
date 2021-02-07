@@ -1,0 +1,2 @@
+(this.webpackJsonpmars=this.webpackJsonpmars||[]).push([[21],{682:function(e,n,t){"use strict";t.r(n);var c=t(1),r=(t(0),t(104));n.default=function(){var e=Object(r.b)();return Object(c.jsxs)("div",{children:[Object(c.jsx)("button",{onClick:e.enter,children:"Enter fullscreen"}),Object(c.jsx)(r.a,{handle:e,children:"Any fullscreen content here"})]})}}}]);
+//# sourceMappingURL=21.005622c7.chunk.js.map
