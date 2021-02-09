@@ -10,7 +10,7 @@ const config = (env => {
 })(process.env.NODE_ENV)
 
 const defaultConfig = {
-  APP_PAGE_TITLE: '"MagicUI - 后台系统模板"',
+  APP_PAGE_TITLE: '"Portal - 后台系统模板"',
   APP_ROUTER_MODE: '"hash"',
 }
 

@@ -49,7 +49,7 @@ module.exports = {
       files: 'server/**/*.js',
       env: { node: true },
       rules: {
-        'simple-import-sort/imports': 'off',
+        'simple-import-sort/imports': 0,
         'import/order': ['error', { 'newlines-between': 'always' }],
       },
     },

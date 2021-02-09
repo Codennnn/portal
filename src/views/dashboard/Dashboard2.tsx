@@ -20,7 +20,7 @@ export default function DashboardSaas() {
       <Row className="items-center custom-card">
         <Avatar size={66} src={info.avatar} />
         <div className="ml-4 text-sm">
-          <div>欢迎来到 MagicUI 数据仪表盘</div>
+          <div>欢迎来到 Portal 数据仪表盘</div>
           <div className="mt-1 text-base font-bold">{info.nickname}</div>
           <div>前端开发工程师</div>
         </div>

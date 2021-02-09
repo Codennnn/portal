@@ -56,7 +56,7 @@ function UserLayout() {
             <li className="mr-6 cursor-pointer primary">源码仓库</li>
             <li className="mr-6 cursor-pointer primary">Github</li>
           </ul>
-          <p>© 2020 MagicUI. Made By 令狐少侠</p>
+          <p>This website is made by 令狐少侠</p>
         </div>
       </div>
 

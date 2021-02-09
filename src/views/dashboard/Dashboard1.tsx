@@ -27,13 +27,10 @@ import RadislBarChart from './charts/RadialBarChart'
 import StackedColumnChart from './charts/StackedColumnChart'
 import Row from './components/Row'
 
-const IconStyle = styled.div`
-  &::after {
-    left: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(-50%) rotate(30deg);
-    content: '';
-  }
+const IconBox = styled.div`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
 `
 
 export default function DashboardDefault() {
@@ -104,7 +101,7 @@ export default function DashboardDefault() {
   )
 
   useEffect(() => {
-    async function getTableData() {
+    void (async function getTableData() {
       try {
         setTableLoading(true)
         const {
@@ -114,8 +111,7 @@ export default function DashboardDefault() {
       } finally {
         setTableLoading(false)
       }
-    }
-    getTableData()
+    })()
   }, [])
 
   return (
@@ -130,7 +126,7 @@ export default function DashboardDefault() {
               <p className="mb-2 font-bold">{`欢迎回来，${
                 nickname ?? '令狐少侠'
               }`}</p>
-              <p className="mb-6 text-xs">MagicUI 数据分析</p>
+              <p className="mb-6 text-xs">Portal 数据分析</p>
               <img
                 className="absolute bottom-0 right-0 w-2/5"
                 src={profileImg}
@@ -211,9 +207,9 @@ export default function DashboardDefault() {
                   <div className="mb-3 secondary">{label}</div>
                   <div className="text-xl font-semibold">{value}</div>
                 </div>
-                <IconStyle className="bg-primary">
-                  <Icon size={22} />
-                </IconStyle>
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary">
+                  <Icon size={22} fill="#fff" />
+                </div>
               </div>
             ))}
           </div>
@@ -311,9 +307,11 @@ export default function DashboardDefault() {
                   style={{ borderTop: '1px solid #eff2f7' }}
                 >
                   <div className="w-1/3 truncate">{city}</div>
-                  <div>{value.toLocaleString()}</div>
+                  <div className="ml-2 mr-4 font-bold">
+                    {value.toLocaleString()}
+                  </div>
                   <Progress
-                    className="w-1/3"
+                    className="flex-1"
                     percent={(value / 2000) * 100}
                     strokeWidth={5}
                     strokeColor={`rgba(var(--${color}, 1)`}

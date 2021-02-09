@@ -86,7 +86,7 @@ export default function DashboardCrypto() {
           <div className="flex items-center justify-between mb-6 custom-card">
             <div>
               <div className="text-lg font-bold primary">欢迎再次访问</div>
-              <div className="mt-1 mb-3">Magic UI 数据仪表盘</div>
+              <div className="mt-1 mb-3">Portal 数据仪表盘</div>
               <ul className="pl-5 text-sm text-gray-600 list-disc">
                 {[
                   '朽骨在此相迎，山谷依然',

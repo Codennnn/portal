@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
-const IconStyle = styled.div`
+const IconBox = styled.div`
   color: rgba(var(--primary), 1);
   background: rgba(var(--primary), 0.2);
 `
@@ -16,9 +16,9 @@ export default function StatisticsCard({ data }) {
         <div className="md:w-1/3 lg:w-1/4 lg:pl-6" key={label}>
           <div className="flex flex-col justify-between h-full p-4 bg-white rounded">
             <div className="flex items-center">
-              <IconStyle>
+              <IconBox className="flex items-center justify-center mr-3 rounded-full w-9 h-9">
                 <Icon strokeWidth={3.5} size={21} />
-              </IconStyle>
+              </IconBox>
               <span>{label}</span>
             </div>
             <div>
