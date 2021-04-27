@@ -2,7 +2,7 @@ import React from 'react'
 import Chart from 'react-apexcharts'
 
 export default function LineChart() {
-  const chartOptions: any = {
+  const chartOptions: Chart['props']['options'] = {
     chart: {
       toolbar: { show: false },
       dropShadow: {

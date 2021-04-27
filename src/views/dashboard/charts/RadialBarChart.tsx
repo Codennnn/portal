@@ -2,10 +2,7 @@ import React from 'react'
 import Chart from 'react-apexcharts'
 
 export default function RadialBarChart() {
-  const chartOptions: any = {
-    chart: {
-      sparkline: { show: true },
-    },
+  const chartOptions: Chart['props']['options'] = {
     grid: { show: false },
     plotOptions: {
       radialBar: {

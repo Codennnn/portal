@@ -2,6 +2,16 @@ import React from 'react'
 
 import CardAreaChart from '../charts/CardAreaChart'
 
+type ChartCardProps = {
+  Icon
+  name
+  seriesName
+  seriesData
+  color
+  count
+  value
+}
+
 function ChartCard({
   Icon,
   name,
@@ -10,7 +20,7 @@ function ChartCard({
   color,
   count,
   value,
-}: any) {
+}: ChartCardProps) {
   return (
     <div className="custom-card">
       <div className="flex items-center mb-8">
@@ -32,7 +42,11 @@ function ChartCard({
   )
 }
 
-export default function ChartCards({ data }: any) {
+type ChartCardsProps = {
+  data: { icon; name; seriesName; seriesData; color; count; value }[]
+}
+
+export default function ChartCards({ data }: ChartCardsProps) {
   return (
     <>
       {data.map(

@@ -2,7 +2,7 @@ import React from 'react'
 import Chart from 'react-apexcharts'
 
 export default function OverviewChart() {
-  const chartOptions: any = {
+  const chartOptions: Chart['props']['options'] = {
     chart: {
       toolbar: { show: false },
     },
@@ -19,7 +19,7 @@ export default function OverviewChart() {
     },
     xaxis: {
       type: 'datetime',
-      x: new Date('14 Nov 2012').getTime(),
+      // x: new Date('14 Nov 2012').getTime(),
       tickAmount: 6,
       axisBorder: { color: '#e0e0e0' },
       labels: {
