@@ -31,7 +31,7 @@ export default function ApplicationIcon({ className, style }) {
     },
   ]
   const app = () => (
-    <div className="w-64 flex flex-wrap">
+    <div className="flex flex-wrap w-64">
       {apps.map(({ icon, name, link }) => (
         <a
           key={name}
@@ -40,10 +40,10 @@ export default function ApplicationIcon({ className, style }) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <div className="px-4 py-2 flex flex-col items-center">
+          <div className="flex flex-col items-center px-4 py-2">
             <img
               alt={name}
-              className="w-8 h-8 mb-2 object-contain"
+              className="object-contain w-8 h-8 mb-2"
               src={icon}
             />
             <div>{name}</div>

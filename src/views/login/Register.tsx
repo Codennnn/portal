@@ -105,7 +105,7 @@ function Register() {
           <p className="mt-4 text-gray-500">
             已经有账号了？
             <Link
-              className="transition opacity-75 cursor-pointer primary hover:opacity-100"
+              className="opacity-75 cursor-pointer transition primary hover:opacity-100"
               to="/user/login"
             >
               立即登录

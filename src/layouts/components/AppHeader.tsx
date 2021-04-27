@@ -86,7 +86,7 @@ export default function AppHeader({
   ]
 
   const menu = (
-    <Menu className="p-0 overflow-hidden header-menu">
+    <Menu className="overflow-hidden header-menu" style={{ padding: 0 }}>
       <div
         style={{
           background: 'rgba(var(--primary), .05)',
