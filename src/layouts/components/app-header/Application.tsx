@@ -34,17 +34,17 @@ export default function ApplicationIcon({ className, style }) {
     <div className="w-64 flex flex-wrap">
       {apps.map(({ icon, name, link }) => (
         <a
-          className="w-1/3 "
-          target="_blank"
-          rel="noopener noreferrer"
           key={name}
+          className="w-1/3 "
           href={link}
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <div className="px-4 py-2 flex flex-col items-center">
             <img
+              alt={name}
               className="w-8 h-8 mb-2 object-contain"
               src={icon}
-              alt={name}
             />
             <div>{name}</div>
           </div>
@@ -54,7 +54,7 @@ export default function ApplicationIcon({ className, style }) {
   )
 
   return (
-    <Popover className={className} style={style} content={app}>
+    <Popover className={className} content={app} style={style}>
       <ApplicationOne className="cursor-pointer" size={23} />
     </Popover>
   )

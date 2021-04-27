@@ -49,8 +49,8 @@ export default function DashboardSaas() {
             }
             trigger={['click']}
           >
-            <Button size="large" type="primary" className="flex items-center">
-              <SettingTwo size={18} className="mr-2" />
+            <Button className="flex items-center" size="large" type="primary">
+              <SettingTwo className="mr-2" size={18} />
               系统设置
             </Button>
           </Dropdown>
@@ -72,10 +72,10 @@ export default function DashboardSaas() {
               </ul>
             </div>
             <img
-              className="absolute bottom-0 right-0 w-2/5"
-              style={{ maxWidth: '250px' }}
-              src={profileImg}
               alt="profile"
+              className="absolute bottom-0 right-0 w-2/5"
+              src={profileImg}
+              style={{ maxWidth: '250px' }}
             />
           </div>
         </div>
@@ -247,7 +247,7 @@ export default function DashboardSaas() {
             />
             <Divider />
             <div className="text-center">
-              <Button type="primary" size="large">
+              <Button size="large" type="primary">
                 添加新任务
               </Button>
             </div>

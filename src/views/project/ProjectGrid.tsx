@@ -58,14 +58,14 @@ export default function ProjectGrid() {
           {tableList
             .slice(0, 9)
             .map(({ id, icon, name, team, date, progress }) => (
-              <Col key={id} md={12} lg={8}>
+              <Col key={id} lg={8} md={12}>
                 <div className="bg-white rounded-lg">
                   <div className="flex px-6 py-4">
                     <Image
+                      fallback="https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png"
+                      height={100}
                       src={icon}
                       width={100}
-                      height={100}
-                      fallback="https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png"
                     />
                     <div className="pl-6">
                       <h2 className="font-bold">{name}</h2>
@@ -88,11 +88,11 @@ export default function ProjectGrid() {
                         </Tag>
                       </li>
                       <li className="flex items-center mr-4">
-                        <CalendarDot size={18} className="mr-1" />
+                        <CalendarDot className="mr-1" size={18} />
                         <span>{date}</span>
                       </li>
                       <li className="flex items-center mr-4">
-                        <Comment size={18} className="mr-1" />
+                        <Comment className="mr-1" size={18} />
                         <span>229</span>
                       </li>
                     </ul>

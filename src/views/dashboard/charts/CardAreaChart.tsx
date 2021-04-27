@@ -3,7 +3,7 @@ import React from 'react'
 import Chart from 'react-apexcharts'
 
 export default function CardAreaChart({ color, seriesName, seriesData }) {
-  const chartOptions = {
+  const chartOptions: any = {
     chart: {
       sparkline: {
         enabled: true,
@@ -30,16 +30,16 @@ export default function CardAreaChart({ color, seriesName, seriesData }) {
 
   return (
     <Chart
-      type="area"
-      width="100%"
       height="100%"
+      options={chartOptions}
       series={[
         {
           name: seriesName,
           data: seriesData,
         },
       ]}
-      options={chartOptions}
+      type="area"
+      width="100%"
     />
   )
 }

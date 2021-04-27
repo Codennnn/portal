@@ -116,7 +116,7 @@ export default function AppHeader({
           className="flex items-center px-8 py-3 header-menu__item"
           onClick={() => routeTo(path, clickFunc)}
         >
-          <Icon size={18} className="mr-2" />
+          <Icon className="mr-2" size={18} />
           {title}
         </Menu.Item>
       ))}
@@ -126,7 +126,7 @@ export default function AppHeader({
         className="flex items-center px-8 py-3 header-menu__item logout-item"
         onClick={onLogout}
       >
-        <Logout size={18} className="mr-2" />
+        <Logout className="mr-2" size={18} />
         退出登录
       </Menu.Item>
     </Menu>
@@ -136,26 +136,26 @@ export default function AppHeader({
     <div className="header">
       {/* LOGO */}
       <div className="brand-box">
-        <img className="brand-box__logo" src={Logo} alt="logo" />
+        <img alt="logo" className="brand-box__logo" src={Logo} />
         <div className="brand-box__text">React Admin</div>
       </div>
 
       <div className="header-right">
         <div className="flex items-center">
           <ExpandIcon
-            title={isSiderOpened ? '收起' : '展开'}
             className="ml-2 mr-4 cursor-pointer"
-            size="22"
             fill="#718096"
+            size="22"
+            title={isSiderOpened ? '收起' : '展开'}
             onClick={() => {
               isSiderOpened ? dispatch(closeSider()) : dispatch(openSider())
             }}
           />
           <SearchInput>
             <Input
-              style={{ marginRight: '4px', color: '#718096' }}
-              prefix={<Search size={16} />}
               placeholder="搜索..."
+              prefix={<Search size={16} />}
+              style={{ marginRight: '4px', color: '#718096' }}
             />
           </SearchInput>
         </div>

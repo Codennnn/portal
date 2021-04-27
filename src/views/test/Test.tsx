@@ -1,4 +1,3 @@
-import React from 'react'
 import { FullScreen, useFullScreenHandle } from 'react-full-screen'
 
 function App() {

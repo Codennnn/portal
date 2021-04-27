@@ -1,37 +1,35 @@
 module.exports = {
+  root: true,
+  env: {
+    node: true,
+    browser: true,
+  },
   parser: '@typescript-eslint/parser',
   settings: {
-    'import/resolver': {
-      alias: {
-        map: [['@', './src']],
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-      },
+    react: {
+      version: 'detect',
     },
   },
   extends: [
-    'react-app',
-    'plugin:prettier/recommended',
+    'eslint:recommended',
+    // 'react-app',
+    // 'react-app/jest',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-    'prettier/babel',
-    'prettier/react',
+    'plugin:jsx-a11y/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
   ],
-  plugins: [
-    '@typescript-eslint',
-    'import',
-    'jsx-a11y',
-    'prettier',
-    'react',
-    'react-hooks',
-    'simple-import-sort',
-  ],
+  plugins: ['simple-import-sort'],
   rules: {
-    'prettier/prettier': 2,
-    'simple-import-sort/imports': 2,
-    'simple-import-sort/exports': 2,
+    'simple-import-sort/imports': 1,
+    'simple-import-sort/exports': 1,
     'sort-imports': 0,
     'import/order': 0,
-    'import/no-anonymous-default-export': [2, { allowArray: true }],
+    'import/no-unresolved': [2, { ignore: ['^@/'] }],
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/no-use-before-define': 2,
@@ -43,15 +41,17 @@ module.exports = {
         disallowTypeAnnotations: true,
       },
     ],
-  },
-  overrides: [
-    {
-      files: 'server/**/*.js',
-      env: { node: true },
-      rules: {
-        'simple-import-sort/imports': 0,
-        'import/order': ['error', { 'newlines-between': 'always' }],
+    'react/react-in-jsx-scope': 0,
+    'react/jsx-sort-props': [
+      2,
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        shorthandLast: false,
+        ignoreCase: false,
+        noSortAlphabetically: false,
+        reservedFirst: true,
       },
-    },
-  ],
+    ],
+  },
 }

@@ -39,14 +39,14 @@ export default function NewProject() {
     <>
       <h2 className="mb-4 text-xl font-bold">创建新项目</h2>
       <Form
-        name="newProject"
         className="p-6 bg-white rounded-lg"
-        size="large"
-        labelCol={{ span: 2 }}
-        wrapperCol={wrapperCol}
         colon={false}
-        requiredMark={false}
         initialValues={{ type: 'public' }}
+        labelCol={{ span: 2 }}
+        name="newProject"
+        requiredMark={false}
+        size="large"
+        wrapperCol={wrapperCol}
         onFinish={onFinish}
       >
         <Form.Item
@@ -79,7 +79,7 @@ export default function NewProject() {
           name="description"
           rules={[{ required: true, message: '请填写项目描述' }]}
         >
-          <Input.TextArea rows={4} placeholder="请填写项目描述" />
+          <Input.TextArea placeholder="请填写项目描述" rows={4} />
         </Form.Item>
 
         <Form.Item
@@ -91,19 +91,19 @@ export default function NewProject() {
         </Form.Item>
 
         <Form.Item wrapperCol={{ ...wrapperCol, offset: 2 }}>
-          <Button type="primary" htmlType="submit" loading={creating}>
+          <Button htmlType="submit" loading={creating} type="primary">
             新建项目
           </Button>
         </Form.Item>
 
         <Collapse ghost>
-          <Collapse.Panel key="id" header="高级设置" className="primary">
+          <Collapse.Panel key="id" className="primary" header="高级设置">
             <Form.Item label="工作空间" name="aa">
               <Select placeholder="请选择工作空间">
                 <Select.Option value="jack">Jack</Select.Option>
               </Select>
             </Form.Item>
-            <Form.Item label="访问权限" wrapperCol={wrapperCol} name="type">
+            <Form.Item label="访问权限" name="type" wrapperCol={wrapperCol}>
               <Radio.Group
                 options={[
                   { label: '公开', value: 'public' },

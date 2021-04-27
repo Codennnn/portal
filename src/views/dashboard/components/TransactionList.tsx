@@ -31,9 +31,9 @@ export default function TaskList({ data }) {
             >
               <div className="px-3">
                 {type === 1 ? (
-                  <ArrowCircleUp size={20} className="danger" />
+                  <ArrowCircleUp className="danger" size={20} />
                 ) : (
-                  <ArrowCircleDown size={20} className="primary" />
+                  <ArrowCircleDown className="primary" size={20} />
                 )}
               </div>
               <div className="w-2/5 px-3">

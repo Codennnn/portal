@@ -13,11 +13,11 @@ export default function StatisticsCard({ data }) {
   return (
     <>
       {data.map(({ label, Icon, value, percent }) => (
-        <div className="md:w-1/3 lg:w-1/4 lg:pl-6" key={label}>
+        <div key={label} className="md:w-1/3 lg:w-1/4 lg:pl-6">
           <div className="flex flex-col justify-between h-full p-4 bg-white rounded">
             <div className="flex items-center">
               <IconBox className="flex items-center justify-center mr-3 rounded-full w-9 h-9">
-                <Icon strokeWidth={3.5} size={21} />
+                <Icon size={21} strokeWidth={3.5} />
               </IconBox>
               <span>{label}</span>
             </div>

@@ -27,10 +27,10 @@ function AppRouter() {
         {isLogin ? (
           <Redirect from="/user" to="/" />
         ) : (
-          <Route path="/user" component={UserLayout} />
+          <Route component={UserLayout} path="/user" />
         )}
 
-        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} path="/404" />
 
         {isLogin ? (
           <Route component={MainLayout} />

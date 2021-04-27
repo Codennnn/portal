@@ -15,7 +15,7 @@ export default function NotFound() {
       </p>
 
       <Link replace to="/">
-        <Button type="primary" size="large">
+        <Button size="large" type="primary">
           回到首页
         </Button>
       </Link>

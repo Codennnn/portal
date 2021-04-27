@@ -15,12 +15,12 @@ export default function TopSellingProduct({ products }) {
             </div>
             <div>
               <Progress
+                percent={percent}
+                showInfo={false}
+                strokeColor={`rgba(var(--${color}), .8)`}
+                strokeWidth={14}
                 type="circle"
                 width={45}
-                strokeWidth={14}
-                strokeColor={`rgba(var(--${color}), .8)`}
-                showInfo={false}
-                percent={percent}
               />
             </div>
             <div className="ml-6 whitespace-no-wrap">

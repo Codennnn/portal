@@ -52,9 +52,9 @@ function Login() {
 
       <Form
         hideRequiredMark
+        form={form}
         layout="vertical"
         size="large"
-        form={form}
         onFinish={onLogin}
       >
         <Form.Item
@@ -90,18 +90,18 @@ function Login() {
         <Form.Item>
           <Button
             className="w-full"
-            size="large"
-            type="primary"
             htmlType="submit"
             loading={btnLoading}
+            size="large"
+            type="primary"
           >
             立即登录
           </Button>
           <p className="mt-4 text-gray-500">
             还没有账号？
             <Link
-              to="/user/register"
               className="transition opacity-75 cursor-pointer primary hover:opacity-100"
+              to="/user/register"
             >
               立即注册
             </Link>

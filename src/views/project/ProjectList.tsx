@@ -25,7 +25,7 @@ export default function ProjectList() {
     getProjects()
   }, [])
 
-  const dropdownMenu = rowData => (
+  const dropdownMenu = () => (
     <Menu>
       <Menu.Item>查看</Menu.Item>
       <Menu.Item>编辑</Menu.Item>
@@ -44,23 +44,27 @@ export default function ProjectList() {
     {
       title: '#',
       dataIndex: 'icon',
-      render: icon => (
-        <Image
-          src={icon}
-          width={100}
-          height={100}
-          fallback="https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png"
-        />
-      ),
+      render(icon) {
+        return (
+          <Image
+            fallback="https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png"
+            height={100}
+            src={icon}
+            width={100}
+          />
+        )
+      },
     },
     {
       title: '项目名称',
       dataIndex: 'name',
-      render: name => (
-        <Link to="/page1" className="primary">
-          {name}
-        </Link>
-      ),
+      render(name) {
+        return (
+          <Link className="primary" to="/page1">
+            {name}
+          </Link>
+        )
+      },
     },
     {
       title: '周期',
@@ -69,47 +73,53 @@ export default function ProjectList() {
     {
       title: '进度',
       dataIndex: 'progress',
-      render: progress => (
-        <span
-          className={`${pg[progress].color} px-2 py-1 rounded`}
-          style={{ background: `rgba(var(--${pg[progress].color}-light))` }}
-        >
-          {pg[progress].text}
-        </span>
-      ),
+      render(progress) {
+        return (
+          <span
+            className={`${pg[progress].color} px-2 py-1 rounded`}
+            style={{ background: `rgba(var(--${pg[progress].color}-light))` }}
+          >
+            {pg[progress].text}
+          </span>
+        )
+      },
     },
     {
       title: '成员',
       dataIndex: 'team',
-      render: team => (
-        <Avatar.Group maxCount={3}>
-          {team.map(({ id, name, avatar }) => (
-            <Tooltip key={id} title={name}>
-              <Avatar src={avatar} />
-            </Tooltip>
-          ))}
-        </Avatar.Group>
-      ),
+      render(team) {
+        return (
+          <Avatar.Group maxCount={3}>
+            {team.map(({ id, name, avatar }) => (
+              <Tooltip key={id} title={name}>
+                <Avatar src={avatar} />
+              </Tooltip>
+            ))}
+          </Avatar.Group>
+        )
+      },
     },
     {
       title: '操作',
       key: 'id',
-      render: row => (
-        <Dropdown overlay={dropdownMenu(row)} trigger={['click']}>
-          <More className="text-gray-600 cursor-pointer" size="24" />
-        </Dropdown>
-      ),
+      render() {
+        return (
+          <Dropdown overlay={dropdownMenu()} trigger={['click']}>
+            <More className="text-gray-600 cursor-pointer" size="24" />
+          </Dropdown>
+        )
+      },
     },
   ]
 
   return (
     <>
       <Table
-        rowKey="id"
-        loading={tableLoading}
-        dataSource={tableList}
         columns={columns}
+        dataSource={tableList}
+        loading={tableLoading}
         pagination={pagination}
+        rowKey="id"
       />
     </>
   )

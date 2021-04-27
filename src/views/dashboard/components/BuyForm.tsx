@@ -24,9 +24,9 @@ export default function BuyForm() {
         </div>
       </div>
       <Form
-        layout="vertical"
-        initialValues={{ payment: 'card_pay', date_setting: 'delivery_date' }}
         form={form}
+        initialValues={{ payment: 'card_pay', date_setting: 'delivery_date' }}
+        layout="vertical"
         onFinish={onFinish}
       >
         <Item label="支付方式" name="payment">
@@ -38,23 +38,23 @@ export default function BuyForm() {
         </Item>
         <Item label="日期设置">
           <Input.Group compact>
-            <Item name="date_setting" noStyle>
+            <Item noStyle name="date_setting">
               <Select style={{ width: '50%' }}>
                 <Option value="delivery_date">到货日期</Option>
                 <Option value="payment_date">付款日期</Option>
                 <Option value="settlement_date">结算日期</Option>
               </Select>
             </Item>
-            <Item name="date" noStyle>
+            <Item noStyle name="date">
               <DatePicker style={{ width: '50%' }} />
             </Item>
           </Input.Group>
         </Item>
         <Item>
-          <Input addonBefore="合计金额" addonAfter="元" />
+          <Input addonAfter="元" addonBefore="合计金额" />
         </Item>
         <Item className="mb-0 text-center">
-          <Button type="primary" htmlType="submit">
+          <Button htmlType="submit" type="primary">
             确认购买
           </Button>
         </Item>

@@ -19,7 +19,7 @@ type RouteItem = {
   /** 页面路由组件 */
   component?: React.LazyExoticComponent<() => JSX.Element> | JSX.Element
   /** 图标 */
-  icon?: any
+  icon?
   /** 路径 */
   path?: string
   /** 子菜单路由 */

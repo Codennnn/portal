@@ -8,11 +8,11 @@ function AppFooter() {
       <a
         className="flex items-center ml-auto"
         href="https://github.com/Codennnn/portal"
-        target="_blank"
         rel="noopener noreferrer nofollow"
+        target="_blank"
       >
         Github
-        <GithubOne className="ml-2" theme="outline" size="24" fill="#a0aec0" />
+        <GithubOne className="ml-2" fill="#a0aec0" size="24" theme="outline" />
       </a>
     </div>
   )

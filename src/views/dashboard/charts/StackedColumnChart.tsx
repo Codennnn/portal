@@ -47,9 +47,8 @@ export default function StackedColumnChart() {
 
   return (
     <Chart
-      type="bar"
-      width="100%"
       height="360"
+      options={chartOptions}
       series={[
         {
           name: '订单数量',
@@ -64,7 +63,8 @@ export default function StackedColumnChart() {
           data: [11, 17, 15, 15, 21, 14, 11, 18, 17, 12, 20, 18],
         },
       ]}
-      options={chartOptions}
+      type="bar"
+      width="100%"
     />
   )
 }

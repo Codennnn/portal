@@ -8,7 +8,7 @@ const { TabPane } = Tabs
 export default function TaskList({ data }) {
   return (
     <Tabs>
-      <TabPane tab="进行中" key="1">
+      <TabPane key="1" tab="进行中">
         <ul className="overflow-auto" style={{ maxHeight: '300px' }}>
           {data.map(({ id, title, content, checked = false }) => (
             <li
@@ -26,14 +26,14 @@ export default function TaskList({ data }) {
                 </div>
               </div>
               <div className="flex items-center px-3 ml-auto">
-                <Edit size={18} className="mr-2 cursor-pointer success" />
-                <DeleteOne size={18} className="cursor-pointer danger" />
+                <Edit className="mr-2 cursor-pointer success" size={18} />
+                <DeleteOne className="cursor-pointer danger" size={18} />
               </div>
             </li>
           ))}
         </ul>
       </TabPane>
-      <TabPane tab="待完成" key="2">
+      <TabPane key="2" tab="待完成">
         <Empty />
       </TabPane>
     </Tabs>

@@ -45,7 +45,7 @@ export default function Notice() {
         </ul>
       </PerfectScrollbar>
 
-      <Link to="/" className="block w-full py-2 text-center primary">
+      <Link className="block w-full py-2 text-center primary" to="/">
         查看全部
       </Link>
     </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import Chart from 'react-apexcharts'
 
 export default function OverviewChart() {
-  const chartOptions = {
+  const chartOptions: any = {
     chart: {
       toolbar: { show: false },
     },
@@ -50,9 +50,8 @@ export default function OverviewChart() {
 
   return (
     <Chart
-      type="area"
-      width="100%"
       height="100%"
+      options={chartOptions}
       series={[
         {
           data: [
@@ -145,7 +144,8 @@ export default function OverviewChart() {
           ],
         },
       ]}
-      options={chartOptions}
+      type="area"
+      width="100%"
     />
   )
 }

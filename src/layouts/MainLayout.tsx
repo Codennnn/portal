@@ -50,8 +50,8 @@ export default function MainLayout() {
       <main className={_('app-main', { 'menu-close': !isSiderOpened })}>
         <header className={_('app-header', { 'menu-close': !isSiderOpened })}>
           <AppHeader
-            isSiderOpened={isSiderOpened}
             isFullScreen={screen}
+            isSiderOpened={isSiderOpened}
             switchFullscreen={switchFullscreen}
           />
         </header>

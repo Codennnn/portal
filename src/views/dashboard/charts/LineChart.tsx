@@ -2,7 +2,7 @@ import React from 'react'
 import Chart from 'react-apexcharts'
 
 export default function LineChart() {
-  const chartOptions = {
+  const chartOptions: any = {
     chart: {
       toolbar: { show: false },
       dropShadow: {
@@ -57,16 +57,16 @@ export default function LineChart() {
 
   return (
     <Chart
-      type="line"
-      width="100%"
       height="100%"
+      options={chartOptions}
       series={[
         {
           name: '万元',
           data: [31, 40, 36, 51, 49, 72, 69, 56, 68, 82, 68, 76],
         },
       ]}
-      options={chartOptions}
+      type="line"
+      width="100%"
     />
   )
 }

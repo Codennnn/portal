@@ -101,10 +101,10 @@ export default function DashboardCrypto() {
             </div>
 
             <img
-              className="w-2/5"
-              style={{ maxWidth: '250px' }}
-              src={illustration}
               alt="插图"
+              className="w-2/5"
+              src={illustration}
+              style={{ maxWidth: '250px' }}
             />
           </div>
 
@@ -166,8 +166,8 @@ export default function DashboardCrypto() {
                 </div>
                 <Button
                   className="flex items-center mt-8"
-                  type="primary"
                   size="large"
+                  type="primary"
                 >
                   查看更多
                   <ArrowRightOutlined />
@@ -227,7 +227,7 @@ export default function DashboardCrypto() {
           <div className="custom-card">
             <h4 className="custom-card__title">交易记录</h4>
             <Tabs type="card">
-              <Tabs.TabPane tab="全部" key="1">
+              <Tabs.TabPane key="1" tab="全部">
                 <TransactionList
                   data={[
                     {
@@ -273,7 +273,7 @@ export default function DashboardCrypto() {
                   ]}
                 />
               </Tabs.TabPane>
-              <Tabs.TabPane tab="购入" key="2">
+              <Tabs.TabPane key="2" tab="购入">
                 <TransactionList
                   data={[
                     {
@@ -319,7 +319,7 @@ export default function DashboardCrypto() {
                   ]}
                 />
               </Tabs.TabPane>
-              <Tabs.TabPane tab="售出" key="3">
+              <Tabs.TabPane key="3" tab="售出">
                 <TransactionList
                   data={[
                     {
@@ -373,9 +373,9 @@ export default function DashboardCrypto() {
           <div className="custom-card" style={{ padding: '0' }}>
             <div className="h-48 overflow-hidden">
               <img
-                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                 alt="cover"
                 className="w-full"
+                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
               />
             </div>
             <div className="p-4">
@@ -403,18 +403,18 @@ export default function DashboardCrypto() {
             <div className="flex items-center w-full py-2">
               <div className="flex-1 text-center">
                 <SettingOne
+                  className="cursor-pointer"
                   size={22}
                   strokeWidth={3}
-                  className="cursor-pointer"
                 />
               </div>
               <Divider type="vertical" />
               <div className="flex-1 text-center">
-                <Edit size={22} strokeWidth={3} className="cursor-pointer" />
+                <Edit className="cursor-pointer" size={22} strokeWidth={3} />
               </div>
               <Divider type="vertical" />
               <div className="flex-1 text-center">
-                <More size={22} strokeWidth={3} className="cursor-pointer" />
+                <More className="cursor-pointer" size={22} strokeWidth={3} />
               </div>
             </div>
           </div>

@@ -17,7 +17,6 @@ import {
 import { Avatar, Button, Progress, Table, Timeline } from 'antd'
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 
 import { getDashboardTableData } from '@/api/common'
 import profileImg from '@/assets/profile_img.png'
@@ -27,12 +26,6 @@ import RadislBarChart from './charts/RadialBarChart'
 import StackedColumnChart from './charts/StackedColumnChart'
 import Row from './components/Row'
 
-const IconBox = styled.div`
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-`
-
 export default function DashboardDefault() {
   const nickname = useTypedSelector(({ user }) => user.info.nickname)
   const avatar = useTypedSelector(({ user }) => user.info.avatar)
@@ -40,7 +33,9 @@ export default function DashboardDefault() {
     {
       title: '订单 ID',
       dataIndex: 'id',
-      render: id => <span className="font-semibold">#{id}</span>,
+      render(id) {
+        return <span className="font-semibold">#{id}</span>
+      },
     },
     {
       title: '支付日期',
@@ -53,12 +48,14 @@ export default function DashboardDefault() {
     {
       title: '总额',
       dataIndex: 'total',
-      render: total => <span>￥{total}</span>,
+      render(total) {
+        return <span>￥{total}</span>
+      },
     },
     {
       title: '支付状态',
       dataIndex: 'status',
-      render: status => {
+      render(status) {
         const statusClass = (state => {
           switch (state) {
             case 1:
@@ -79,7 +76,7 @@ export default function DashboardDefault() {
     {
       title: '支付方式',
       dataIndex: 'payment',
-      render: payment => {
+      render(payment) {
         const Icon = payment === '微信支付' ? ZhihuOutlined : AlipayOutlined
         return (
           <div className="flex items-center">
@@ -91,7 +88,9 @@ export default function DashboardDefault() {
     },
     {
       title: '操作',
-      render: () => <Button type="primary">查看详情</Button>,
+      render() {
+        return <Button type="primary">查看详情</Button>
+      },
     },
   ]
   const [tableLoading, setTableLoading] = useState(false)
@@ -120,25 +119,25 @@ export default function DashboardDefault() {
         <div className="flex flex-col w-1/3 pr-3">
           <div className="mb-6 overflow-hidden bg-white rounded-md">
             <div
-              style={{ background: 'rgba(var(--primary), .25)' }}
               className="relative p-4 primary"
+              style={{ background: 'rgba(var(--primary), .25)' }}
             >
               <p className="mb-2 font-bold">{`欢迎回来，${
                 nickname ?? '令狐少侠'
               }`}</p>
               <p className="mb-6 text-xs">Portal 数据分析</p>
               <img
+                alt="profile"
                 className="absolute bottom-0 right-0 w-2/5"
                 src={profileImg}
-                alt="profile"
               />
             </div>
             <div className="flex">
               <div className="relative px-4">
                 <Avatar
-                  src={avatar}
-                  size={62}
                   className="relative"
+                  size={62}
+                  src={avatar}
                   style={{ bottom: '25px', boxShadow: '0 0 0 5px #fff' }}
                 />
                 <div className="truncate">令狐少侠</div>
@@ -183,7 +182,7 @@ export default function DashboardDefault() {
               </div>
             </div>
             <div className="flex items-center mt-3 text-sm text-gray-500">
-              <Help size={18} className="mr-1" />
+              <Help className="mr-1" size={18} />
               盈利率通过特定方法计算，具体计算方法请查看...
             </div>
           </div>
@@ -208,7 +207,7 @@ export default function DashboardDefault() {
                   <div className="text-xl font-semibold">{value}</div>
                 </div>
                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary">
-                  <Icon size={22} fill="#fff" />
+                  <Icon fill="#fff" size={22} />
                 </div>
               </div>
             ))}
@@ -313,9 +312,9 @@ export default function DashboardDefault() {
                   <Progress
                     className="flex-1"
                     percent={(value / 2000) * 100}
-                    strokeWidth={5}
-                    strokeColor={`rgba(var(--${color}, 1)`}
                     showInfo={false}
+                    strokeColor={`rgba(var(--${color}, 1)`}
+                    strokeWidth={5}
                   />
                 </div>
               ))}
@@ -328,10 +327,10 @@ export default function DashboardDefault() {
         <div className="w-full custom-card">
           <h4 className="custom-card__title">最新交易记录</h4>
           <Table
-            rowKey="id"
-            loading={tableLoading}
             columns={tableColumn}
             dataSource={tableData}
+            loading={tableLoading}
+            rowKey="id"
             rowSelection={{
               selectedRowKeys,
               onChange: keys => {

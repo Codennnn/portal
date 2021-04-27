@@ -23,7 +23,7 @@ function UserLayout() {
       <div className="user-layout__left">
         <div className="form-area">
           <div className="flex items-center">
-            <img className="w-8 mr-4" src={Logo} alt="logo" />
+            <img alt="logo" className="w-8 mr-4" src={Logo} />
             <div className="text-2xl font-bold whitespace-no-wrap brand-box__text">
               React Admin
             </div>
@@ -83,7 +83,7 @@ function UserLayout() {
               },
             ].map(({ img, title, text }) => (
               <div key={title}>
-                <img className="w-full" src={img} alt="logo" />
+                <img alt="logo" className="w-full" src={img} />
                 <div className="pt-4 pb-10">
                   <h2 className="mb-2 text-xl font-bold text-center">
                     {title}

@@ -17,11 +17,11 @@ export default function DonutChart() {
 
   return (
     <Chart
+      height="240px"
+      options={chartOptions}
+      series={[46.7, 31.6, 21.7]}
       type="donut"
       width="100%"
-      height="240px"
-      series={[46.7, 31.6, 21.7]}
-      options={chartOptions}
     />
   )
 }

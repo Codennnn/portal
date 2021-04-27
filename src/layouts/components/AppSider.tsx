@@ -54,10 +54,10 @@ function renderSubMenu(
   return (
     <Menu.SubMenu
       key={subMenuKey(children)}
-      title={title}
       icon={
         MenuIcon && <MenuIcon className="anticon" size={22} strokeWidth={3.6} />
       }
+      title={title}
     >
       {children &&
         children.length > 0 &&
@@ -139,10 +139,10 @@ export default function AppSider({ routes, isSiderOpened }: AppSiderProps) {
   return (
     <PerfectScrollbar options={{ suppressScrollX: true }}>
       <Menu
-        mode="inline"
-        selectedKeys={selectedKeys}
-        openKeys={openKeys}
         inlineCollapsed={!isSiderOpened}
+        mode="inline"
+        openKeys={openKeys}
+        selectedKeys={selectedKeys}
         onOpenChange={onOpenChange}
       >
         {routes.length > 0 &&

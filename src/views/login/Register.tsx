@@ -39,9 +39,9 @@ function Register() {
 
       <Form
         hideRequiredMark
+        form={form}
         layout="vertical"
         size="large"
-        form={form}
         onFinish={onRegister}
       >
         <Form.Item
@@ -61,9 +61,9 @@ function Register() {
         </Form.Item>
 
         <Form.Item
+          dependencies={['password']}
           label="确认密码"
           name="passwordConfirm"
-          dependencies={['password']}
           rules={[
             { required: true, message: '请再次确认密码' },
             ({ getFieldValue }) => ({
@@ -82,8 +82,8 @@ function Register() {
         <Form.Item
           className="mb-0"
           name="remember"
-          valuePropName="checked"
           rules={[{ required: true, message: '需要同意协议才能进行注册' }]}
+          valuePropName="checked"
         >
           <Checkbox>
             我同意
@@ -95,18 +95,18 @@ function Register() {
           <Button
             ghost
             className="w-full"
-            size="large"
-            type="primary"
             htmlType="submit"
             loading={btnLoading}
+            size="large"
+            type="primary"
           >
             立即注册
           </Button>
           <p className="mt-4 text-gray-500">
             已经有账号了？
             <Link
-              to="/user/login"
               className="transition opacity-75 cursor-pointer primary hover:opacity-100"
+              to="/user/login"
             >
               立即登录
             </Link>
