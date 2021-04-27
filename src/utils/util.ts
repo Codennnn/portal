@@ -1,3 +1,4 @@
+import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'
 
 /**
@@ -9,7 +10,7 @@ export function relativeTime(time) {
   const ONE_DAY = 60 * 60 * 24
   const ONE_MONTH = 60 * 60 * 24 * 30
 
-  let date
+  let date: Dayjs
 
   if (typeof time === 'number') {
     if (String(time).length === 13) {
@@ -23,7 +24,7 @@ export function relativeTime(time) {
   }
 
   const now = dayjs()
-  const diff = now.diff(date, 'second')
+  const diff = now.diff(date!, 'second')
 
   if (diff < ONE_MONTH) {
     if (diff < ONE_HOUR) {
@@ -40,7 +41,7 @@ export function relativeTime(time) {
     }
     return `${(diff / 60 / 60 / 24).toFixed(0)}天前`
   }
-  return date.format('YYYY-MM-DD')
+  return date!.format('YYYY-MM-DD')
 }
 
 /**

@@ -4,20 +4,13 @@ module.exports = {
     'stylelint-prettier/recommended',
     'stylelint-config-rational-order',
   ],
-  plugins: ['stylelint-prettier', 'stylelint-order'],
+  plugins: ['stylelint-scss', 'stylelint-order'],
   rules: {
-    'prettier/prettier': [true, { singleQuote: true }],
-    'at-rule-no-unknown': [
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: [
-          'mixin',
-          'include',
-          'extend',
-          'each',
-          'function',
-          'return',
-        ],
+        ignoreAtRules: ['tailwind'],
       },
     ],
   },
