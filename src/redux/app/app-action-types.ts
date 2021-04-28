@@ -2,6 +2,7 @@ export const SET_LOGIN_STATUS = 'SET_LOGIN_STATUS'
 export const SET_SIDER_STATUS = 'SET_SIDER_STATUS'
 export const SET_ROUTES = 'SET_ROUTES'
 export const SET_HEADER_STATUS = 'SET_HEADER_STATUS'
+import type { Routes } from '@/routes'
 
 export interface AppState {
   /** 侧边栏是否为展开状态 */

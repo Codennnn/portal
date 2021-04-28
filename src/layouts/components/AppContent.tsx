@@ -44,7 +44,7 @@ function createRoutes(routes, permissions?: string[]) {
   )
 }
 
-function AppContent({ routes }) {
+export default function AppContent({ routes }) {
   const dispatch = useTypedDispatch()
   const location = useLocation()
   const history = useHistory()
@@ -68,5 +68,3 @@ function AppContent({ routes }) {
 AppContent.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
-
-export default AppContent

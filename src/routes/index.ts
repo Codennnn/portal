@@ -19,6 +19,28 @@ const Notice = lazy(() => import('@/views/notice/Notice'))
 const Page = lazy(() => import('@/views/page/Page'))
 const Test = lazy(() => import('@/views/test/Test'))
 
+export type RouteItem = {
+  /** 显示在侧边栏的名称 */
+  title: string
+  /** 页面路由组件 */
+  component?: React.LazyExoticComponent<() => JSX.Element> | JSX.Element
+  /** 图标 */
+  icon?
+  /** 路径 */
+  path?: string
+  /** 子菜单路由 */
+  children?: RouteItem[]
+  /** 权限列表 */
+  permissions?: string[]
+  /** 控制是否在侧边栏中显示 */
+  hidden?: boolean
+  key?: string
+}
+
+type RouteArray<T> = T[] | RouteArray<T>[]
+
+export type Routes = RouteArray<RouteItem>
+
 const routes: Routes = [
   {
     title: '数据分析',
@@ -65,20 +87,20 @@ const routes: Routes = [
   },
 
   {
-    path: '/notice',
     title: '消息中心',
+    path: '/notice',
     component: Notice,
     icon: MessageOne,
   },
   {
-    path: '/page2',
     title: '业务办理',
+    path: '/page2',
     component: Page,
     icon: System,
   },
   {
-    path: '/editor',
     title: '图像编辑',
+    path: '/editor',
     component: Page,
     icon: GraphicDesign,
   },
@@ -105,8 +127,8 @@ const routes: Routes = [
     ],
   },
   {
-    path: '/test',
     title: '功能测试',
+    path: '/test',
     hidden: process.env.NODE_ENV !== 'development',
     component: Test,
     icon: ExperimentOne,

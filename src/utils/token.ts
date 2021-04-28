@@ -1,6 +1,10 @@
 import Cookies from 'js-cookie'
 
-export function setToken(token: string, expires = 30) {
+type CookiesSetFn = Parameters<typeof Cookies.set>
+type Token = Extract<CookiesSetFn[1], string>
+type Expires = NonNullable<CookiesSetFn[2]>['expires']
+
+export function setToken(token: Token, expires?: Expires) {
   Cookies.set('token', token, { expires })
 }
 
