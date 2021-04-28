@@ -1,5 +1,5 @@
 import { Button, Checkbox, Form, Input } from 'antd'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 import { getUserInfo, login } from '@/api/user'

@@ -1,6 +1,6 @@
 import { Remind } from '@icon-park/react'
 import { Badge, Dropdown, Menu } from 'antd'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { getNoticeCount } from '@/api/notice'

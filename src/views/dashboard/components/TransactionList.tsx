@@ -2,7 +2,6 @@ import { ArrowCircleDown, ArrowCircleUp } from '@icon-park/react'
 import { Empty } from 'antd'
 import dayjs from 'dayjs'
 import PropTypes from 'prop-types'
-import React from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import styled from 'styled-components'
 

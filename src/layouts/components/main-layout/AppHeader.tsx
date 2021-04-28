@@ -10,7 +10,6 @@ import {
   User,
 } from '@icon-park/react'
 import { Avatar, Dropdown, Input, Menu } from 'antd'
-import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 

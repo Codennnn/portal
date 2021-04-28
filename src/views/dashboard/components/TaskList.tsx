@@ -1,7 +1,6 @@
 import { DeleteOne, Edit } from '@icon-park/react'
 import { Checkbox, Empty, Tabs } from 'antd'
 import PropTypes from 'prop-types'
-import React from 'react'
 
 const { TabPane } = Tabs
 

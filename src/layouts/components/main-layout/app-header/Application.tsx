@@ -1,7 +1,6 @@
 import { ApplicationOne } from '@icon-park/react'
 import { Popover } from 'antd'
 import PropTypes from 'prop-types'
-import React from 'react'
 
 export default function ApplicationIcon({ className, style }) {
   const apps = [

@@ -16,7 +16,7 @@ import {
 } from '@icon-park/react'
 import { Avatar, Button, Progress, Table, Timeline } from 'antd'
 import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { getDashboardTableData } from '@/api/common'
 import profileImg from '@/assets/profile_img.png'

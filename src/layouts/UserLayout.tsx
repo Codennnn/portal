@@ -1,7 +1,7 @@
 import './UserLayout.scss'
 
 import { Carousel } from 'antd'
-import React, { lazy } from 'react'
+import { lazy } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
 

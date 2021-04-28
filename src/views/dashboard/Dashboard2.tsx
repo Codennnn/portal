@@ -1,6 +1,5 @@
 import { FinancingOne, MallBag, SettingTwo, Wallet } from '@icon-park/react'
 import { Avatar, Badge, Button, Divider, Dropdown, Menu, Select } from 'antd'
-import React from 'react'
 
 import profileImg from '@/assets/profile_img.png'
 import { useTypedSelector } from '@/redux'

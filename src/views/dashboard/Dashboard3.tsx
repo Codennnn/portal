@@ -11,7 +11,6 @@ import {
   Rate,
   Tabs,
 } from 'antd'
-import React from 'react'
 
 import { ReactComponent as AngularIcon } from '@/assets/icon_angular.svg'
 import { ReactComponent as ReactIcon } from '@/assets/icon_react.svg'

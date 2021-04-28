@@ -1,7 +1,6 @@
 import { DownOutlined, UpOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
 import styled from 'styled-components'
 
 const IconBox = styled.div`

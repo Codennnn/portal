@@ -1,6 +1,5 @@
 import { Button, DatePicker, Form, Input, Select } from 'antd'
 import dayjs from 'dayjs'
-import React from 'react'
 
 const { Item } = Form
 const { Option } = Select

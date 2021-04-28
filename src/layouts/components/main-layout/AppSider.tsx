@@ -1,5 +1,5 @@
 import { Menu } from 'antd'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Link, useLocation } from 'react-router-dom'
 

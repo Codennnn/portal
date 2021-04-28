@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 import Chart from 'react-apexcharts'
 
 export default function CardAreaChart({ color, seriesName, seriesData }) {

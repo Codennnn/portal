@@ -1,5 +1,3 @@
-import React from 'react'
-
 import CardAreaChart from '../charts/CardAreaChart'
 
 type ChartCardProps = {

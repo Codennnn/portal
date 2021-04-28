@@ -7,7 +7,7 @@ import './styles/app.scss'
 
 import { ConfigProvider, Spin } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
-import React, { Suspense } from 'react'
+import { StrictMode, Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Provider } from 'react-redux'
@@ -45,7 +45,7 @@ void (function styleTheWindowsScrollbar() {
 })()
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Suspense
@@ -63,7 +63,7 @@ ReactDOM.render(
         </Suspense>
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 )
 

@@ -1,6 +1,5 @@
 import { Divider, Progress } from 'antd'
 import PropTypes from 'prop-types'
-import React from 'react'
 
 export default function TopSellingProduct({ products }) {
   return (

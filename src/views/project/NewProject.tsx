@@ -8,7 +8,7 @@ import {
   Radio,
   Select,
 } from 'antd'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { createProject } from '@/api/project'
