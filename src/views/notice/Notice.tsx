@@ -10,7 +10,7 @@ export default function Notice() {
 
   useEffect(() => {
     void (async () => {
-      const { data } = await getNoticeList()
+      const { data } = await getNoticeList({})
       setNoticeList(data)
     })()
   }, [])

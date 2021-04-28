@@ -1,17 +1,17 @@
 import './CanvasLayout.scss'
 
-import CanvasCompSide from './components/canvas-layout/CanvasCompSide'
-import CanvasCreation from './components/canvas-layout/CanvasCreation'
-import CanvasSettingSide from './components/canvas-layout/CanvasSettingSide'
+import CenterArea from './components/canvas-layout/CenterArea'
+import LeftPanel from './components/canvas-layout/LeftPanel'
+import RightPanel from './components/canvas-layout/RightPanel'
 
 export default function CanvasLayout() {
   return (
     <div className="canvas-layout">
-      <CanvasCompSide />
+      <LeftPanel />
 
-      <CanvasCreation />
+      <CenterArea />
 
-      <CanvasSettingSide />
+      <RightPanel />
     </div>
   )
 }

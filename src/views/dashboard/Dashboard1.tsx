@@ -105,7 +105,7 @@ export default function DashboardDefault() {
         setTableLoading(true)
         const {
           data: { list },
-        } = await getDashboardTableData()
+        } = await getDashboardTableData({})
         setTableData(list)
       } finally {
         setTableLoading(false)
