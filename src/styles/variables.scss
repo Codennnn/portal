@@ -11,6 +11,7 @@
   --warning-light: var(--warning), 0.14;
   --danger-light: var(--danger), 0.14;
   --info-light: var(--info), 0.14;
+  --app-bg: rgb(246, 248, 251);
 }
 
 $primary: #556ee6;
@@ -25,6 +26,7 @@ $success-light: rgba($success, 0.14);
 $warning-light: rgba($warning, 0.14);
 $danger-light: rgba($danger, 0.14);
 $info-light: rgba($info, 0.14);
+$app-bg: rgb(246, 248, 251);
 
 $root-font-size: 16px;
 $side-menu-icon-size: 20px;
@@ -43,8 +45,6 @@ $footer-height: 64px;
 $full-height: calc(
   100vh - #{$header-height} - #{$footer-height} - 2 * #{$section-gap}
 );
-
-$app-bg: rgb(246, 248, 251);
 
 $header-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
 

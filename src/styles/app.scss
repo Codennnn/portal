@@ -1,27 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-// 修改浏览器默认的滚动条样式 - START
-::-webkit-scrollbar {
-  width: 8px !important;
-  height: 8px !important;
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba($secondary, 0.2) !important;
-  border: none !important;
-  border-radius: 4px !important;
-}
-
-::-webkit-scrollbar-track-piece {
-  background-color: $app-bg !important;
-}
-
 ::selection {
   color: inherit !important;
   background: rgba($primary, 0.2) !important;
 }
-// 修改浏览器默认的滚动条样式 - END
 
 html,
 body {

@@ -1,3 +1,5 @@
+import './MainLayout.scss'
+
 import _ from 'classnames'
 import _debounce from 'lodash.debounce'
 import React, { useEffect, useState } from 'react'

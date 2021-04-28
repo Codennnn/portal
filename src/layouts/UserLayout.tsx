@@ -1,3 +1,5 @@
+import './UserLayout.scss'
+
 import { Carousel } from 'antd'
 import React, { lazy } from 'react'
 import { Helmet } from 'react-helmet-async'
@@ -15,7 +17,7 @@ const Register = lazy(
   () => import(/* webpackChunkName: 'Register' */ '@/views/login/Register')
 )
 
-function UserLayout() {
+export default function UserLayout() {
   const { path } = useRouteMatch()
 
   return (
@@ -98,5 +100,3 @@ function UserLayout() {
     </div>
   )
 }
-
-export default UserLayout

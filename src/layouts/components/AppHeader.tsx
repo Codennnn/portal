@@ -26,7 +26,7 @@ const SearchInput = styled.div`
   display: flex;
   align-items: center;
   height: 38px;
-  background-color: #f3f3f9;
+  background-color: var(--app-bg);
   border-radius: 9999px;
   & {
     .ant-input-affix-wrapper,

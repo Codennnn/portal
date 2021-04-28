@@ -82,6 +82,8 @@ service.interceptors.response.use(response => {
     Message.warning(msg)
 
     if (code === 4018) {
+      // 登录失效的情况
+      // TODO: 应使用防抖函数防止多次执行相同操作
       removeToken()
       window.location.reload()
     }
