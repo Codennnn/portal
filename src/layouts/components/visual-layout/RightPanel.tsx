@@ -1,7 +1,9 @@
+import './RightPanel.scss'
+
 import { Tabs } from 'antd'
 
 function SettingStyle() {
-  return <div>123</div>
+  return <div className="content">123</div>
 }
 
 export default function RightPanel() {
@@ -11,7 +13,7 @@ export default function RightPanel() {
   ]
 
   return (
-    <aside className="fixed top-0 right-0 w-1/6 h-screen bg-white">
+    <aside className="right-panel">
       <Tabs defaultActiveKey="1" type="card">
         {tabs.map(tab => (
           <Tabs.TabPane key={tab.id} tab={tab.title}>

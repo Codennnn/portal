@@ -12,6 +12,7 @@
     "test": "craco test",
     "deploy": "push-dir --dir=build --branch=gh-pages --cleanup",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:ts",
+    "lint:fix": "npm run lint:es --fix && npm run lint:style --fix",
     "lint:es": "eslint --ignore-path \"./.eslintignore\" \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:style": "stylelint \"./src/**/*.{css,scss}\"",
     "lint:ts": "tsc --noEmit --skipLibCheck"

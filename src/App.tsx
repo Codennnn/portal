@@ -7,9 +7,9 @@ import {
   Switch,
 } from 'react-router-dom'
 
-import CanvasLayout from '@/layouts/CanvasLayout'
 // import MainLayout from '@/layouts/MainLayout'
 import UserLayout from '@/layouts/UserLayout'
+import VisualLayout from '@/layouts/VisualLayout'
 import { useTypedSelector } from '@/redux'
 import NotFound from '@/views/error-page/NotFound'
 
@@ -34,7 +34,7 @@ function AppRouter() {
         <Route component={NotFound} path="/404" />
 
         {/* MOCK: !!!! */}
-        <Route component={CanvasLayout} />
+        <Route component={VisualLayout} />
         {/* {isLogin ? (
           <Route component={MainLayout} />
         ) : (

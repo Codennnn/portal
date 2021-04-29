@@ -68,3 +68,7 @@ $color-map: (
 @function px2rem($px) {
   @return $px / $root-font-size * 1rem;
 }
+
+$top-action-bar-height: 64px;
+$left-panel-width: 300px;
+$right-panel-width: 350px;

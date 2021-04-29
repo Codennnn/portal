@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 import axios from 'axios'
 
 declare module 'axios' {
@@ -5,3 +7,4 @@ declare module 'axios' {
     (config: AxiosRequestConfig): Promise<any>
   }
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
