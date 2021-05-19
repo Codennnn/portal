@@ -2,8 +2,17 @@ name: Portal 自动化部署
 
 on:
   push:
-    branches: 
+    branches:
       - main
+    paths-ignore:
+      - '.github/workflows/github-mirror-gitee.yml'
+      - '.prettierrc.js'
+      - '.stylelintrc.js'
+      - '.eslintrc.js'
+      - '.eslintignore'
+      - '.gitignore'
+      - '**/README.md'
+      - 'yarn.lock'
 
 jobs:
   portal-cicd:
@@ -11,35 +20,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout codes
-      uses: actions/checkout@v2.3.4
+      - name: Checkout codes
+        uses: actions/checkout@v2.3.4
 
-    - name: 设置 node.js 运行环境
-      uses: actions/setup-node@v2.1.2
-      with:
-        node-version: '12.x'
+      - name: 设置 node.js 运行环境
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: '12.x'
 
-    - name: 缓存依赖
-      uses: actions/cache@v2.1.3
-      with:
-        path: '**/node_modules'
-        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+      - name: 缓存依赖
+        uses: actions/cache@v2.1.3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
 
-    - name: 安装依赖
-      run: yarn install
+      - name: 安装依赖
+        run: yarn install
 
-    - name: 构建文件
-      run: yarn build
+      - name: 构建文件
+        run: yarn build
 
-    - name: 将构建后的文件推送到 gh-pages
-      env:
-        # 填写项目所在仓库地址
-        GITHUB_REPO: github.com/Codennnn/portal.git
-      run: |
-        cd ./build
-        git init
-        git config --local user.name "LeoKu"
-        git config --local user.email "czc12580520@gmail.com"
-        git add .
-        git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
-        git push --force --quiet "https://${{ secrets.ACCESS_TOKEN }}@$GITHUB_REPO" HEAD:gh-pages
+      - name: 将构建后的文件推送到 gh-pages
+        env:
+          # 填写项目所在仓库地址
+          GITHUB_REPO: github.com/Codennnn/portal.git
+        run: |
+          cd ./build
+          git init
+          git config --local user.name "LeoKu"
+          git config --local user.email "czc12580520@gmail.com"
+          git add .
+          git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+          git push --force --quiet "https://${{ secrets.ACCESS_TOKEN }}@$GITHUB_REPO" HEAD:gh-pages
