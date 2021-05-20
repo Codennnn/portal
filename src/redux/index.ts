@@ -1,15 +1,14 @@
-import { createSelectorHook, useDispatch } from 'react-redux'
+import type { TypedUseSelectorHook } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import type { AppActionTypes, AppState } from './app/app-action-types'
-import type { UserActionTypes, UserState } from './user/user-action-types'
+import type { AppState } from './app/app-action-types'
+import type { store } from './store'
+import type { UserState } from './user/user-action-types'
+export { persistor, store } from './store'
 
-export { persistor, store } from './create-store'
+export const useTypedDispatch = () => useDispatch<typeof store.dispatch>()
 
-export const useTypedSelector = createSelectorHook<{
+export const useTypedSelector: TypedUseSelectorHook<{
   app: AppState
   user: UserState
-}>()
-
-type Dispatch = <T>(action: AppActionTypes | UserActionTypes) => T
-
-export const useTypedDispatch = () => useDispatch<Dispatch>()
+}> = useSelector
