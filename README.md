@@ -6,6 +6,9 @@
 
 **你心中理想的管理系统模板**
 
+<img width="32" src="./img/badge-react.png">
+<img width="32" src="./img/badge-ts.png">
+
 </div>
 
 ## 界面一览
