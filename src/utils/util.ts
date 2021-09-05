@@ -72,7 +72,7 @@ export function hasRoutePermission(
   }
 
   if (isArray(routePermission)) {
-    return routePermission.every(el => permissions.includes(el))
+    return routePermission.every((el) => permissions.includes(el))
   }
 
   if (isFunction(routePermission)) {

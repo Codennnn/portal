@@ -1,18 +1,4 @@
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-prettier/recommended',
-    'stylelint-config-rational-order',
-  ],
-  plugins: ['stylelint-scss', 'stylelint-order'],
-  rules: {
-    'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': [
-      true,
-      {
-        ignoreAtRules: ['tailwind'],
-      },
-    ],
-  },
+  extends: [require.resolve('prefer-code-style/lib/stylelint')],
   ignoreFiles: ['build/**/*.css'],
 }

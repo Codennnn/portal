@@ -91,7 +91,7 @@ export default function DashboardCrypto() {
                   '朽骨在此相迎，山谷依然',
                   '在此，懵懂的眼睛，初临惊愕',
                   '在此，学会尝试是必修课',
-                ].map(text => (
+                ].map((text) => (
                   <li key={text} className="li-marker">
                     {text}
                   </li>

@@ -7,7 +7,7 @@ const { Option } = Select
 export default function BuyForm() {
   const [form] = Form.useForm()
 
-  const onFinish = async values => {
+  const onFinish = async (values) => {
     const formatDate = dayjs(values.date).format('YYYY-MM-DD')
     // LOG:
     console.log({ ...values, date: formatDate })

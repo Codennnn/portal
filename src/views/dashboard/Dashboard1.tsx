@@ -56,7 +56,7 @@ export default function DashboardDefault() {
       title: '支付状态',
       dataIndex: 'status',
       render(status) {
-        const statusClass = (state => {
+        const statusClass = ((state) => {
           switch (state) {
             case 1:
               return 'success bg-success-light'
@@ -333,7 +333,7 @@ export default function DashboardDefault() {
             rowKey="id"
             rowSelection={{
               selectedRowKeys,
-              onChange: keys => {
+              onChange: (keys) => {
                 setSelectedRowKeys(keys)
               },
             }}

@@ -74,14 +74,12 @@ export default function UserLayout() {
               {
                 img: userPlate2,
                 title: 'HTTP Verbs',
-                text:
-                  'REST倡导者建议使用所有HTTP动词，还试图从Web的成功之处来学习和借鉴',
+                text: 'REST倡导者建议使用所有HTTP动词，还试图从Web的成功之处来学习和借鉴',
               },
               {
                 img: userPlate3,
                 title: 'HATEOAS',
-                text:
-                  '超媒体控制的关键在于它告诉我们下一步我们可以做什么，以及操作所需资源的URI',
+                text: '超媒体控制的关键在于它告诉我们下一步我们可以做什么，以及操作所需资源的URI',
               },
             ].map(({ img, title, text }) => (
               <div key={title}>

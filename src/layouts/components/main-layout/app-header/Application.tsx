@@ -5,26 +5,22 @@ import PropTypes from 'prop-types'
 export default function ApplicationIcon({ className, style }) {
   const apps = [
     {
-      icon:
-        'https://gitee.com/chinesee/images/raw/master/magic-ui/app_icon_1.png',
+      icon: 'https://gitee.com/chinesee/images/raw/master/magic-ui/app_icon_1.png',
       name: 'Skote',
       link: 'https://gitee.com/chinesee',
     },
     {
-      icon:
-        'https://gitee.com/chinesee/images/raw/master/magic-ui/app_icon_2.png',
+      icon: 'https://gitee.com/chinesee/images/raw/master/magic-ui/app_icon_2.png',
       name: 'Frest',
       link: 'https://gitee.com/chinesee',
     },
     {
-      icon:
-        'https://gitee.com/chinesee/images/raw/master/magic-ui/app_icon_4.png',
+      icon: 'https://gitee.com/chinesee/images/raw/master/magic-ui/app_icon_4.png',
       name: 'Share',
       link: 'https://gitee.com/chinesee',
     },
     {
-      icon:
-        'https://gitee.com/chinesee/images/raw/master/magic-ui/app_icon_3.png',
+      icon: 'https://gitee.com/chinesee/images/raw/master/magic-ui/app_icon_3.png',
       name: 'Admin',
       link: 'https://gitee.com/chinesee',
     },

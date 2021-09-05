@@ -66,7 +66,7 @@ const service: AxiosInstance = axios.create({
   withCredentials: true,
 })
 
-service.interceptors.request.use(config => {
+service.interceptors.request.use((config) => {
   const token = getToken()
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
@@ -74,7 +74,7 @@ service.interceptors.request.use(config => {
   return config
 }, errorHandler)
 
-service.interceptors.response.use(response => {
+service.interceptors.response.use((response) => {
   const { data } = response
 
   const { code, msg = '接口异常' } = data

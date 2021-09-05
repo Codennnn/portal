@@ -4,65 +4,41 @@
   "license": "MIT",
   "author": "LeoKu <czc12580520@gmail.com>",
   "scripts": {
-    "prepare": "husky install",
-    "pre-commit": "lint-staged",
     "start": "craco start",
     "build": "craco build",
     "analyze": "cross-env SCRIPT_TYPE=analyze craco build",
     "test": "craco test",
+    "prepare": "husky install",
+    "deps": "yarn upgrade-interactive --latest",
     "deploy": "push-dir --dir=build --branch=gh-pages --cleanup",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:ts",
     "lint:fix": "npm run lint:es --fix && npm run lint:style --fix",
-    "lint:es": "eslint --ignore-path \"./.eslintignore\" \"./**/*.{js,jsx,ts,tsx}\"",
+    "lint:es": "eslint \"**/*.{mjs,js,jsx,ts,tsx}\"",
     "lint:style": "stylelint \"./src/**/*.{css,scss}\"",
     "lint:ts": "tsc --noEmit --skipLibCheck"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "git add"
+    "*.{mjs,js,jsx,ts,tsx}": [
+      "eslint --fix"
     ],
-    "*.{css,scss}": [
-      "stylelint --fix",
-      "git add"
+    "*.{css,less,scss}": [
+      "stylelint --fix"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
     ]
   },
-  "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@types/js-cookie": "^2.2.6",
-    "@types/lodash.debounce": "^4.0.6",
-    "@types/node": "^15.0.1",
-    "@types/react": "^17.0.4",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-helmet": "^6.1.1",
-    "@types/react-router-dom": "^5.1.7",
-    "@types/styled-components": "^5.1.9",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "babel-eslint": "^10.1.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.25.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-tailwind": "^0.2.1",
-    "husky": "^6.0.0",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "push-dir": "^0.4.1",
-    "stylelint": "^13.13.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-prettier": "^1.2.0",
-    "stylelint-scss": "^3.19.0",
-    "webpack-bundle-analyzer": "^4.4.1"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "dependencies": {
     "@craco/craco": "^6.2.0",
@@ -75,7 +51,7 @@
     "antd-dayjs-webpack-plugin": "^1.0.6",
     "apexcharts": "^3.28.1",
     "autoprefixer": "9",
-    "axios": "^0.21.1",
+    "axios": "^0.21.3",
     "classnames": "^2.3.1",
     "craco-antd": "^1.19.0",
     "dayjs": "^1.10.6",
@@ -100,16 +76,24 @@
     "typescript": "^4.2.4",
     "web-vitals": "^0.2.4"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/js-cookie": "^2.2.6",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/node": "^15.0.1",
+    "@types/react": "^17.0.4",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.9",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "cross-env": "^7.0.3",
+    "eslint-plugin-tailwind": "^0.2.1",
+    "husky": "^7.0.2",
+    "lint-staged": "^10.5.4",
+    "prefer-code-style": "^0.4.3",
+    "push-dir": "^0.4.1",
+    "webpack-bundle-analyzer": "^4.4.1"
   }
 }

@@ -28,7 +28,7 @@ export default function NewProject() {
     }
   }
 
-  const onFinish = values => {
+  const onFinish = (values) => {
     console.log('Success:', values)
     createNewProject(values)
   }

@@ -29,7 +29,7 @@ module.exports = {
       new DefinePlugin(config),
     ],
     configure(webpackConfig) {
-      webpackConfig.plugins.map(plugin => {
+      webpackConfig.plugins.map((plugin) => {
         whenProd(() => {
           if (plugin instanceof MiniCssExtractPlugin) {
             Object.assign(plugin.options, {

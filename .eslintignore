@@ -1,7 +1,0 @@
-node_modules
-build
-dist
-public
-!.prettierrc.js
-!.eslintrc.js
-!.stylelintrc.js
