@@ -1,5 +1,4 @@
 import { message as Message, notification as Notification } from 'antd'
-import type { AxiosInstance } from 'axios'
 import axios from 'axios'
 
 import { getToken, removeToken } from '@/utils/token'
@@ -59,7 +58,7 @@ const errorHandler = (error: {
   return Promise.reject(error)
 }
 
-const service: AxiosInstance = axios.create({
+const service = axios.create({
   // baseURL: process.env.REACT_APP_REQUEST_BASE_URL,
   timeout: 20000,
   responseType: 'json',

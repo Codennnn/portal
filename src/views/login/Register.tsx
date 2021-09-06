@@ -6,24 +6,28 @@ import { getUserInfo, login, register } from '@/api/user'
 import { useTypedDispatch } from '@/redux'
 import { signIn } from '@/redux/app/app-actions'
 import { setUserInfo } from '@/redux/user/user-actions'
+import type { User } from '@/types'
 import { setToken } from '@/utils/token'
 
-function Register() {
-  const dispatch = useTypedDispatch()
-  const [btnLoading, setBtnLoading] = useState(false)
+export default function Register() {
   const history = useHistory()
+  const dispatch = useTypedDispatch()
+
+  const [btnLoading, setBtnLoading] = useState(false)
 
   const [form] = Form.useForm()
 
-  const onRegister = async (values: { username: string; password: string }) => {
+  const handleRegister = async (
+    values: Pick<User, 'username' | 'password'>
+  ) => {
     try {
       setBtnLoading(true)
       await register(values)
       const { token } = await login(values)
       const { info } = await getUserInfo()
       setToken(token)
-      await dispatch(signIn())
-      await dispatch(setUserInfo(info))
+      dispatch(signIn())
+      dispatch(setUserInfo(info))
       history.replace('/')
     } catch {
       setBtnLoading(false)
@@ -42,7 +46,7 @@ function Register() {
         form={form}
         layout="vertical"
         size="large"
-        onFinish={onRegister}
+        onFinish={handleRegister}
       >
         <Form.Item
           label="账号"
@@ -116,5 +120,3 @@ function Register() {
     </div>
   )
 }
-
-export default Register

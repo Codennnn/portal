@@ -67,7 +67,7 @@ export default function AppHeader({
     }
   }
 
-  const onLogout = () => {
+  const handleLogout = () => {
     removeToken()
     dispatch(signOut())
     history.replace('/')
@@ -123,7 +123,7 @@ export default function AppHeader({
       <Menu.Item
         key="退出登录"
         className="flex items-center px-8 py-3 header-menu__item logout-item"
-        onClick={onLogout}
+        onClick={handleLogout}
       >
         <Logout className="mr-2" size={18} />
         退出登录

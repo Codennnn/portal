@@ -4,7 +4,8 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Link, useLocation } from 'react-router-dom'
 
 import { useTypedSelector } from '@/redux'
-import type { RouteItem, Routes } from '@/routes'
+import type { Routes } from '@/routes'
+import type { RouteItem } from '@/types'
 import { hasRoutePermission } from '@/utils'
 
 function subMenuKey(children) {

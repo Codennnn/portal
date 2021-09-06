@@ -95,9 +95,7 @@ export default function DashboardDefault() {
   ]
   const [tableLoading, setTableLoading] = useState(false)
   const [tableData, setTableData] = useState([])
-  const [selectedRowKeys, setSelectedRowKeys] = useState<(string | number)[]>(
-    []
-  )
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
 
   useEffect(() => {
     void (async function getTableData() {
