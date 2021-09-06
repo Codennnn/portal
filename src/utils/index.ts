@@ -3,28 +3,33 @@ import dayjs from 'dayjs'
 
 /**
  * 计算相对时间
+ *
+ * @param time - 要转换的时间值
+ * @returns 转换后的相对时间
  */
-export function relativeTime(time) {
+export function relativeTime(time: number | string): string {
   const ONE_MINUTE = 60
   const ONE_HOUR = 60 * 60
   const ONE_DAY = 60 * 60 * 24
   const ONE_MONTH = 60 * 60 * 24 * 30
 
-  let date: Dayjs
-
-  if (typeof time === 'number') {
-    if (String(time).length === 13) {
-      date = dayjs(time)
-    } else {
-      date = dayjs.unix(time)
+  const date: Dayjs = (() => {
+    if (typeof time === 'number') {
+      const TIMESTAMP_LENGTH = 13
+      if (String(time).length === TIMESTAMP_LENGTH) {
+        return dayjs(time)
+      } else {
+        return dayjs.unix(time)
+      }
+    } else if (typeof time === 'string') {
+      return dayjs(time)
     }
-  }
-  if (typeof time === 'string') {
-    date = dayjs(time)
-  }
+
+    return dayjs()
+  })()
 
   const now = dayjs()
-  const diff = now.diff(date!, 'second')
+  const diff = now.diff(date, 'second')
 
   if (diff < ONE_MONTH) {
     if (diff < ONE_HOUR) {
@@ -41,7 +46,7 @@ export function relativeTime(time) {
     }
     return `${(diff / 60 / 60 / 24).toFixed(0)}天前`
   }
-  return date!.format('YYYY-MM-DD')
+  return date.format('YYYY-MM-DD')
 }
 
 /**
@@ -72,7 +77,7 @@ export function hasRoutePermission(
   }
 
   if (isArray(routePermission)) {
-    return routePermission.every(el => permissions.includes(el))
+    return routePermission.every((el) => permissions.includes(el))
   }
 
   if (isFunction(routePermission)) {

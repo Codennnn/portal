@@ -1,4 +1,4 @@
-const config = (env => {
+const config = ((env) => {
   switch (env) {
     case 'production':
       return require('./prod')

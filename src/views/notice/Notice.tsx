@@ -3,7 +3,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Link } from 'react-router-dom'
 
 import { getNoticeList } from '@/api/notice'
-import { relativeTime } from '@/utils/util'
+import { relativeTime } from '@/utils'
 
 export default function Notice() {
   const [noticeList, setNoticeList] = useState([])

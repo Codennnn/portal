@@ -15,7 +15,7 @@ export default function RightPanel() {
   return (
     <aside className="right-panel">
       <Tabs defaultActiveKey="1" type="card">
-        {tabs.map(tab => (
+        {tabs.map((tab) => (
           <Tabs.TabPane key={tab.id} tab={tab.title}>
             {tab.renderComponent()}
           </Tabs.TabPane>

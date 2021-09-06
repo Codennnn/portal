@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { useTypedSelector } from '@/redux'
 import type { RouteItem, Routes } from '@/routes'
-import { hasRoutePermission } from '@/utils/util'
+import { hasRoutePermission } from '@/utils'
 
 function subMenuKey(children) {
   return children.map(({ path }) => path).join('')
@@ -62,7 +62,7 @@ function renderSubMenu(
     >
       {children &&
         children.length > 0 &&
-        children.map(item =>
+        children.map((item) =>
           item.children && item.children.length > 0
             ? renderSubMenu(item, permissions)
             : renderMenuItem(item, permissions)
@@ -90,9 +90,9 @@ export default function AppSider({ routes, isSiderOpened }: AppSiderProps) {
   useEffect(
     () => {
       if (isSiderOpened) {
-        const findOpenKeys = theRoutes => {
+        const findOpenKeys = (theRoutes) => {
           const keys = []
-          const justFind = r =>
+          const justFind = (r) =>
             r.some(({ path, children }) => {
               let hasFoundPath = path === pathname
 
@@ -130,10 +130,10 @@ export default function AppSider({ routes, isSiderOpened }: AppSiderProps) {
       }
     },
     /* eslint-disable-next-line */
-    [isSiderOpened],
+    [isSiderOpened]
   )
 
-  const onOpenChange = keys => {
+  const onOpenChange = (keys) => {
     setOpenKeys(keys)
   }
 
@@ -147,7 +147,7 @@ export default function AppSider({ routes, isSiderOpened }: AppSiderProps) {
         onOpenChange={onOpenChange}
       >
         {routes.length > 0 &&
-          (routes as RouteItem[]).map(item => {
+          (routes as RouteItem[]).map((item) => {
             if (item.children && item.children.length > 0) {
               return renderSubMenu(item, permissions)
             }

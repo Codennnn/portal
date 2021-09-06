@@ -11,8 +11,8 @@ import {
 
 import { useTypedDispatch, useTypedSelector } from '@/redux'
 import { signOut } from '@/redux/app/app-actions'
+import { hasRoutePermission } from '@/utils'
 import { getToken } from '@/utils/token'
-import { hasRoutePermission } from '@/utils/util'
 
 function createRoutes(routes, permissions?: string[]) {
   return routes.map(
