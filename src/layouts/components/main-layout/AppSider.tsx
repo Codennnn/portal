@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { useTypedSelector } from '@/redux'
 import type { RouteItem, Routes } from '@/routes'
-import { hasRoutePermission } from '@/utils/util'
+import { hasRoutePermission } from '@/utils'
 
 function subMenuKey(children) {
   return children.map(({ path }) => path).join('')
@@ -130,7 +130,7 @@ export default function AppSider({ routes, isSiderOpened }: AppSiderProps) {
       }
     },
     /* eslint-disable-next-line */
-    [isSiderOpened],
+    [isSiderOpened]
   )
 
   const onOpenChange = (keys) => {

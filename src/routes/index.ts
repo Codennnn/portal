@@ -9,6 +9,8 @@ import {
 } from '@icon-park/react'
 import { lazy } from 'react'
 
+import type { RouteItem } from '@/types'
+
 const Dashboard1 = lazy(() => import('@/views/dashboard/Dashboard1'))
 const Dashboard2 = lazy(() => import('@/views/dashboard/Dashboard2'))
 const Dashboard3 = lazy(() => import('@/views/dashboard/Dashboard3'))
@@ -18,24 +20,6 @@ const NewProject = lazy(() => import('@/views/project/NewProject'))
 const Notice = lazy(() => import('@/views/notice/Notice'))
 const Page = lazy(() => import('@/views/page/Page'))
 const Test = lazy(() => import('@/views/test/Test'))
-
-export type RouteItem = {
-  /** 显示在侧边栏的名称 */
-  title: string
-  /** 页面路由组件 */
-  component?: React.LazyExoticComponent<() => JSX.Element> | JSX.Element
-  /** 图标 */
-  icon?
-  /** 路径 */
-  path?: string
-  /** 子菜单路由 */
-  children?: RouteItem[]
-  /** 权限列表 */
-  permissions?: string[]
-  /** 控制是否在侧边栏中显示 */
-  hidden?: boolean
-  key?: string
-}
 
 type RouteArray<T> = T[] | RouteArray<T>[]
 
