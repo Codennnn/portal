@@ -1,0 +1,2 @@
+(this.webpackJsonpportal=this.webpackJsonpportal||[]).push([[21],{717:function(t,n,e){"use strict";e.r(n),e.d(n,"default",(function(){return a}));var r=e(27),c=e(2);function a(){var t=Object(r.h)().pathname;return Object(c.jsx)(c.Fragment,{children:Object(c.jsx)("p",{children:t})})}}}]);
+//# sourceMappingURL=21.2c738923.chunk.js.map
