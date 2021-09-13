@@ -13,9 +13,9 @@
 
 ## 界面一览
 
-![](./img/screenshoot1.png)
-![](./img/screenshoot2.png)
-![](./img/screenshoot3.png)
+![](./img/screenshot-1.png)
+![](./img/screenshot-2.png)
+![](./img/screenshot-3.png)
 
 ## 安装依赖
 
