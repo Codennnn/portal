@@ -6,16 +6,18 @@ import { getUserInfo, login } from '@/api/user'
 import { useTypedDispatch } from '@/redux'
 import { signIn } from '@/redux/app/app-actions'
 import { setUserInfo } from '@/redux/user/user-actions'
+import type { User } from '@/types'
 import { setToken } from '@/utils/token'
 
-function Login() {
-  const dispatch = useTypedDispatch()
-  const [btnLoading, setBtnLoading] = useState(false)
+export default function Login() {
   const history = useHistory()
+  const dispatch = useTypedDispatch()
+
+  const [btnLoading, setBtnLoading] = useState(false)
 
   const [form] = Form.useForm()
 
-  // MOCK: 自动填入账号和密码
+  // MOCK: 预览时自动填入账号和密码
   useEffect(() => {
     form.setFieldsValue({
       username: 'admin@email.com',
@@ -23,11 +25,11 @@ function Login() {
     })
   }, [form])
 
-  const onLogin = async (values: {
-    username: string
-    password: string
-    rememberMe: boolean
-  }) => {
+  const handleLogin = async (
+    values: Pick<User, 'username' | 'password'> & {
+      rememberMe: boolean
+    }
+  ) => {
     try {
       const { data } = await login(values)
       const { data: info } = await getUserInfo()
@@ -55,7 +57,7 @@ function Login() {
         form={form}
         layout="vertical"
         size="large"
-        onFinish={onLogin}
+        onFinish={handleLogin}
       >
         <Form.Item
           label={
@@ -111,5 +113,3 @@ function Login() {
     </div>
   )
 }
-
-export default Login
